@@ -30,13 +30,13 @@ SEGMENTS = [
     ("2",  2.20,  4.60, "La visite", 0.5),          # remise des clés, sourire
     ("3",  4.60,  6.16, "Plus tard", 1.2),          # notification visible puis balayée
     ("4",  6.16,  9.50, "L'échéance", 0.5),     # lecture du courrier, agenda, respiration (avant le regard caméra)
-    ("5",  9.50, 11.66, "La découverte", 1.5),      # arc autour de l'écran alurforma.fr
+    ("5",  9.50, 11.66, "La découverte", 0.2),      # début de l'arc, écran petit (le texte généré n'est lisible qu'après 2,5 s)
     ("6a", 11.66, 13.05, "La formation — la leçon", 0.5),
     ("6b", 13.05, 14.44, "La formation — entre deux visites", 0.5),
     ("6c", 14.44, 15.82, "La formation — la validation", 0.5),
     ("7a", 15.82, 18.50, "L'attestation — à l'écran", 0.3),
     ("7b", 18.50, 20.32, "L'attestation — la chemise", 0.5),
-    ("8",  20.32, 23.64, "L'accompagnement", 1.0),   # lecture, demi-sourire, pose le téléphone
+    ("8",  20.32, 23.64, "L'accompagnement", 1.85),  # après le gros plan (texte généré illisible), demi-sourire, pose le téléphone
     ("9",  23.64, 26.60, "Retour au métier", 2.5),   # veste prise, sortie, poignée de main
     ("10", 26.60, 29.00, "L'agence vide → le couloir", 0.3),
 ]
@@ -88,6 +88,38 @@ def retime_from_vo(vo_path):
 
 T_A, T_B = 25.68, 27.38  # débuts des deux phrases finales (voix B v110)
 GRADE = True
+FONT_M = str(FILM / "fonts" / "Inter-Medium.ttf")
+ENCART_ALPHA = 0.78   # fond des encarts légèrement transparent (demande client)
+
+
+def seg(key):
+    return next(s for s in SEGMENTS if s[0] == key)
+
+
+def encarts():
+    """Encarts propres (texte net, typographie exacte) : (t0, t1, x, y, w, h, lignes, taille, opacité du fond)."""
+    s3, s4, s5, s8 = seg("3"), seg("4"), seg("5"), seg("8")
+    return [
+        # plan 3 : recouvre la carte de notification générée (position mesurée), disparaît avec le balayage
+        (s3[1], s3[1] + 0.78, 270, 725, 610, 125, ["Formation continue · à planifier"], 33, 0.97),   # opaque : recouvre le texte fautif
+        (s4[1] + 0.6, s4[2] - 0.15, 120, 900, 1010, 100, ["Renouvellement de la carte professionnelle · dossier à préparer"], 32, ENCART_ALPHA),
+        (s5[1] + 0.3, s5[2] - 0.1, 120, 860, 1010, 140, ["alurforma.fr · Formations ALUR en ligne",
+                                                          "Renouvelez votre carte professionnelle sans perdre de temps."], 32, ENCART_ALPHA),
+        (s8[1] + 0.4, s8[2] - 0.2, 120, 800, 900, 200, ["Votre dossier de prise en charge est complet.",
+                                                         "Nous vous accompagnons pour la suite.",
+                                                         "— Votre conseillère Alurforma"], 32, ENCART_ALPHA),
+    ]
+
+
+def mentions_lignes():
+    cfg = json.loads((FILM / "mentions.json").read_text())
+    lignes = list(cfg["lignes"])
+    if cfg.get("nda"):
+        lignes.append(f"Organisme de formation enregistré sous le n° {cfg['nda']} auprès du préfet de la région {cfg.get('prefecture') or '…'}. "
+                      "Cet enregistrement ne vaut pas agrément de l'État.")
+    if cfg.get("editeur"):
+        lignes.append(cfg["editeur"])
+    return lignes
 
 
 # Un clip généré en une fois pour deux segments (prix HeyGen fixe par vidéo) : segment -> (clé du job, point d'entrée)
@@ -146,20 +178,41 @@ def build_film():
             "noise=alls=5:allf=t+u,format=yuv420p[cat]")
     else:
         filters.append("[cat0]null[cat]")
+    # Encarts (cartes ivoire, barre émeraude, texte bleu nuit), fondus d'entrée et de sortie
+    prev = "cat"
+    for i, (t0, t1, x, y, w, h, lignes, fs, alpha) in enumerate(encarts()):
+        card = (f"color=c={IVORY}@{alpha}:s={w}x{h}:r=25:d={FILM_DUR},format=yuva420p,"
+                f"drawbox=x=0:y=0:w=7:h=ih:color={EMERALD}@1:t=fill")
+        pad = 28; lh = int(fs * 1.35); y0 = (h - lh * len(lignes)) // 2 + int(fs * 0.12)
+        for j, ligne in enumerate(lignes):
+            card += (f",drawtext=fontfile={FONT_M if j else FONT}:textfile={txt(f'enc{i}_{j}', ligne)}:fontcolor={NAVY}:fontsize={fs}"
+                     f":x={pad}:y={y0 + j * lh}")
+        card += f",fade=t=in:st={t0}:d=0.25:alpha=1,fade=t=out:st={t1 - 0.2}:d=0.2:alpha=1[card{i}]"
+        filters.append(card)
+        filters.append(f"[{prev}][card{i}]overlay=x={x}:y={y}:enable='between(t,{t0},{t1})':format=auto[enc{i}]")
+        prev = f"enc{i}"
+    filters.append(f"[{prev}]null[cat]".replace("[cat]", "[catE]"))
     # Plan 10 : panneau de verre émeraude à liseré or (2,1 s avant la fin), virage bleu nuit dans son sillage, texte en deux temps.
     p0, pdur = round(FILM_DUR - 2.1, 2), 2.1
     filters.append(
         f"color=c={NAVY}:s=1920x1080:r=25:d={FILM_DUR},format=yuv420p[navy];"
-        f"[cat][navy]blend=all_expr='A*(1-P)+B*P':all_opacity=1[dk]".replace(
+        f"[catE][navy]blend=all_expr='A*(1-P)+B*P':all_opacity=1[dk]".replace(
             "P", f"clip((T-{p0})/{pdur}-((X)/1920)*0.6,0,1)*0.85"))
     filters.append(
         f"color=c={EMERALD}@0.42:s=360x1080:r=25:d={FILM_DUR},format=yuva420p[pane];"
         f"color=c={GOLD}@0.9:s=6x1080:r=25:d={FILM_DUR},format=yuva420p[edge];"
         f"[dk][pane]overlay=x='-360+(1920+360)*clip((t-{p0})/{pdur},0,1)':y=0:enable='between(t,{p0},{p0+pdur})':format=auto[ov1];"
         f"[ov1][edge]overlay=x='-6+(1920+366)*clip((t-{p0})/{pdur},0,1)':y=0:enable='between(t,{p0},{p0+pdur})':format=auto[ov2]")
+    lignes = mentions_lignes()
+    m0 = round(seg("9")[1] + 0.5, 2); fs_m = 26; lh_m = 33; band_h = 30 + lh_m * len(lignes)
+    band = f"[ov2]drawbox=x=0:y={1080 - band_h}:w=iw:h={band_h}:color={NAVY}@0.62:t=fill:enable='gte(t,{m0})'"
+    for j, ligne in enumerate(lignes):
+        band += (f",drawtext=fontfile={FONT_R}:textfile={txt(f'men{j}', ligne)}:fontcolor={IVORY}:fontsize={fs_m}"
+                 f":x=(w-text_w)/2:y={1080 - band_h + 15 + j * lh_m}:alpha='clip((t-{m0})/0.4,0,1)':enable='gte(t,{m0})'")
+    filters.append(band + "[men]")
     t_a, t_b = T_A, T_B
     filters.append(
-        f"[ov2]drawtext=fontfile={FONT}:textfile={txt('base1', 'Continuez votre métier.')}:fontcolor={IVORY}:fontsize=64:"
+        f"[men]drawtext=fontfile={FONT}:textfile={txt('base1', 'Continuez votre métier.')}:fontcolor={IVORY}:fontsize=64:"
         f"x=(w-text_w)/2:y=h/2-90:alpha='clip((t-{t_a})/0.5,0,1)':enable='gte(t,{t_a})',"
         f"drawtext=fontfile={FONT}:textfile={txt('base2', 'Alurforma simplifie le reste.')}:fontcolor={IVORY}:fontsize=64:"
         f"x=(w-text_w)/2:y=h/2+10:alpha='clip((t-{t_b})/0.5,0,1)':enable='gte(t,{t_b})'[v]")

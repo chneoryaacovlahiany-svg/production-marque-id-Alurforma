@@ -68,8 +68,21 @@ légèrement relevés, grain fin.
 55,44 s, 1920×1080, 25 i/s, H.264 BT.709. `out/ALURFORMA_FILM_HUGO_MASTER_web_preview.mp4` : copie légère pour relecture.
 Le montage intermédiaire (`out/ALURFORMA_FILM_HUGO_montage*.mp4`) n'est plus versionné : `python3 film/tools/assemble.py` le régénère.
 
+## Encarts et mentions légales
+
+Les textes générés par HeyGen dans l'image comportent des fautes (`out/textes_generes_illisibles.jpg`) : « planifer » (plan 3),
+charabia sur le courrier (plan 4), « Aluforma / professionarèlo » sur l'écran (plan 5), « Votra doscer de pride en coumrage » (plan 8).
+Traitement dans `tools/assemble.py` (`encarts()`), sans régénération :
+- plan 3 : carte ivoire opaque, même place, même durée, texte exact « Formation continue · à planifier », disparaît avec le balayage ;
+- plans 4, 5, 8 : fenêtre de montage choisie là où le texte généré est trop petit pour être lu, et encart animé (fond ivoire à 78 %,
+  barre émeraude, Inter, fondu d'entrée et de sortie) avec le texte exact : courrier, accroche du site, message de la conseillère.
+Mentions légales (`film/mentions.json`, bandeau bas des plans 9 et 10, 6 s, Inter 26 px, ≥ 1/50 de la hauteur d'image) :
+décret n° 2016-173, attestation délivrée par Alurforma / renouvellement par la CCI, prise en charge selon l'organisme financeur,
+personnage, images et voix générés par IA (règlement européen sur l'IA, art. 50, applicable depuis août 2026).
+À compléter par le client avant diffusion : `nda` + `prefecture` (le script ajoute alors la phrase obligatoire « Cet enregistrement
+ne vaut pas agrément de l'État », art. L6352-12 du Code du travail) et `editeur` (raison sociale, forme, siège, SIREN).
+
 ## Reste à faire (optionnel)
 
-1. Textes d'interface nets (notification plan 3, écran plan 5, message plan 8, courrier plan 4) : cartes propres à incruster au montage.
-2. Mention légale en bas du plan 10 si diffusion publicitaire (dossier § 9).
-3. Version courte 21 s (dossier § 8) si besoin.
+1. Renseigner `film/mentions.json` (numéro de déclaration d'activité, annonceur) puis relancer `assemble.py` et `masters.py`.
+2. Version courte 21 s (dossier § 8) si besoin.
