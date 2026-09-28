@@ -1,11 +1,13 @@
-"""Bande-son du générique Alurforma (≈ 18,8 s).
+"""Bande-son du générique Alurforma (18,6 s).
 
-1. Montage musical : le morceau Suno « Éclat Fonctuel » joue en continu depuis le début,
-   puis, sur un premier temps (13,98 s), enchaîne sur son accord final (≈ 175,0 s), qui
-   résonne jusqu'au silence. Le raccord se cache sous l'attaque de l'accord ; il est préparé
-   par l'accord final lui-même passé à l'envers (« reverse swell », donc dans la tonalité)
-   et par une montée filtrée sur la dernière mesure, pendant que le groove s'efface légèrement.
-2. Sound design léger, hors tonalité (bruits filtrés, tintements très discrets).
+Aucun montage : le morceau Suno « Éclat Fonctuel » joue tel quel depuis le début et
+s'arrête dans le creux qui suit sa fin de phrase (deux coups graves à 15,65 s et 16,25 s),
+exactement comme le premier jingle de 12 s (coups à 11,05 s et 11,65 s), deux mesures
+plus tard. Pour ne pas couper sec, la fin résonne dans une réverbération faite à partir
+de la musique elle-même.
+
+Sound design très léger, hors tonalité : tintements de verre à l'ouverture, whooshes sur
+les changements de plan.
 
 Sortie : WAV 48 kHz stéréo non normalisé (normalisation ensuite via ffmpeg, voir README).
 """
@@ -16,52 +18,19 @@ import soundfile as sf
 from scipy import signal
 
 SR = 48000
-BODY_END = 13.98  # premier temps de la 7e mesure : on quitte le groove ici
-FINAL_CHORD = 174.98  # attaque de l'accord final du morceau
-SONG_END = 179.8  # l'accord s'est éteint
+TOTAL = 18.6
+SONG_STOP = 16.63  # dans le creux qui suit le second coup grave (16,25 s)
 rng = np.random.default_rng(7)
 
 src, out = sys.argv[1], sys.argv[2]
-song, _ = librosa.load(src, sr=SR, mono=False)
+song, _ = librosa.load(src, sr=SR, mono=False, duration=SONG_STOP + 1.0)
+N = int(TOTAL * SR)
+mix = np.zeros((2, N))
 
 
 def at(t):
     return int(round(t * SR))
 
-
-def refine(t, win=0.06):
-    """Recale un instant sur l'attaque la plus forte dans ±win s."""
-    mono = song.mean(axis=0)
-    hop = 64
-    seg = mono[at(t - win) : at(t + win)]
-    env = librosa.onset.onset_strength(y=seg, sr=SR, hop_length=hop)
-    return t - win + np.argmax(env) * hop / SR
-
-
-# --- 1. Montage musical -------------------------------------------------------------
-cut_a = refine(BODY_END)
-cut_b = refine(FINAL_CHORD, win=0.1)
-TOTAL = round((cut_a + SONG_END - cut_b) * 25) / 25  # durée calée sur une image
-N = int(TOTAL * SR)
-mix = np.zeros((2, N))
-
-xf = at(0.03)
-groove = song[:, : at(cut_a) + xf // 2].copy()
-chord = song[:, at(cut_b) - xf // 2 : at(SONG_END)].copy()
-# le groove s'efface de 4 dB sur le dernier temps, aspiré par l'accord
-d0 = at(cut_a - 0.45)
-g = np.ones(groove.shape[1])
-g[d0:] = np.linspace(1, 10 ** (-4 / 20), groove.shape[1] - d0)
-groove *= g
-w = np.linspace(0, np.pi / 2, xf)
-seam = groove[:, -xf:] * np.cos(w) + chord[:, :xf] * np.sin(w)
-music = np.concatenate([groove[:, :-xf], seam, chord[:, xf:]], axis=1)[:, :N]
-music = np.pad(music, ((0, 0), (0, N - music.shape[1])))
-tail = at(0.3)
-music[:, -tail:] *= np.linspace(1, 0, tail)
-mix += music
-X = cut_a  # instant de l'accord final dans le générique
-print(f"raccord : {cut_a:.3f} s → accord final du morceau {cut_b:.3f} s ; durée totale {TOTAL:.2f} s")
 
 def add(buf, t, gain_db=0.0):
     i = at(t)
@@ -91,7 +60,29 @@ def spectral_sweep(x, f_lo, f_hi, curve=2.0):
     return np.pad(y, [(0, 0)] * (y.ndim - 1) + [(0, pad)]) if pad > 0 else y
 
 
-# --- 2. Tintements de verre sur les fentes lumineuses de l'ouverture ------------------
+# --- 1. Le morceau, tel quel, jusqu'au creux de fin de phrase ------------------------
+music = song[:, : at(SONG_STOP)].copy()
+fade = at(0.12)
+music[:, -fade:] *= np.cos(np.linspace(0, np.pi / 2, fade)) ** 2
+add(music, 0.0)
+
+# --- 2. La fin résonne : réverbération de la dernière mesure, dans la tonalité --------
+n_ir = at(2.4)
+ir = noise(2.4) * np.exp(-np.arange(n_ir) / SR / 0.75)
+ir = signal.sosfilt(signal.butter(2, 5000, "low", fs=SR, output="sos"), ir)
+ir /= np.sqrt((ir**2).sum(axis=1, keepdims=True))
+src_tail = song[:, at(15.5) : at(SONG_STOP)]
+tail = np.stack([signal.fftconvolve(src_tail[c], ir[c]) for c in range(2)])
+# la queue ne commence à s'entendre qu'au moment où la musique s'arrête
+t0 = at(SONG_STOP - 15.5 - 0.1)
+tail[:, :t0] = 0
+ramp = at(0.1)
+tail[:, t0 : t0 + ramp] *= np.linspace(0, 1, ramp)
+tail[:, -at(0.4) :] *= np.linspace(1, 0, at(0.4))
+add(tail, 15.5, -7)
+
+
+# --- 3. Tintements de verre sur les fentes lumineuses de l'ouverture ------------------
 def glass_ping(base, dur=0.9, tau=0.35, partials=(1, 1.504, 2.03, 2.71)):
     n = int(dur * SR)
     t = np.arange(n) / SR
@@ -107,7 +98,7 @@ for i, tb in enumerate([0.09, 0.65, 1.23, 1.81]):
     add(glass_ping(2637.0 * (1, 1.122, 0.891, 1.335)[i]), tb, -32)
 
 
-# --- 3. Whooshes sur les changements de plan ------------------------------------------
+# --- 4. Whooshes sur les changements de plan ------------------------------------------
 def whoosh(pre=0.38, post=0.3):
     n1, n2 = int(pre * SR), int(post * SR)
     x = spectral_sweep(noise(pre + post), 300, 5000, 1.5)
@@ -122,20 +113,6 @@ for tb, gdb in [(2.51, -25), (5.94, -23), (9.40, -23)]:
     w_, pre = whoosh()
     add(w_, tb - pre, gdb)
 
-# --- 4. L'accord final à l'envers aspire vers le raccord (même accord : même tonalité) ---
-rev_len = at(0.9)
-rev = song[:, at(cut_b) : at(cut_b) + rev_len][:, ::-1].copy()
-rev *= np.linspace(0, 1, rev_len) ** 3
-add(rev, X - rev_len / SR, -9)
-
-# --- 5. Montée filtrée sur la dernière mesure, coupée net sur l'accord ----------------
-dur = X - 12.84
-x = spectral_sweep(noise(dur), 250, 9000, 2.2)
-e = np.linspace(0, 1, x.shape[1]) ** 2.6
-e[-at(0.02) :] *= np.linspace(1, 0, at(0.02))
-add(x * e, 12.84, -24)
-
 peak = np.abs(mix).max()
 sf.write(out, (mix / peak * 0.89).T.astype(np.float32), SR, subtype="FLOAT")
 print("écrit", out, "durée", N / SR)
-print(f"ACCORD={X:.3f} TOTAL={TOTAL:.2f}")

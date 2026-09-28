@@ -6,7 +6,7 @@ import {FPS, H, W} from '../timing';
  * et jouée à demi-vitesse). Avant T0 on tient la première image (porte presque fermée,
  * un simple filet de lumière), après la fin on tient la dernière (porte grande ouverte).
  */
-const T0 = 4.68; // la porte finit de s'ouvrir juste avant la plongée dans la lumière
+const T0 = 6.28; // la porte finit de s'ouvrir juste avant la plongée dans la lumière
 const RATE = 0.5;
 const SRC_DUR = 4.36;
 export const PLATE_END = T0 + SRC_DUR / RATE;

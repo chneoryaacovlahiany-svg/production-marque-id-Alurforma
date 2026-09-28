@@ -7,19 +7,19 @@ import {CUT, FPS, ease, mix, prog} from '../timing';
 import {pulse} from './Hero';
 
 /**
- * 9,40 → 13,88 s — Accélération puis convergence.
+ * 9,40 → 15,57 s — Accélération puis convergence.
  * On file dans un couloir de portiques de verre, l'image principale au bout (la porte).
  * La vitesse monte avec la tension. Puis trois filets or se referment sur l'encadrement
- * de la porte, la lumière de la porte envahit la pièce juste avant l'accord final.
+ * de la porte, la lumière de la porte envahit la pièce juste avant le premier coup grave.
  */
 const SPACING = 820;
-const COUNT = 16;
+const COUNT = 20;
 const ORIGIN: [number, number] = [960, 515]; // centre de la porte dans l'image
 const DOOR = {x0: 827, y0: 70, x1: 1094, y1: 960}; // encadrement de la porte ouverte
 
 const camZ = (t: number) => {
   const u = Math.max(0, t - CUT.tunnel);
-  return 900 * u + 950 * u * u;
+  return 600 * u + 300 * u * u;
 };
 
 const plateScale = (t: number) =>
@@ -138,8 +138,8 @@ export const Tunnel: React.FC = () => {
 /** Le « comment », frappé sur les pulsations, en bas du cadre (sur le sol sombre). */
 const WORDS: {word: string; at: number}[] = [
   {word: '14 H PAR AN', at: 9.45},
-  {word: '100 % EN LIGNE', at: 10.52},
-  {word: 'À VOTRE RYTHME', at: 11.68},
+  {word: '100 % EN LIGNE', at: 11.12},
+  {word: 'À VOTRE RYTHME', at: 12.84},
 ];
 
 const Methode: React.FC<{t: number}> = ({t}) => {

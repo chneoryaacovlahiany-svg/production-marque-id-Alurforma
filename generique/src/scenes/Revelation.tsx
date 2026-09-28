@@ -5,11 +5,11 @@ import logo from '../logo-paths.json';
 import {CUT, FPS, TOTAL, ease, mix, prog} from '../timing';
 
 /**
- * 13,88 → 18,72 s — La révélation.
+ * 15,57 → 18,6 s — La révélation.
  * La lumière de la porte devient la porte du logo. Le logo se construit comme un bâtiment :
  * tracé or (le plan), les deux chemins qui mènent à la porte, puis le « A » tombe sur le
- * l'accord final du morceau (13,96 s), la porte s'ouvre, le nom se dévoile ; la signature
- * arrive en deux temps pendant que l'accord résonne.
+ * premier coup grave de la fin de phrase (15,65 s), la porte s'ouvre, le nom se dévoile ; la signature
+ * arrive sur le second coup (16,25 s), puis la fin résonne.
  */
 const L = logo.layers;
 const DOOR = logo.meta.door.map(([x, y]) => `${x},${y}`).join(' ');
@@ -60,12 +60,12 @@ export const Revelation: React.FC = () => {
   const aOn = prog(t, HIT - 0.01, HIT + 0.05);
   const leaf = prog(t, HIT + 0.15, HIT + 0.5, ease.out);
   const goldEdge = prog(t, HIT + 0.2, HIT + 0.55, ease.out);
-  const word = prog(t, HIT + 0.55, HIT + 1.2, ease.out);
+  const word = prog(t, HIT + 0.1, HIT + 0.6, ease.out);
   const wordOutline = prog(t, W0, HIT + 0.6, ease.inOut);
   const doorLight = mix(1, 0.12, prog(t, HIT, HIT + 1.4, ease.soft));
   const sheen = prog(t, CUT.signature + 0.1, CUT.signature + 0.95, ease.inOut);
 
-  // secousse caméra sur l'accord final, et plus légère sur la mention
+  // secousse caméra sur le premier coup grave, et plus légère sur la mention
   const shake = (hit: number, amp: number) => {
     const u = t - hit;
     return u < 0 ? 0 : amp * Math.exp(-u / 0.09) * Math.sin(u * 95);

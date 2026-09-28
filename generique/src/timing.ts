@@ -3,29 +3,29 @@ import {Easing} from 'remotion';
 export const FPS = 25; // norme télé française
 export const W = 1920;
 export const H = 1080;
-export const TOTAL = 18.72;
+export const TOTAL = 18.6;
 export const TOTAL_FRAMES = Math.round(TOTAL * FPS);
 
 /**
- * Pulsations (s) de la bande-son, mesurées sur l'audio (103,4 BPM).
- * Le morceau Suno joue en continu jusqu'à 13,96 s, puis enchaîne sur son accord final.
+ * Pulsations (s) du morceau Suno, joué tel quel (103,4 BPM), mesurées sur l'audio.
+ * Il s'arrête dans le creux qui suit sa fin de phrase (coups graves à 15,65 et 16,25 s).
  */
 export const BEATS = [
   0.09, 0.65, 1.23, 1.81, 2.51, 3.09, 3.65, 4.23, 4.81, 5.39, 5.94, 6.52, 7.11, 7.66, 8.24, 8.82, 9.4,
-  9.96, 10.54, 11.12, 11.68, 12.26, 12.84, 13.42,
+  9.96, 10.54, 11.12, 11.68, 12.26, 12.84, 13.42, 13.98, 14.56, 15.14,
 ];
 
-/** Découpage : chaque coupe tombe sur un temps de la musique. */
+/** Découpage : chaque coupe tombe sur un temps ou un coup de la musique. */
 export const CUT = {
   installation: 2.51,
   hero: 5.94,
   tunnel: 9.4,
-  convergence: 12.84, // plongée dans la porte, sur la dernière mesure
-  whiteout: 13.88,
-  logoHit: 13.96, // accord final du morceau
-  taglineHit: 15.21,
-  tagline2: 15.91,
-  signature: 16.66, // mention et reflet, pendant que l'accord résonne
+  convergence: 14.56, // plongée dans la porte
+  whiteout: 15.57,
+  logoHit: 15.65, // premier coup grave de la fin de phrase
+  taglineHit: 16.25, // second coup grave
+  tagline2: 16.8,
+  signature: 17.4, // mention et reflet, pendant que la fin résonne
 };
 
 export const ease = {
