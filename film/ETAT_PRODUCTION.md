@@ -11,12 +11,12 @@ Mis à jour le 28 septembre 2026.
 | 3 | **fait** | `plans/PLAN03_heygen_4s_1080p.mp4` | notification « Formation continue - à planifer » (coquille HeyGen, à masquer par une carte propre si on veut du texte net), balayée sans regarder, téléphone repris. Fenêtre 1,2 s → |
 | 4 | **fait** | `plans/PLAN04_heygen_6s_1080p.mp4` | soir, lampe, courrier, agenda ; visage et décor conformes. Il garde sa veste (le prompt la demandait sur la chaise). Le texte du courrier n'est pas lisible : à incruster au montage si on veut qu'il le soit. Regard caméra à partir de 5 s : non utilisé (fenêtre 0,5 – 3,8 s). |
 | 5 | **fait** | `plans/PLAN05_heygen_5s_1080p.mp4` | arc de caméra autour de l'écran alurforma.fr sous la lampe ; texte d'écran approximatif. Fenêtre 1,5 s → |
-| 6a + 6c | en cours | job `6ac` (10 s, un seul clip : leçon puis coche « Évaluation validée ») | prix HeyGen fixe par vidéo, d'où la fusion |
-| 6b | en cours | job `6b` (4 s, voiture) | |
-| 7a + 7b | en cours | job `7ab` (8 s, un seul clip : attestation à l'écran puis chemise) | |
+| 6a + 6c | **fait** | `plans/PLAN06AC_heygen_10s_1080p.mp4` | un seul clip : leçon de profil (0 – 4 s), puis face, coche « Évaluation validée » à 8 s, sourire. Fenêtres 0,5 s et 7,6 s |
+| 6b | **fait** | `plans/PLAN06B_heygen_4s_1080p.mp4` | siège passager, leçon sur le téléphone, regard vers l'immeuble |
+| 7a + 7b | **fait** | `plans/PLAN07AB_heygen_8s_1080p.mp4` | « Attestation de formation » à l'écran, clic, puis la feuille sort de l'imprimante (5 s) et va dans la chemise bleu nuit. Fenêtres 0,5 s et 5,0 s |
 | 8 | **fait** | `plans/PLAN08_heygen_5s_1080p.mp4` | message de la conseillère lisible en amorce, demi-sourire, pose le téléphone. Fenêtre 1,0 s → |
 | 9 | **fait** | `plans/PLAN09_heygen_6s_1080p.mp4` | ferme le portable, veste, sortie par la porte vitrée, poignée de main avec une cliente, contre-jour doré. Fenêtre montée 2,8 – 5,8 s. |
-| 10 | en cours | job `10` (5 s, agence vide) | panneau, virage bleu nuit et texte faits au montage, déjà en place |
+| 10 | **fait** | `plans/PLAN10_heygen_5s_1080p.mp4` | agence vide, lampe, lumière qui refroidit ; panneau, virage bleu nuit et texte au montage |
 
 Les jobs HeyGen sont dans `plans/jobs.json` (video_id, statut, fichier).
 
@@ -47,13 +47,11 @@ le film dure dernier mot + 0,15 s (32,3 s avec la voix A) et le générique de f
 
 ## Montage courant
 
-`out/ALURFORMA_FILM_HUGO_montage_voixA.mp4` (master) et `_voixA_preview.mp4` (copie légère) : 55,4 s, voix A.
-`out/ALURFORMA_FILM_HUGO_montage.mp4` / `_preview.mp4` : même montage avec la voix Audrey, pour comparaison.
+`out/ALURFORMA_FILM_HUGO_montage_voixA.mp4` (master, 49 Mo) et `_voixA_preview.mp4` (copie légère) : **film complet**, 55,4 s,
+1920×1080, 25 i/s, −16,2 LUFS, crête −3 dBTP. Générique d'ouverture → 13 segments réels (plans 1 à 10) → générique de fin. Aucun carton.
 
 ## Reste à faire
 
-1. Réceptionner les jobs 6ac, 6b, 7ab, 10 ; contrôler visage, tenue, décor ; régler les points d'entrée dans `SEGMENTS` / `ALIAS`.
-2. Remonter le film complet sans carton.
-3. Musique du film (prompt Suno § 6.6) : déposer en `work/musique.wav`, `assemble.py` la mixe automatiquement.
-4. Étalonnage unique, textes d'interface lisibles (courrier plan 4, écrans plans 3, 5, 6, 7, 8) si on les veut nets.
-5. Masters −14 LUFS (web) et −23 LUFS (TV).
+1. Musique du film (prompt Suno § 6.6) : déposer en `work/musique.wav`, `assemble.py` la mixe automatiquement.
+2. Étalonnage unique, textes d'interface lisibles (courrier plan 4, écrans plans 3, 5, 6, 7, 8) si on les veut nets.
+3. Masters −14 LUFS (web) et −23 LUFS (TV).

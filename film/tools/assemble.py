@@ -89,7 +89,7 @@ T_A, T_B = 25.68, 27.38  # débuts des deux phrases finales (voix B v110)
 
 
 # Un clip généré en une fois pour deux segments (prix HeyGen fixe par vidéo) : segment -> (clé du job, point d'entrée)
-ALIAS = {"6a": ("6ac", 0.5), "6c": ("6ac", 6.0), "7a": ("7ab", 0.5), "7b": ("7ab", 4.5)}
+ALIAS = {"6a": ("6ac", 0.5), "6c": ("6ac", 7.6), "7a": ("7ab", 0.5), "7b": ("7ab", 5.0)}   # 6c : la coche apparaît à 8 s ; 7b : la feuille sort de l'imprimante à 5 s
 
 
 def clip_files():
