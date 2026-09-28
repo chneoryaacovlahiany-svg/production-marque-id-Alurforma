@@ -2,14 +2,14 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {C} from '../brand';
 import {fontFamily} from '../font';
 import logo from '../logo-paths.json';
-import {CUT, FPS, ease, mix, prog} from '../timing';
+import {CUT, FPS, TOTAL, ease, mix, prog} from '../timing';
 
 /**
- * 10,6 → 14 s — La révélation.
+ * 12,55 → 20 s — La révélation.
  * La lumière de la porte devient la porte du logo. Le logo se construit comme un bâtiment :
  * tracé or (le plan), les deux chemins qui mènent à la porte, puis le « A » tombe sur le
- * premier impact grave (11,0 s), la porte s'ouvre, le nom se dévoile ; la signature
- * arrive sur le second impact (11,6 s).
+ * coup de la fin du morceau (12,63 s), la porte s'ouvre, le nom se dévoile ; la signature
+ * arrive en deux temps (14,04 s et 15,20 s), la mention sur l'accord final (16,36 s).
  */
 const L = logo.layers;
 const DOOR = logo.meta.door.map(([x, y]) => `${x},${y}`).join(' ');
@@ -46,32 +46,35 @@ export const Revelation: React.FC = () => {
   const t = useCurrentFrame() / FPS;
   if (t < CUT.whiteout) return null;
 
-  const whiteHold = 1 - prog(t, CUT.whiteout, CUT.whiteout + 0.35, ease.soft);
-  const zoom = mix(1, 1.035, prog(t, CUT.whiteout, 14, ease.soft));
+  const W0 = CUT.whiteout;
+  const HIT = CUT.logoHit;
+  // le voile de lumière est dissipé au moment du coup : le A tombe net, en pleine couleur
+  const whiteHold = 1 - prog(t, W0, HIT + 0.02, ease.soft);
+  const zoom = mix(1, 1.035, prog(t, W0, TOTAL, ease.soft));
 
-  // tracé du plan (contours or), puis chemins, puis le A qui tombe sur l'impact
-  const outline = prog(t, CUT.whiteout, CUT.logoHit, ease.inOut);
-  const outlineFade = 1 - prog(t, CUT.logoHit, CUT.logoHit + 0.3);
-  const roads = prog(t, CUT.whiteout + 0.05, CUT.logoHit + 0.02, ease.inOut);
-  const slam = prog(t, CUT.logoHit, CUT.logoHit + 0.38, ease.out);
-  const aOn = prog(t, CUT.logoHit - 0.01, CUT.logoHit + 0.05);
-  const leaf = prog(t, CUT.logoHit + 0.06, CUT.logoHit + 0.42, ease.out);
-  const goldEdge = prog(t, CUT.logoHit + 0.12, CUT.logoHit + 0.45, ease.out);
-  const word = prog(t, 11.08, 11.5, ease.out);
-  const wordOutline = prog(t, CUT.whiteout + 0.1, 11.1, ease.inOut);
-  const doorLight = mix(1, 0.12, prog(t, CUT.logoHit, CUT.taglineHit + 0.2, ease.soft));
-  const sheen = prog(t, 12.55, 13.35, ease.inOut);
+  // tracé du plan (contours or) et chemins, puis le A qui tombe sur le coup de la musique
+  const outline = prog(t, W0 - 0.05, HIT + 0.25, ease.inOut);
+  const outlineFade = 1 - prog(t, HIT + 0.25, HIT + 0.55);
+  const roads = prog(t, HIT - 0.05, HIT + 0.45, ease.inOut);
+  const slam = prog(t, HIT, HIT + 0.38, ease.out);
+  const aOn = prog(t, HIT - 0.01, HIT + 0.05);
+  const leaf = prog(t, HIT + 0.15, HIT + 0.5, ease.out);
+  const goldEdge = prog(t, HIT + 0.2, HIT + 0.55, ease.out);
+  const word = prog(t, HIT + 0.55, HIT + 1.2, ease.out);
+  const wordOutline = prog(t, W0, HIT + 0.6, ease.inOut);
+  const doorLight = mix(1, 0.12, prog(t, HIT, HIT + 1.4, ease.soft));
+  const sheen = prog(t, CUT.finalChord + 0.1, CUT.finalChord + 0.95, ease.inOut);
 
-  // secousse caméra sur les deux impacts graves
+  // secousse caméra sur le coup, et plus légère sur l'accord final
   const shake = (hit: number, amp: number) => {
     const u = t - hit;
     return u < 0 ? 0 : amp * Math.exp(-u / 0.09) * Math.sin(u * 95);
   };
-  const sy = shake(CUT.logoHit, 4) + shake(CUT.taglineHit, 1.6);
-  const flash = t >= CUT.logoHit ? Math.exp(-(t - CUT.logoHit) / 0.18) : 0;
+  const sy = shake(HIT, 4) + shake(CUT.finalChord, 1.2);
+  const flash = t >= HIT ? Math.exp(-(t - HIT) / 0.18) : 0;
 
-  const line = prog(t, 11.42, 11.95, ease.out);
-  const sub = prog(t, 12.2, 12.8, ease.out);
+  const line = prog(t, CUT.taglineHit - 0.35, CUT.taglineHit + 0.25, ease.out);
+  const sub = prog(t, CUT.finalChord, CUT.finalChord + 0.6, ease.out);
 
   return (
     <AbsoluteFill style={{background: `radial-gradient(ellipse 65% 60% at 50% 42%, #ffffff, ${C.ivory} 58%, #efeadf)`, overflow: 'hidden'}}>
@@ -203,7 +206,7 @@ export const Revelation: React.FC = () => {
           }}
         >
           <Words text="COMPRENDRE LA RÈGLE." start={CUT.taglineHit} t={t} />
-          <Words text="SÉCURISER LA PRATIQUE." start={CUT.taglineHit + 0.29} t={t} />
+          <Words text="SÉCURISER LA PRATIQUE." start={CUT.tagline2} t={t} />
         </div>
         <div
           style={{

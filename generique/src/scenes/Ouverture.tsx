@@ -4,17 +4,17 @@ import {Plate} from '../components/Plate';
 import {CUT, FPS, H, W, ease, mix, prog} from '../timing';
 
 /**
- * 0 → 2,49 s — L'ouverture.
+ * 0 → 2,51 s — L'ouverture.
  * Noir. Sur chaque pulsation, un filet de lumière or tombe puis s'ouvre en fenêtre :
  * à travers, l'image principale. La première fenêtre s'ouvre pile sur le filet de
  * lumière de la porte : le sujet est là dès la première seconde.
  */
 const SLITS = [
-  {t: 0.07, x: 960, w: 250, top: 0, h: H, drift: -6},
-  {t: 0.64, x: 560, w: 170, top: 150, h: 780, drift: 14},
-  {t: 1.33, x: 1370, w: 200, top: 90, h: 900, drift: -18},
-  {t: 1.92, x: 250, w: 130, top: 230, h: 620, drift: 22},
-  {t: 1.92 + 0.14, x: 1690, w: 120, top: 260, h: 560, drift: -26},
+  {t: 0.09, x: 960, w: 250, top: 0, h: H, drift: -6},
+  {t: 0.65, x: 560, w: 170, top: 150, h: 780, drift: 14},
+  {t: 1.23, x: 1370, w: 200, top: 90, h: 900, drift: -18},
+  {t: 1.81, x: 250, w: 130, top: 230, h: 620, drift: 22},
+  {t: 1.81 + 0.14, x: 1690, w: 120, top: 260, h: 560, drift: -26},
 ];
 
 export const Ouverture: React.FC = () => {

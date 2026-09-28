@@ -7,10 +7,10 @@ import {CUT, FPS, ease, mix, prog} from '../timing';
 import {pulse} from './Hero';
 
 /**
- * 7,07 → 10,6 s — Accélération puis convergence.
+ * 9,40 → 12,55 s — Accélération puis convergence, pendant le break de la musique.
  * On file dans un couloir de portiques de verre, l'image principale au bout (la porte).
  * La vitesse monte avec la tension. Puis trois filets or se referment sur l'encadrement
- * de la porte, on plonge dans la lumière : écran blanc au moment du creux musical.
+ * de la porte, la lumière de la porte envahit la pièce juste avant le coup.
  */
 const SPACING = 820;
 const COUNT = 16;
@@ -30,7 +30,7 @@ const plateScale = (t: number) =>
 const Portals: React.FC = () => {
   const t = useCurrentFrame() / FPS;
   const z0 = camZ(t);
-  const flash = pulse(t, CUT.tunnel, 9.94, 0.14);
+  const flash = pulse(t, CUT.tunnel, CUT.whiteout, 0.14);
   return (
     <AbsoluteFill style={{perspective: 1100, perspectiveOrigin: '50% 47%'}}>
       <AbsoluteFill style={{transformStyle: 'preserve-3d', transform: `rotateZ(${Math.sin((t - CUT.tunnel) * 1.4) * 1.8}deg)`}}>
@@ -78,9 +78,11 @@ export const Tunnel: React.FC = () => {
   const toScreen = (x: number, y: number) => [ORIGIN[0] + (x - ORIGIN[0]) * s, ORIGIN[1] + (y - ORIGIN[1]) * s];
   const [dx0, dy0] = toScreen(DOOR.x0, DOOR.y0);
   const [dx1, dy1] = toScreen(DOOR.x1, DOOR.y1);
-  const bloom = prog(t, 9.55, CUT.whiteout, ease.in);
-  const white = prog(t, 10.18, CUT.whiteout - 0.02, ease.in);
-  const flash = pulse(t, CUT.tunnel, 9.94, 0.14);
+  const bloom = prog(t, CUT.convergence + 0.1, CUT.whiteout, ease.in);
+  // la lumière de la porte envahit la pièce depuis le centre (pas de flash plein cadre)
+  const pour = prog(t, CUT.whiteout - 0.55, CUT.whiteout, ease.in);
+  const white = prog(t, CUT.whiteout - 0.55, CUT.whiteout - 0.35);
+  const flash = pulse(t, CUT.tunnel, CUT.whiteout, 0.14);
   return (
     <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
       <Plate
@@ -92,8 +94,8 @@ export const Tunnel: React.FC = () => {
         <Portals />
       </CameraMotionBlur>
       {/* trois filets or se referment sur l'encadrement de la porte */}
-      {[9.37, 9.66, 9.94].map((start, i) => {
-        const e = prog(t, start, start + 0.5, ease.out);
+      {[CUT.convergence, CUT.convergence + 0.18, CUT.convergence + 0.36].map((start, i) => {
+        const e = prog(t, start, start + 0.4, ease.out);
         if (e <= 0) return null;
         const inset = 4 + i * 10;
         const x0 = mix(40, dx0 - inset, e);
@@ -123,20 +125,25 @@ export const Tunnel: React.FC = () => {
         }}
       />
       <Methode t={t} />
-      <AbsoluteFill style={{background: C.ivory, opacity: white}} />
+      <AbsoluteFill
+        style={{
+          opacity: white,
+          background: `radial-gradient(circle at 50% 47%, ${C.ivory} 0%, ${C.ivory} ${pour * 110}%, rgba(250,248,243,0) ${pour * 110 + 35}%)`,
+        }}
+      />
     </AbsoluteFill>
   );
 };
 
 /** Le « comment », frappé sur les pulsations, en bas du cadre (sur le sol sombre). */
 const WORDS: {word: string; at: number}[] = [
-  {word: '14 H PAR AN', at: 7.65},
-  {word: '100 % EN LIGNE', at: 8.22},
-  {word: 'À VOTRE RYTHME', at: 8.8},
+  {word: '14 H PAR AN', at: 9.45},
+  {word: '100 % EN LIGNE', at: 10.52},
+  {word: 'À VOTRE RYTHME', at: 11.68},
 ];
 
 const Methode: React.FC<{t: number}> = ({t}) => {
-  const end = CUT.convergence + 0.35;
+  const end = CUT.whiteout - 0.3;
   const eyebrow = prog(t, CUT.tunnel + 0.1, CUT.tunnel + 0.5, ease.out) * (1 - prog(t, end - 0.25, end));
   return (
     <div style={{position: 'absolute', left: 0, right: 0, bottom: 56, textAlign: 'center', fontFamily}}>

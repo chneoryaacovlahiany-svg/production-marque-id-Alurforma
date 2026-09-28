@@ -6,7 +6,7 @@ import {Plate} from '../components/Plate';
 import {BEATS, CUT, FPS, W, ease, mix, prog} from '../timing';
 
 /**
- * 4,78 → 7,07 s — L'image principale.
+ * 5,94 → 9,40 s — L'image principale.
  * Plein cadre, lente poussée vers la porte. Le verre ne fait que passer au premier plan,
  * en reflets : il accompagne l'image, il ne la cache jamais.
  */
@@ -86,10 +86,10 @@ const Accroche: React.FC<{t: number}> = ({t}) => {
       <Line t={t} start={CUT.hero} style={{fontSize: 20, fontWeight: 600, letterSpacing: '0.42em', color: C.goldLight, marginBottom: 20}}>
         FORMATIONS ALUR EN LIGNE
       </Line>
-      <Line t={t} start={5.35} style={{fontSize: 60, fontWeight: 600, letterSpacing: '-0.01em', color: '#ffffff', lineHeight: 1.1}}>
+      <Line t={t} start={6.52} style={{fontSize: 60, fontWeight: 600, letterSpacing: '-0.01em', color: '#ffffff', lineHeight: 1.1}}>
         Renouvelez votre carte professionnelle
       </Line>
-      <Line t={t} start={5.92} style={{fontSize: 60, fontWeight: 600, letterSpacing: '-0.01em', color: C.goldLight, lineHeight: 1.1}}>
+      <Line t={t} start={7.66} style={{fontSize: 60, fontWeight: 600, letterSpacing: '-0.01em', color: C.goldLight, lineHeight: 1.1}}>
         sans perdre de temps.
       </Line>
     </div>
