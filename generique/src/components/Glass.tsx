@@ -1,4 +1,5 @@
 import {C} from '../brand';
+import {fontFamily} from '../font';
 import {H, W} from '../timing';
 import {Plate} from './Plate';
 
@@ -18,6 +19,10 @@ type Props = {
   blur?: number;
   plateFilter?: string;
   showPlate?: boolean;
+  /** thème de formation gravé sur la vitre */
+  label?: string;
+  /** apparition 0→1 de l'étiquette */
+  labelIn?: number;
 };
 
 /**
@@ -37,6 +42,8 @@ export const Glass: React.FC<Props> = ({
   blur = 0,
   plateFilter = 'brightness(1.08) contrast(1.05) saturate(1.05)',
   showPlate = true,
+  label,
+  labelIn = 1,
 }) => {
   const edge = tint === 'green' ? C.greenSoft : tint === 'navy' ? '#8fb2ff' : '#ffffff';
   const body =
@@ -99,6 +106,31 @@ export const Glass: React.FC<Props> = ({
       />
       {/* liseré or */}
       <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 1.5, background: C.gold, opacity: 0.85}} />
+      {label ? (
+        <div
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: '50%',
+            transform: `translateY(-50%) translateX(${(1 - labelIn) * 24}px)`,
+            textAlign: 'center',
+            fontFamily,
+            fontWeight: 600,
+            // taille calée sur la ligne la plus longue, espacement compris (≈ 0,95 em par lettre)
+            fontSize: Math.min(54, (w * 0.8) / (Math.max(...label.split('\n').map((l) => l.length)) * 0.95)),
+            lineHeight: 1.15,
+            letterSpacing: '0.14em',
+            color: '#ffffff',
+            opacity: labelIn,
+            textShadow: `0 0 24px ${edge}aa, 0 2px 12px rgba(0,0,0,0.6)`,
+            whiteSpace: 'pre',
+          }}
+        >
+          {label}
+          <div style={{margin: '14px auto 0', width: 60 * labelIn, height: 1.5, background: C.gold}} />
+        </div>
+      ) : null}
       {/* reflet spéculaire */}
       <div
         style={{

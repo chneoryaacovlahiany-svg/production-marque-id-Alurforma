@@ -16,14 +16,27 @@ Au lieu de plaquer le logo à la fin, on traverse la porte, et la lumière de ce
 | Temps | Plan | Musique |
 |---|---|---|
 | 0 – 2,49 s | **Ouverture.** Noir. Sur chaque pulsation, un filet de lumière or tombe puis s'ouvre en fenêtre sur l'image principale. La première fenêtre s'ouvre pile sur le filet de lumière de la porte. | Clavinet seul, tintements de verre |
-| 2,49 – 4,78 s | **Installation.** Des panneaux de verre architecturaux entrent sur les temps (langage de la référence 001941). Chacun est une fenêtre réfractée sur l'image. Puis ils pivotent comme des volets et libèrent l'image. | Basse et batterie, whooshes |
-| 4,78 – 7,07 s | **Image principale.** Plein cadre, lente poussée vers la porte, reflets de verre au premier plan, halo qui respire sur les temps. | Groove complet |
-| 7,07 – 9,37 s | **Accélération.** Couloir de parois de verre qui défilent, la porte au bout, vitesse croissante, flou de mouvement. | Montée en tension |
+| 2,49 – 4,78 s | **Installation.** Huit panneaux de verre entrent sur les temps (langage de la référence 001941), chacun gravé d'un thème de formation : DÉONTOLOGIE, NON-DISCRIMINATION, ANTI-BLANCHIMENT, GESTION LOCATIVE, FISCALITÉ, TRANSACTION, DPE & ÉNERGIE, COPROPRIÉTÉ. Puis ils pivotent comme des volets et libèrent l'image. | Basse et batterie, whooshes |
+| 4,78 – 7,07 s | **Image principale.** Plein cadre, lente poussée vers la porte. Accroche du site : « FORMATIONS ALUR EN LIGNE », « Renouvelez votre carte professionnelle » puis, sur le temps suivant, « sans perdre de temps. » | Groove complet |
+| 7,07 – 9,37 s | **Accélération.** Couloir de parois de verre qui défilent, la porte au bout. Le « comment », frappé sur les temps : 14 H PAR AN · 100 % EN LIGNE · À VOTRE RYTHME, sous « VOTRE FORMATION OBLIGATOIRE ». | Montée en tension |
 | 9,37 – 10,6 s | **Convergence.** Trois filets or se referment sur l'encadrement, plongée dans la lumière de la porte. | Note grave tenue |
 | 10,6 – 11,0 s | **Le plan.** Écran lumineux ; le logo se trace en contours or, les deux chemins se dessinent vers la porte. | Respiration (musique creusée) |
 | **11,0 s** | **Le « A » tombe** sur le premier impact grave, la porte s'ouvre, le nom se dévoile. | Impact grave + scintillement de verre |
 | **11,6 s** | **« COMPRENDRE LA RÈGLE. SÉCURISER LA PRATIQUE. »** | Second impact |
 | 12,2 – 14 s | « Formation professionnelle immobilière », reflet satiné sur le logo, tenue. | Queue de réverbération |
+
+## Textes
+
+Chaque séquence répond à une seule question :
+
+- **Quoi ?** (panneaux) les thèmes de formation ALUR ;
+- **Pourquoi ?** (image principale) l'accroche d'accueil du site ;
+- **Comment ?** (couloir) 14 h par an (décret n° 2016-173), 100 % en ligne, à votre rythme ;
+- **Qui ?** (révélation) le logo et le slogan.
+
+Slogan, accroche et thèmes Transaction / Gestion / Syndic viennent du site (`site-vitrine-Alurforma`).
+FISCALITÉ et DPE & ÉNERGIE ont été ajoutés car Alurforma prévoit de couvrir la quasi-totalité des thèmes ALUR.
+Les thèmes se modifient dans `src/scenes/Installation.tsx`, les accroches dans `src/scenes/Hero.tsx` et `src/scenes/Tunnel.tsx`.
 
 ## Fichiers
 

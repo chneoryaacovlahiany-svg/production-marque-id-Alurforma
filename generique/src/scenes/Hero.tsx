@@ -1,5 +1,7 @@
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
+import {C} from '../brand';
 import {Glass} from '../components/Glass';
+import {fontFamily} from '../font';
 import {Plate} from '../components/Plate';
 import {BEATS, CUT, FPS, W, ease, mix, prog} from '../timing';
 
@@ -51,8 +53,45 @@ export const Hero: React.FC = () => {
       <Glass x={slabB} y={-160} w={380} h={1400} tint="green" sheen={1 - p} refract={[30, 0]} opacity={0.28} blur={2.2} transform="rotate(-5deg)" />
       {/* étalonnage : ombres bleu nuit, hautes lumières chaudes */}
       <AbsoluteFill
-        style={{background: 'linear-gradient(180deg, rgba(4,29,75,0.35), rgba(4,29,75,0) 30%, rgba(4,29,75,0) 70%, rgba(1,5,15,0.55))'}}
+        style={{background: 'linear-gradient(180deg, rgba(4,29,75,0.35), rgba(4,29,75,0) 30%, rgba(4,29,75,0) 60%, rgba(1,5,15,0.78))'}}
       />
+      {/* l'accroche du site, en deux temps sur les pulsations */}
+      <Accroche t={t} />
     </AbsoluteFill>
+  );
+};
+
+const Line: React.FC<{t: number; start: number; children: React.ReactNode; style: React.CSSProperties}> = ({t, start, children, style}) => {
+  const e = prog(t, start, start + 0.45, ease.out);
+  const out = prog(t, CUT.tunnel - 0.22, CUT.tunnel, ease.in);
+  return (
+    <div
+      style={{
+        opacity: e * (1 - out),
+        transform: `translateY(${(1 - e) * 22 - out * 10}px)`,
+        filter: `blur(${(1 - e) * 6 + out * 6}px)`,
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+const Accroche: React.FC<{t: number}> = ({t}) => {
+  const rule = prog(t, CUT.hero + 0.05, CUT.hero + 0.6, ease.out) * (1 - prog(t, CUT.tunnel - 0.22, CUT.tunnel));
+  return (
+    <div style={{position: 'absolute', left: 150, bottom: 150, fontFamily, textShadow: '0 2px 24px rgba(1,5,15,0.7)'}}>
+      <div style={{width: 90 * rule, height: 2, background: C.gold, marginBottom: 22}} />
+      <Line t={t} start={CUT.hero} style={{fontSize: 20, fontWeight: 600, letterSpacing: '0.42em', color: C.goldLight, marginBottom: 20}}>
+        FORMATIONS ALUR EN LIGNE
+      </Line>
+      <Line t={t} start={5.35} style={{fontSize: 60, fontWeight: 600, letterSpacing: '-0.01em', color: '#ffffff', lineHeight: 1.1}}>
+        Renouvelez votre carte professionnelle
+      </Line>
+      <Line t={t} start={5.92} style={{fontSize: 60, fontWeight: 600, letterSpacing: '-0.01em', color: C.goldLight, lineHeight: 1.1}}>
+        sans perdre de temps.
+      </Line>
+    </div>
   );
 };

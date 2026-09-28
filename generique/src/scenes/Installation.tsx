@@ -21,14 +21,18 @@ type P = {
   from: [number, number, number, number]; // dx, dy, dz, drotY
   tint: 'green' | 'navy' | 'clear';
   exitSide: 1 | -1;
+  label: string;
 };
 
 const PANELS: P[] = [
-  {t: 2.49, x: 250, y: 150, w: 540, h: 800, ry: 26, z: 0, from: [1500, 0, -500, -60], tint: 'green', exitSide: -1},
-  {t: 2.78, x: 1010, y: 80, w: 470, h: 920, ry: -22, z: -120, from: [-1500, 0, -400, 70], tint: 'navy', exitSide: 1},
-  {t: 3.06, x: 1480, y: 200, w: 380, h: 700, ry: -36, z: -320, from: [0, 1100, -200, -30], tint: 'clear', exitSide: 1},
-  {t: 3.63, x: -40, y: 260, w: 330, h: 560, ry: 40, z: -520, from: [0, -1200, -300, 40], tint: 'navy', exitSide: -1},
-  {t: 4.2, x: 700, y: 330, w: 420, h: 520, ry: 8, z: -700, from: [0, 0, -2600, 0], tint: 'green', exitSide: 1},
+  {t: 2.49, x: 200, y: 330, w: 540, h: 660, ry: 26, z: 0, from: [1500, 0, -500, -60], tint: 'green', exitSide: -1, label: 'DÉONTOLOGIE'},
+  {t: 2.78, x: 1060, y: 80, w: 470, h: 920, ry: -22, z: -120, from: [-1500, 0, -400, 70], tint: 'navy', exitSide: 1, label: 'NON-\nDISCRIMINATION'},
+  {t: 3.06, x: 1590, y: 220, w: 360, h: 680, ry: -36, z: -320, from: [0, 1100, -200, -30], tint: 'clear', exitSide: 1, label: 'ANTI-\nBLANCHIMENT'},
+  {t: 3.35, x: 130, y: -70, w: 470, h: 270, ry: 18, z: -400, from: [-1400, -300, -300, 40], tint: 'navy', exitSide: -1, label: 'GESTION\nLOCATIVE'},
+  {t: 3.63, x: 700, y: -20, w: 420, h: 330, ry: 6, z: -900, from: [0, -1400, -300, 0], tint: 'clear', exitSide: -1, label: 'TRANSACTION'},
+  {t: 3.92, x: 690, y: 790, w: 440, h: 300, ry: -6, z: -900, from: [0, 1400, -300, 0], tint: 'green', exitSide: 1, label: 'DPE &\nÉNERGIE'},
+  {t: 3.49, x: 1720, y: -70, w: 440, h: 200, ry: -20, z: -520, from: [1400, -300, -300, -40], tint: 'clear', exitSide: 1, label: 'FISCALITÉ'},
+  {t: 4.2, x: 760, y: 360, w: 300, h: 380, ry: 0, z: -1500, from: [0, 0, -2600, 0], tint: 'navy', exitSide: 1, label: 'COPRO-\nPRIÉTÉ'},
 ];
 
 export const Installation: React.FC = () => {
@@ -68,6 +72,8 @@ export const Installation: React.FC = () => {
                 refract={[ry * 1.6, 0]}
                 opacity={1 - prog(t, CUT.hero - 0.12, CUT.hero)}
                 transform={`translate3d(${tx}px, ${ty}px, ${tz}px) rotateY(${ry}deg)`}
+                label={p.label}
+                labelIn={prog(t, p.t + 0.12, p.t + 0.5, ease.out)}
               />
             );
           })}

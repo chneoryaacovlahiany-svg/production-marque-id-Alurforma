@@ -2,6 +2,7 @@ import {CameraMotionBlur} from '@remotion/motion-blur';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {C} from '../brand';
 import {Plate} from '../components/Plate';
+import {fontFamily} from '../font';
 import {CUT, FPS, ease, mix, prog} from '../timing';
 import {pulse} from './Hero';
 
@@ -121,7 +122,56 @@ export const Tunnel: React.FC = () => {
           mixBlendMode: 'screen',
         }}
       />
+      <Methode t={t} />
       <AbsoluteFill style={{background: C.ivory, opacity: white}} />
     </AbsoluteFill>
+  );
+};
+
+/** Le « comment », frappé sur les pulsations, en bas du cadre (sur le sol sombre). */
+const WORDS: {word: string; at: number}[] = [
+  {word: '14 H PAR AN', at: 7.65},
+  {word: '100 % EN LIGNE', at: 8.22},
+  {word: 'À VOTRE RYTHME', at: 8.8},
+];
+
+const Methode: React.FC<{t: number}> = ({t}) => {
+  const end = CUT.convergence + 0.35;
+  const eyebrow = prog(t, CUT.tunnel + 0.1, CUT.tunnel + 0.5, ease.out) * (1 - prog(t, end - 0.25, end));
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, bottom: 56, textAlign: 'center', fontFamily}}>
+      <div style={{position: 'relative', height: 120}}>
+        {WORDS.map((w, i) => {
+          const next = WORDS[i + 1]?.at ?? end;
+          const e = prog(t, w.at, w.at + 0.22, ease.out);
+          // le mot sort juste avant la pulsation suivante : pas de chevauchement entre deux mots
+          const out = prog(t, next - 0.14, next - 0.02, ease.in);
+          if (e <= 0 || out >= 1) return null;
+          return (
+            <div
+              key={w.word}
+              style={{
+                position: 'absolute',
+                left: 0,
+                right: 0,
+                fontSize: 100,
+                fontWeight: 600,
+                letterSpacing: `${0.3 - e * 0.12}em`,
+                color: '#ffffff',
+                opacity: e * (1 - out),
+                transform: `scale(${1.18 - e * 0.18 + out * 0.08})`,
+                filter: `blur(${(1 - e) * 10 + out * 8}px)`,
+                textShadow: `0 0 40px rgba(143,178,255,0.45), 0 4px 30px rgba(1,5,15,0.9)`,
+              }}
+            >
+              {w.word}
+            </div>
+          );
+        })}
+      </div>
+      <div style={{fontSize: 24, fontWeight: 600, letterSpacing: '0.4em', color: C.goldLight, opacity: eyebrow, marginTop: 14, textShadow: '0 0 12px rgba(1,5,15,1), 0 2px 24px rgba(1,5,15,1)'}}>
+        VOTRE FORMATION OBLIGATOIRE
+      </div>
+    </div>
   );
 };
