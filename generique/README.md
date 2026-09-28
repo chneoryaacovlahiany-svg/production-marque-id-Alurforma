@@ -37,7 +37,8 @@ Au lieu de plaquer le logo à la fin, on traverse la porte, et la lumière de ce
 
 ## Sources
 
-- Image principale : `porte-1600.mp4` du site, fluidifiée à 50 i/s (interpolation de mouvement), agrandie en 1080p et jouée à demi-vitesse.
+- Image principale : plan de la porte du générique actuel (`ALURFORMA_CLAUDE_EXPORT/06_GENERIQUE_V26_1080P.mp4`, 0 – 4,4 s, vraie 1080p),
+  fluidifié à 50 i/s (interpolation de mouvement) et joué à demi-vitesse.
 - Logo, couleurs et police (Inter) : ceux du site `site-vitrine-Alurforma`.
 - Musique : jingle Suno « Éclat Fonctuel » (0 – 12 s), prolongé à 14 s par le sound design.
   Vérifier que la génération a été faite avec un abonnement Suno payant (usage commercial).

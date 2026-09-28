@@ -2,7 +2,7 @@ import {Img, OffthreadVideo, Sequence, staticFile, useCurrentFrame} from 'remoti
 import {FPS, H, W} from '../timing';
 
 /**
- * Image principale : le couloir et la porte de la marque (vidéo du site, fluidifiée à 50 i/s
+ * Image principale : le couloir et la porte de la marque (générique V26 en 1080p, fluidifié à 50 i/s
  * et jouée à demi-vitesse). Avant T0 on tient la première image (porte presque fermée,
  * un simple filet de lumière), après la fin on tient la dernière (porte grande ouverte).
  */
