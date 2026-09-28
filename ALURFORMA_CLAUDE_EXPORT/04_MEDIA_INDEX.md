@@ -1,0 +1,107 @@
+# Index des médias
+
+## `media/01_references_video/REF_01_001941_PRIMARY.mp4`
+
+Référence visuelle principale choisie par l’utilisateur.
+
+- Taille : 13.57 Mo
+- Durée : 21.833 s
+- SHA-256 : `fb54c544f262f96cbf8a24344e9b2ae2a3810d1d0ab53b838b511ca27a6f443c`
+
+## `media/01_references_video/REF_02_001701_SECONDARY.mp4`
+
+Référence secondaire : rythme / micro-éléments graphiques.
+
+- Taille : 9.36 Mo
+- Durée : 11.563 s
+- SHA-256 : `0dd3bcdb25ea39fef16305b6a80933fd15c7e0f895805447e74c16cddb4f34f6`
+
+## `media/01_references_video/REF_03_000837_SECONDARY.mp4`
+
+Référence secondaire : style corporate/LMS, jugé trop sage pour la direction principale.
+
+- Taille : 1.92 Mo
+- Durée : 8.960 s
+- SHA-256 : `7104a7ac88ded8a703184a222f0d166c9e0b44c6cd06bfc1b1482f2c6699a35e`
+
+## `media/02_audio/AUDIO_01_Eclat_Fonctuel_10.944s.mp3`
+
+Première génération courte Suno analysée comme prometteuse.
+
+- Taille : 0.25 Mo
+- Durée : 10.944 s
+- SHA-256 : `02977ad3439f3468f129092d56072b7b490d2a2d3a5979f9c07f3093c14d8f2b`
+
+## `media/02_audio/AUDIO_02_Eclat_Fonctuel_Suno_180s.mp3`
+
+Génération Suno complète de 3 minutes.
+
+- Taille : 4.31 Mo
+- Durée : 180.000 s
+- SHA-256 : `2ca9a80829f1b106df972d64d2f1421297de510f0be92aa6742917dcb3a569e2`
+
+## `media/02_audio/AUDIO_03_ALURFORMA_Jingle_Test_V1_12s.mp3`
+
+Découpe de 12 s retenue pour le prototype de générique.
+
+- Taille : 0.46 Mo
+- Durée : 12.072 s
+- SHA-256 : `08013a98b0079c72154544004be921a826b061f09ce878bdf6d0314a1034667a`
+
+## `media/03_tests_video/TEST_REJECTED_ALURFORMA_JINGLE_VISUAL_V1.mp4`
+
+Premier prototype vidéo rejeté : trop abstrait, image principale absente.
+
+- Taille : 2.47 Mo
+- Durée : 12.000 s
+- SHA-256 : `333a5c22c052ffa03f7fdc539769c915154840b994d4ce6ffaae1a5496951383`
+
+## `media/04_visuals/USER_SCREENSHOT_PREVIOUS_BOARD.png`
+
+Capture envoyée par l’utilisateur pendant le retour critique.
+
+- Taille : 2.21 Mo
+- SHA-256 : `7cad2053dd417e15121bf64adb83b94e8e46fdb70ab325b96ccee8a6d3443a05`
+
+## `media/04_visuals/VISUAL_01_FIRST_STYLEFRAME_BOARD.png`
+
+Première planche de style ALURFORMA.
+
+- Taille : 1.38 Mo
+- SHA-256 : `82f65830085ecefc301d97625afa4e8a653a677b5ed985f53182f99b2e101790`
+
+## `media/04_visuals/VISUAL_02_HERO_PORTAL_STYLEFRAME.png`
+
+Tentative de hero frame plus cinématique.
+
+- Taille : 1.56 Mo
+- SHA-256 : `bef7d192d8cdc5539607bfcd23b43a05cc04bfb1293b8c3b8d7c953b994b2b54`
+
+## `media/04_visuals/VISUAL_03_BOARD_WITH_MAIN_IMAGE.png`
+
+Storyboard corrigé avec image principale clairement intégrée.
+
+- Taille : 1.69 Mo
+- SHA-256 : `0d726054d0c594d1b8f4f580b97c2e9071887075064485134542d8d501fd7348`
+
+## `media/04_visuals/VISUAL_04_FULL_6_SHOT_STORYBOARD.png`
+
+Découpage final en 6 temps sur 12 s.
+
+- Taille : 1.77 Mo
+- SHA-256 : `f3f70a05d8172cb3579bbde05bbb52825e554a303ec493d15f33d0d63592e74b`
+
+## `media/05_contact_sheets/CONTACT_001701_SECONDARY.jpg`
+
+Planche contact dérivée de la référence secondaire.
+
+- Taille : 0.08 Mo
+- SHA-256 : `9d43448d92e3807fba4cec2b1568bd964978bbbf31d59bd36dab2224f9d55ddb`
+
+## `media/05_contact_sheets/CONTACT_001941_PRIMARY.jpg`
+
+Planche contact dérivée de la référence principale pour analyse rapide.
+
+- Taille : 0.12 Mo
+- SHA-256 : `96684984edfe2f19da12407bc522cf1e2734d5db20b7c51bbccd94dba85099eb`
+
