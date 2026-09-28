@@ -5,11 +5,11 @@ import logo from '../logo-paths.json';
 import {CUT, FPS, TOTAL, ease, mix, prog} from '../timing';
 
 /**
- * 15,57 → 18,6 s — La révélation.
+ * 9,80 → 17,08 s — La révélation.
  * La lumière de la porte devient la porte du logo. Le logo se construit comme un bâtiment :
  * tracé or (le plan), les deux chemins qui mènent à la porte, puis le « A » tombe sur le
- * premier coup grave de la fin de phrase (15,65 s), la porte s'ouvre, le nom se dévoile ; la signature
- * arrive sur le second coup (16,25 s), puis la fin résonne.
+ * l'accord résolu du morceau (9,87 s), la porte s'ouvre, le nom se dévoile ; la signature
+ * arrive en deux temps pendant que l'accord résonne et s'éteint.
  */
 const L = logo.layers;
 const DOOR = logo.meta.door.map(([x, y]) => `${x},${y}`).join(' ');
@@ -65,7 +65,7 @@ export const Revelation: React.FC = () => {
   const doorLight = mix(1, 0.12, prog(t, HIT, HIT + 1.4, ease.soft));
   const sheen = prog(t, CUT.signature + 0.1, CUT.signature + 0.95, ease.inOut);
 
-  // secousse caméra sur le premier coup grave, et plus légère sur la mention
+  // secousse caméra quand l'accord se pose, et plus légère sur la mention
   const shake = (hit: number, amp: number) => {
     const u = t - hit;
     return u < 0 ? 0 : amp * Math.exp(-u / 0.09) * Math.sin(u * 95);

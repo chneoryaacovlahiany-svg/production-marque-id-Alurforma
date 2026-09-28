@@ -3,29 +3,29 @@ import {Easing} from 'remotion';
 export const FPS = 25; // norme télé française
 export const W = 1920;
 export const H = 1080;
-export const TOTAL = 18.6;
+export const TOTAL = 17.08; // durée exacte du morceau « Warm Resolved Chord »
 export const TOTAL_FRAMES = Math.round(TOTAL * FPS);
 
 /**
- * Pulsations (s) du morceau Suno, joué tel quel (103,4 BPM), mesurées sur l'audio.
- * Il s'arrête dans le creux qui suit sa fin de phrase (coups graves à 15,65 et 16,25 s).
+ * Pulsations (s) du morceau « Warm Resolved Chord » (92,3 BPM), mesurées sur l'audio.
+ * Groove jusqu'à 8,2 s, passage en tension, puis l'accord résolu se pose à 9,87 s
+ * et s'éteint jusqu'au silence.
  */
 export const BEATS = [
-  0.09, 0.65, 1.23, 1.81, 2.51, 3.09, 3.65, 4.23, 4.81, 5.39, 5.94, 6.52, 7.11, 7.66, 8.24, 8.82, 9.4,
-  9.96, 10.54, 11.12, 11.68, 12.26, 12.84, 13.42, 13.98, 14.56, 15.14,
+  0.16, 0.81, 1.46, 2.11, 2.76, 3.41, 4.06, 4.71, 5.36, 6.01, 6.66, 7.31, 7.96, 8.61, 9.26,
 ];
 
-/** Découpage : chaque coupe tombe sur un temps ou un coup de la musique. */
+/** Découpage : chaque coupe tombe sur un temps ou un accent de la musique. */
 export const CUT = {
-  installation: 2.51,
-  hero: 5.94,
-  tunnel: 9.4,
-  convergence: 14.56, // plongée dans la porte
-  whiteout: 15.57,
-  logoHit: 15.65, // premier coup grave de la fin de phrase
-  taglineHit: 16.25, // second coup grave
-  tagline2: 16.8,
-  signature: 17.4, // mention et reflet, pendant que la fin résonne
+  installation: 1.46,
+  hero: 4.71,
+  tunnel: 7.31,
+  convergence: 8.61, // plongée dans la porte pendant le passage en tension
+  whiteout: 9.8,
+  logoHit: 9.87, // l'accord résolu se pose
+  taglineHit: 10.56,
+  tagline2: 11.21,
+  signature: 11.86, // mention et reflet, pendant que l'accord s'éteint
 };
 
 export const ease = {

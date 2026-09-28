@@ -7,19 +7,19 @@ import {CUT, FPS, ease, mix, prog} from '../timing';
 import {pulse} from './Hero';
 
 /**
- * 9,40 → 15,57 s — Accélération puis convergence.
+ * 7,31 → 9,80 s — Accélération puis convergence.
  * On file dans un couloir de portiques de verre, l'image principale au bout (la porte).
  * La vitesse monte avec la tension. Puis trois filets or se referment sur l'encadrement
  * de la porte, la lumière de la porte envahit la pièce juste avant le premier coup grave.
  */
 const SPACING = 820;
-const COUNT = 20;
+const COUNT = 16;
 const ORIGIN: [number, number] = [960, 515]; // centre de la porte dans l'image
 const DOOR = {x0: 827, y0: 70, x1: 1094, y1: 960}; // encadrement de la porte ouverte
 
 const camZ = (t: number) => {
   const u = Math.max(0, t - CUT.tunnel);
-  return 600 * u + 300 * u * u;
+  return 900 * u + 950 * u * u;
 };
 
 const plateScale = (t: number) =>
@@ -124,6 +124,13 @@ export const Tunnel: React.FC = () => {
           mixBlendMode: 'screen',
         }}
       />
+      {/* ombre au sol derrière les arguments, pour qu'ils restent lisibles devant la lumière */}
+      <AbsoluteFill
+        style={{
+          background: 'radial-gradient(ellipse 55% 34% at 50% 100%, rgba(1,5,15,0.82), rgba(1,5,15,0.5) 55%, rgba(1,5,15,0) 100%)',
+          opacity: prog(t, CUT.tunnel, CUT.tunnel + 0.3) * (1 - prog(t, CUT.whiteout - 0.6, CUT.whiteout - 0.3)),
+        }}
+      />
       <Methode t={t} />
       <AbsoluteFill
         style={{
@@ -135,50 +142,46 @@ export const Tunnel: React.FC = () => {
   );
 };
 
-/** Le « comment », frappé sur les pulsations, en bas du cadre (sur le sol sombre). */
+/**
+ * Le « comment » : les trois arguments s'empilent sur les demi-temps et restent à l'écran
+ * ensemble jusqu'à la plongée dans la lumière (lisibles sans défilement).
+ */
 const WORDS: {word: string; at: number}[] = [
-  {word: '14 H PAR AN', at: 9.45},
-  {word: '100 % EN LIGNE', at: 11.12},
-  {word: 'À VOTRE RYTHME', at: 12.84},
+  {word: '14 H PAR AN', at: 7.31},
+  {word: '100 % EN LIGNE', at: 7.63},
+  {word: 'À VOTRE RYTHME', at: 7.96},
 ];
 
 const Methode: React.FC<{t: number}> = ({t}) => {
   const end = CUT.whiteout - 0.3;
-  const eyebrow = prog(t, CUT.tunnel + 0.1, CUT.tunnel + 0.5, ease.out) * (1 - prog(t, end - 0.25, end));
+  const out = prog(t, end - 0.3, end, ease.in);
+  const eyebrow = prog(t, CUT.tunnel, CUT.tunnel + 0.4, ease.out);
   return (
-    <div style={{position: 'absolute', left: 0, right: 0, bottom: 56, textAlign: 'center', fontFamily}}>
-      <div style={{position: 'relative', height: 120}}>
-        {WORDS.map((w, i) => {
-          const next = WORDS[i + 1]?.at ?? end;
-          const e = prog(t, w.at, w.at + 0.22, ease.out);
-          // le mot sort juste avant la pulsation suivante : pas de chevauchement entre deux mots
-          const out = prog(t, next - 0.14, next - 0.02, ease.in);
-          if (e <= 0 || out >= 1) return null;
-          return (
-            <div
-              key={w.word}
-              style={{
-                position: 'absolute',
-                left: 0,
-                right: 0,
-                fontSize: 100,
-                fontWeight: 600,
-                letterSpacing: `${0.3 - e * 0.12}em`,
-                color: '#ffffff',
-                opacity: e * (1 - out),
-                transform: `scale(${1.18 - e * 0.18 + out * 0.08})`,
-                filter: `blur(${(1 - e) * 10 + out * 8}px)`,
-                textShadow: `0 0 40px rgba(143,178,255,0.45), 0 4px 30px rgba(1,5,15,0.9)`,
-              }}
-            >
-              {w.word}
-            </div>
-          );
-        })}
-      </div>
-      <div style={{fontSize: 24, fontWeight: 600, letterSpacing: '0.4em', color: C.goldLight, opacity: eyebrow, marginTop: 14, textShadow: '0 0 12px rgba(1,5,15,1), 0 2px 24px rgba(1,5,15,1)'}}>
+    <div style={{position: 'absolute', left: 0, right: 0, bottom: 70, textAlign: 'center', fontFamily, opacity: 1 - out, filter: out ? `blur(${out * 8}px)` : undefined}}>
+      <div style={{fontSize: 22, fontWeight: 600, letterSpacing: '0.4em', color: C.goldLight, opacity: eyebrow, marginBottom: 16, textShadow: '0 0 12px rgba(1,5,15,1), 0 2px 24px rgba(1,5,15,1)'}}>
         VOTRE FORMATION OBLIGATOIRE
       </div>
+      {WORDS.map((w) => {
+        const e = prog(t, w.at, w.at + 0.28, ease.out);
+        return (
+          <div
+            key={w.word}
+            style={{
+              fontSize: 68,
+              fontWeight: 600,
+              lineHeight: 1.18,
+              letterSpacing: `${0.26 - e * 0.1}em`,
+              color: '#ffffff',
+              opacity: e,
+              transform: `translateY(${(1 - e) * 18}px) scale(${1.08 - e * 0.08})`,
+              filter: `blur(${(1 - e) * 8}px)`,
+              textShadow: `0 0 36px rgba(143,178,255,0.45), 0 4px 28px rgba(1,5,15,0.95)`,
+            }}
+          >
+            {w.word}
+          </div>
+        );
+      })}
     </div>
   );
 };

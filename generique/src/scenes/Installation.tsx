@@ -5,10 +5,10 @@ import {Plate} from '../components/Plate';
 import {CUT, FPS, ease, mix, prog} from '../timing';
 
 /**
- * 2,51 → 5,94 s — L'installation.
+ * 1,46 → 4,71 s — L'installation.
  * Les panneaux de verre entrent sur les pulsations (langage de la référence 001941),
  * chacun est une fenêtre réfractée sur l'image principale. Puis ils pivotent comme
- * des volets et libèrent l'image en plein cadre, pile sur la coupe de 5,94 s.
+ * des volets et libèrent l'image en plein cadre, pile sur la coupe de 4,71 s.
  */
 type P = {
   t: number;
@@ -25,14 +25,14 @@ type P = {
 };
 
 const PANELS: P[] = [
-  {t: 2.51, x: 200, y: 330, w: 540, h: 660, ry: 26, z: 0, from: [1500, 0, -500, -60], tint: 'green', exitSide: -1, label: 'DÉONTOLOGIE'},
-  {t: 2.8, x: 1060, y: 80, w: 470, h: 920, ry: -22, z: -120, from: [-1500, 0, -400, 70], tint: 'navy', exitSide: 1, label: 'NON-\nDISCRIMINATION'},
-  {t: 3.09, x: 1590, y: 220, w: 360, h: 680, ry: -36, z: -320, from: [0, 1100, -200, -30], tint: 'clear', exitSide: 1, label: 'ANTI-\nBLANCHIMENT'},
-  {t: 3.37, x: 130, y: -70, w: 470, h: 270, ry: 18, z: -400, from: [-1400, -300, -300, 40], tint: 'navy', exitSide: -1, label: 'GESTION\nLOCATIVE'},
-  {t: 3.65, x: 700, y: -20, w: 420, h: 330, ry: 6, z: -900, from: [0, -1400, -300, 0], tint: 'clear', exitSide: -1, label: 'TRANSACTION'},
-  {t: 3.94, x: 690, y: 790, w: 440, h: 300, ry: -6, z: -900, from: [0, 1400, -300, 0], tint: 'green', exitSide: 1, label: 'DPE &\nÉNERGIE'},
-  {t: 4.23, x: 1720, y: -70, w: 440, h: 200, ry: -20, z: -520, from: [1400, -300, -300, -40], tint: 'clear', exitSide: 1, label: 'FISCALITÉ'},
-  {t: 4.52, x: 760, y: 360, w: 300, h: 380, ry: 0, z: -1500, from: [0, 0, -2600, 0], tint: 'navy', exitSide: 1, label: 'COPRO-\nPRIÉTÉ'},
+  {t: 1.46, x: 200, y: 330, w: 540, h: 660, ry: 26, z: 0, from: [1500, 0, -500, -60], tint: 'green', exitSide: -1, label: 'DÉONTOLOGIE'},
+  {t: 1.79, x: 1060, y: 80, w: 470, h: 920, ry: -22, z: -120, from: [-1500, 0, -400, 70], tint: 'navy', exitSide: 1, label: 'NON-\nDISCRIMINATION'},
+  {t: 2.11, x: 1590, y: 220, w: 360, h: 680, ry: -36, z: -320, from: [0, 1100, -200, -30], tint: 'clear', exitSide: 1, label: 'ANTI-\nBLANCHIMENT'},
+  {t: 2.44, x: 130, y: -70, w: 470, h: 270, ry: 18, z: -400, from: [-1400, -300, -300, 40], tint: 'navy', exitSide: -1, label: 'GESTION\nLOCATIVE'},
+  {t: 2.76, x: 700, y: -20, w: 420, h: 330, ry: 6, z: -900, from: [0, -1400, -300, 0], tint: 'clear', exitSide: -1, label: 'TRANSACTION'},
+  {t: 3.09, x: 690, y: 790, w: 440, h: 300, ry: -6, z: -900, from: [0, 1400, -300, 0], tint: 'green', exitSide: 1, label: 'DPE &\nÉNERGIE'},
+  {t: 3.41, x: 1720, y: -70, w: 440, h: 200, ry: -20, z: -520, from: [1400, -300, -300, -40], tint: 'clear', exitSide: 1, label: 'FISCALITÉ'},
+  {t: 3.74, x: 760, y: 360, w: 300, h: 380, ry: 0, z: -1500, from: [0, 0, -2600, 0], tint: 'navy', exitSide: 1, label: 'COPRO-\nPRIÉTÉ'},
 ];
 
 export const Installation: React.FC = () => {
