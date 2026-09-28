@@ -58,5 +58,45 @@
     "video_url": "https://resource2.heygen.ai/tmp/seedance2_output/defd37ccf53da36f1b0613e82fef2994.mp4",
     "duration_out": 4.0,
     "file": "film/plans/PLAN03_heygen_4s_1080p.mp4"
+  },
+  "6ac": {
+    "video_id": "737cbdb2d92c4286895fc4c4369fc2c8",
+    "plan": "6ac",
+    "status": "completed",
+    "duration": 10,
+    "submitted_at": 1790633695.398563,
+    "video_url": "https://resource2.heygen.ai/tmp/seedance2_output/fa8ce3c0a36a0d057823a86da64cb6ad.mp4",
+    "duration_out": 10.0,
+    "file": "film/plans/PLAN06AC_heygen_10s_1080p.mp4"
+  },
+  "6b": {
+    "video_id": "67fddfafaaf04bb38d523931822680f7",
+    "plan": "6b",
+    "status": "completed",
+    "duration": 4,
+    "submitted_at": 1790633698.8666096,
+    "video_url": "https://resource2.heygen.ai/tmp/seedance2_output/6cc247678f603647fb26d44b1965df18.mp4",
+    "duration_out": 4.0,
+    "file": "film/plans/PLAN06B_heygen_4s_1080p.mp4"
+  },
+  "7ab": {
+    "video_id": "bc5df7aeeaa043989abc00144ea69e9c",
+    "plan": "7ab",
+    "status": "completed",
+    "duration": 8,
+    "submitted_at": 1790633702.2988687,
+    "video_url": "https://resource2.heygen.ai/tmp/seedance2_output/3a71df460dff5d1d3f0efc5678b90e8a.mp4",
+    "duration_out": 8.0,
+    "file": "film/plans/PLAN07AB_heygen_8s_1080p.mp4"
+  },
+  "10": {
+    "video_id": "cf9f8f106bf6456f931fd58f3376f1c1",
+    "plan": "10",
+    "status": "completed",
+    "duration": 5,
+    "submitted_at": 1790633706.2369874,
+    "video_url": "https://resource2.heygen.ai/tmp/seedance2_output/44af2d78669d55b053b9d143c03c9cf7.mp4",
+    "duration_out": 5.0,
+    "file": "film/plans/PLAN10_heygen_5s_1080p.mp4"
   }
 }

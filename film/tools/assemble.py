@@ -15,7 +15,7 @@ FONT = str(FILM / "fonts" / "Inter-SemiBold.ttf")
 FONT_R = str(FILM / "fonts" / "Inter-Regular.ttf")
 INTRO = ROOT / "ALURFORMA_CLAUDE_EXPORT" / "ALURFORMA_GENERIQUE_MASTER_1080p25-V2.mp4"
 OUTRO = ROOT / "ALURFORMA_CLAUDE_EXPORT" / "06_GENERIQUE_V26_1080P.mp4"
-VO = FILM / "vo" / "VO_B_v110.wav"    # remplacé par --vo <fichier> (son fichier *_mots.json recale le découpage)
+VO = FILM / "vo" / "VO_A_v100.wav"    # voix retenue : French Expert Narrator à 1,0 ; --vo <fichier> pour en essayer une autre
 WORK = FILM / "work"; OUT = FILM / "out"
 FILM_START = 15.5     # absolu
 FILM_DUR = 29.0       # recalculé sur la voix : dernier mot + 0,15 s, minimum 29,0
