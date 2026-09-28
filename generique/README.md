@@ -1,6 +1,6 @@
 # Générique Alurforma — « Le Seuil »
 
-Générique de marque de 20 s, 16:9, 1920×1080, 25 i/s (norme TV française).
+Générique de marque de 18,7 s, 16:9, 1920×1080, 25 i/s (norme TV française).
 
 ## Le concept
 
@@ -18,10 +18,10 @@ Au lieu de plaquer le logo à la fin, on traverse la porte, et la lumière de ce
 | 0 – 2,51 s | **Ouverture.** Noir. Sur chaque temps, un filet de lumière or tombe puis s'ouvre en fenêtre sur l'image principale. La première fenêtre s'ouvre pile sur le filet de lumière de la porte. | Clavinet, tintements de verre |
 | 2,51 – 5,94 s | **Quoi ?** Huit panneaux de verre entrent sur les temps (langage de la référence 001941), chacun gravé d'un thème : DÉONTOLOGIE, NON-DISCRIMINATION, ANTI-BLANCHIMENT, GESTION LOCATIVE, FISCALITÉ, TRANSACTION, DPE & ÉNERGIE, COPROPRIÉTÉ. Puis ils pivotent comme des volets et libèrent l'image. | Le groove s'installe |
 | 5,94 – 9,40 s | **Pourquoi ?** Image principale en plein cadre, lente poussée vers la porte. « FORMATIONS ALUR EN LIGNE », « Renouvelez votre carte professionnelle », « sans perdre de temps. » | Groove complet, montée |
-| 9,40 – 12,55 s | **Comment ?** Couloir de parois de verre, la porte au bout : 14 H PAR AN · 100 % EN LIGNE · À VOTRE RYTHME, sous « VOTRE FORMATION OBLIGATOIRE ». Puis trois filets or se referment sur la porte et sa lumière envahit la pièce. | **Break** : la basse s'arrête |
-| **12,63 s** | **Le « A » tombe**, les chemins se dessinent, la porte s'ouvre, puis le nom se dévoile. | **Le coup** |
-| 14,04 / 15,20 s | « COMPRENDRE LA RÈGLE. » / « SÉCURISER LA PRATIQUE. » | Second break |
-| **16,36 s** | « FORMATION PROFESSIONNELLE IMMOBILIÈRE », reflet satiné sur le logo, tenue. | **Accord final**, qui résonne jusqu'au fondu (18,5 → 20 s) |
+| 9,40 – 13,88 s | **Comment ?** Couloir de parois de verre, la porte au bout : 14 H PAR AN · 100 % EN LIGNE · À VOTRE RYTHME, sous « VOTRE FORMATION OBLIGATOIRE ». Puis trois filets or se referment sur la porte et sa lumière envahit la pièce. | Groove, montée filtrée et accord inversé sur la dernière mesure |
+| **13,96 s** | **Le « A » tombe**, les chemins se dessinent, la porte s'ouvre, puis le nom se dévoile. | **Accord final du morceau** |
+| 15,21 / 15,91 s | « COMPRENDRE LA RÈGLE. » / « SÉCURISER LA PRATIQUE. » | L'accord résonne |
+| 16,66 s | « FORMATION PROFESSIONNELLE IMMOBILIÈRE », reflet satiné sur le logo, tenue. | L'accord s'éteint naturellement (≈ 18,4 s) |
 
 ## Textes
 
@@ -37,20 +37,19 @@ FISCALITÉ et DPE & ÉNERGIE ont été ajoutés car Alurforma prévoit de couvri
 Les thèmes se modifient dans `src/scenes/Installation.tsx`, les accroches dans `src/scenes/Hero.tsx` et `src/scenes/Tunnel.tsx`,
 tous les temps de coupe dans `src/timing.ts`.
 
-## Musique : montage sur la vraie fin du morceau
+## Musique : le morceau en continu, puis son accord final
 
-Le morceau Suno « Éclat Fonctuel » dure 3 min et a une vraie fin (break sans basse, coup,
-second break, accord final tenu). `tools/sound_design.py` raccorde :
+Le morceau Suno « Éclat Fonctuel » dure 3 min. `tools/sound_design.py` :
 
-- le début du morceau, de 0 à 9,36 s (4 mesures) ;
-- à sa fin, à partir de 167,95 s, en plein break.
+- joue le morceau **en continu** depuis le début, sans aucune coupe, jusqu'à 13,96 s (premier temps) ;
+- enchaîne alors sur **l'accord final du morceau** (≈ 175,06 s), qui résonne jusqu'au silence.
 
-Les deux points sont des premiers temps de mesure (grille vérifiée : l'accord final tombe sur un
-premier temps), recalés à l'échantillon près sur les attaques, avec un fondu enchaîné de 25 ms.
-Dans le générique : raccord 9,36 s, coup 12,63 s, accord final 16,36 s.
+Le raccord se cache sous l'attaque de l'accord, recalée à l'échantillon près, avec un fondu enchaîné
+de 30 ms. Il est préparé par l'accord final lui-même passé à l'envers (« reverse swell », donc dans la
+tonalité) et par une montée filtrée sur la dernière mesure, pendant que le groove s'efface de 4 dB.
 
-Le sound design reste discret et hors tonalité (whooshes sur les coupes, montée jusqu'au break,
-souffle de lumière, tintements de verre à l'ouverture) : rien n'est ajouté sur les coups de la musique.
+Le reste du sound design est discret et hors tonalité : whooshes sur les coupes, tintements de verre
+à l'ouverture.
 
 ## Fichiers
 

@@ -7,10 +7,10 @@ import {CUT, FPS, ease, mix, prog} from '../timing';
 import {pulse} from './Hero';
 
 /**
- * 9,40 → 12,55 s — Accélération puis convergence, pendant le break de la musique.
+ * 9,40 → 13,88 s — Accélération puis convergence.
  * On file dans un couloir de portiques de verre, l'image principale au bout (la porte).
  * La vitesse monte avec la tension. Puis trois filets or se referment sur l'encadrement
- * de la porte, la lumière de la porte envahit la pièce juste avant le coup.
+ * de la porte, la lumière de la porte envahit la pièce juste avant l'accord final.
  */
 const SPACING = 820;
 const COUNT = 16;

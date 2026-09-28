@@ -5,11 +5,11 @@ import logo from '../logo-paths.json';
 import {CUT, FPS, TOTAL, ease, mix, prog} from '../timing';
 
 /**
- * 12,55 → 20 s — La révélation.
+ * 13,88 → 18,72 s — La révélation.
  * La lumière de la porte devient la porte du logo. Le logo se construit comme un bâtiment :
  * tracé or (le plan), les deux chemins qui mènent à la porte, puis le « A » tombe sur le
- * coup de la fin du morceau (12,63 s), la porte s'ouvre, le nom se dévoile ; la signature
- * arrive en deux temps (14,04 s et 15,20 s), la mention sur l'accord final (16,36 s).
+ * l'accord final du morceau (13,96 s), la porte s'ouvre, le nom se dévoile ; la signature
+ * arrive en deux temps pendant que l'accord résonne.
  */
 const L = logo.layers;
 const DOOR = logo.meta.door.map(([x, y]) => `${x},${y}`).join(' ');
@@ -63,18 +63,18 @@ export const Revelation: React.FC = () => {
   const word = prog(t, HIT + 0.55, HIT + 1.2, ease.out);
   const wordOutline = prog(t, W0, HIT + 0.6, ease.inOut);
   const doorLight = mix(1, 0.12, prog(t, HIT, HIT + 1.4, ease.soft));
-  const sheen = prog(t, CUT.finalChord + 0.1, CUT.finalChord + 0.95, ease.inOut);
+  const sheen = prog(t, CUT.signature + 0.1, CUT.signature + 0.95, ease.inOut);
 
-  // secousse caméra sur le coup, et plus légère sur l'accord final
+  // secousse caméra sur l'accord final, et plus légère sur la mention
   const shake = (hit: number, amp: number) => {
     const u = t - hit;
     return u < 0 ? 0 : amp * Math.exp(-u / 0.09) * Math.sin(u * 95);
   };
-  const sy = shake(HIT, 4) + shake(CUT.finalChord, 1.2);
+  const sy = shake(HIT, 4) + shake(CUT.signature, 1.2);
   const flash = t >= HIT ? Math.exp(-(t - HIT) / 0.18) : 0;
 
   const line = prog(t, CUT.taglineHit - 0.35, CUT.taglineHit + 0.25, ease.out);
-  const sub = prog(t, CUT.finalChord, CUT.finalChord + 0.6, ease.out);
+  const sub = prog(t, CUT.signature, CUT.signature + 0.6, ease.out);
 
   return (
     <AbsoluteFill style={{background: `radial-gradient(ellipse 65% 60% at 50% 42%, #ffffff, ${C.ivory} 58%, #efeadf)`, overflow: 'hidden'}}>
