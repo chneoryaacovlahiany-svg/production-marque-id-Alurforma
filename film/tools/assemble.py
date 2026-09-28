@@ -25,29 +25,36 @@ NAVY, EMERALD, GOLD, IVORY = "0x041d4b", "0x0b8f63", "0xc9a56a", "0xfaf8f3"
 # Le point d'entrée « in » se règle plan par plan après visionnage.
 SEGMENTS = [
     ("1",  0.00,  2.20, "Le matin, le téléphone", 0.3),
-    ("2",  2.20,  4.60, "La visite", 0.3),
-    ("3",  4.60,  6.16, "Plus tard", 0.3),
+    ("2",  2.20,  4.60, "La visite", 0.5),          # remise des clés, sourire
+    ("3",  4.60,  6.16, "Plus tard", 1.2),          # notification visible puis balayée
     ("4",  6.16,  9.50, "L'échéance", 0.5),     # lecture du courrier, agenda, respiration (avant le regard caméra)
-    ("5",  9.50, 11.66, "La découverte", 0.5),
+    ("5",  9.50, 11.66, "La découverte", 1.5),      # arc autour de l'écran alurforma.fr
     ("6a", 11.66, 13.05, "La formation — la leçon", 0.5),
     ("6b", 13.05, 14.44, "La formation — entre deux visites", 0.5),
     ("6c", 14.44, 15.82, "La formation — la validation", 0.5),
     ("7a", 15.82, 18.50, "L'attestation — à l'écran", 0.3),
     ("7b", 18.50, 20.32, "L'attestation — la chemise", 0.5),
-    ("8",  20.32, 23.64, "L'accompagnement", 0.5),
+    ("8",  20.32, 23.64, "L'accompagnement", 1.0),   # lecture, demi-sourire, pose le téléphone
     ("9",  23.64, 26.60, "Retour au métier", 2.8),   # veste prise, sortie, poignée de main
     ("10", 26.60, 29.00, "L'agence vide → le couloir", 0.3),
 ]
 PLAN1 = FILM / "plans" / "PLAN01_test_heygen_5s_1080p.mp4"
 
 
+# Un clip généré en une fois pour deux segments (prix HeyGen fixe par vidéo) : segment -> (clé du job, point d'entrée)
+ALIAS = {"6a": ("6ac", 0.5), "6c": ("6ac", 6.0), "7a": ("7ab", 0.5), "7b": ("7ab", 4.5)}
+
+
 def clip_files():
-    files = {"1": PLAN1} if PLAN1.exists() else {}
+    files = {"1": (PLAN1, None)} if PLAN1.exists() else {}
     jobs_path = FILM / "plans" / "jobs.json"
-    if jobs_path.exists():
-        for key, j in json.loads(jobs_path.read_text()).items():
-            if j.get("file") and j.get("use", True):
-                files[key] = ROOT / j["file"]
+    jobs = json.loads(jobs_path.read_text()) if jobs_path.exists() else {}
+    for key, j in jobs.items():
+        if j.get("file") and j.get("use", True):
+            files[key] = (ROOT / j["file"], None)
+    for seg, (job, inpt) in ALIAS.items():
+        if seg not in files and job in jobs and jobs[job].get("file") and jobs[job].get("use", True):
+            files[seg] = (ROOT / jobs[job]["file"], inpt)
     return files
 
 
@@ -62,7 +69,10 @@ def build_film():
     for i, (key, t0, t1, title, inpt) in enumerate(SEGMENTS):
         dur = round(t1 - t0, 3)
         if key in files:
-            inputs += ["-i", str(files[key])]
+            path, alias_in = files[key]
+            if alias_in is not None:
+                inpt = alias_in
+            inputs += ["-i", str(path)]
             idx = len(inputs) // 2 - 1
             # clips HeyGen à 24 i/s : passage à 25 i/s par légère accélération (pas d'image doublée)
             filters.append(

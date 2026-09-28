@@ -85,6 +85,20 @@ PLANS = {
         "Wide shot, slow dolly backwards, 35 mm, late-afternoon golden backlight, the agency. Hugo closes the laptop, takes his "
         "keys and blazer, walks through the agency and out through the glass entrance door, which ends up exactly centered in the "
         "frame. Outside, a client waits and they shake hands, seen through the glass. Mood: confidence, lightness."),
+    # Plans fusionnés (le prix HeyGen est le même par vidéo, 4 à 6 s mesurés) : un clip pour deux segments.
+    "6ac": dict(duration=10, agency=True, prompt=
+        "One continuous shot at the agency, evening lamp light turning to late-afternoon glow. First 5 seconds: profile shot, "
+        "50 mm, Hugo watches a video lesson on the laptop, a trainer speaking in a clean navy-and-ivory interface labelled "
+        "\"Leçon 2 / 3\", and writes one note in his diary. Then the camera slowly arcs to a frontal medium shot, laptop screen in "
+        "the lower foreground edge: an emerald check mark appears with the words \"Évaluation validée\"; Hugo leans back into his "
+        "chair, shoulders dropping, a small exhale. Mood: focus, then ease."),
+    "7ab": dict(duration=8, agency=True, prompt=
+        "One continuous shot at the agency, soft daylight, medium close shot over the laptop, 50 mm. First 4 seconds: Hugo "
+        "watches a document titled \"Attestation de formation\" compose itself on an ivory page with a navy header, then a short "
+        "list \"Documents utiles à votre dossier\" (attestation, programme, durée, date); he clicks. Then, his face visible above "
+        "his hands, he takes a freshly printed attestation from the printer beside him and slides it into a midnight-navy folder "
+        "labelled \"Carte professionnelle — renouvellement\". A soft emerald glass reflection with a thin gold edge sweeps across "
+        "the screen. Mood: things falling into place, order."),
     "10": dict(duration=5, agency=True, prompt=
         "Static wide shot, 35 mm, the same agency completely empty, nobody in the frame, no person at all: Hugo has already left. "
         "The glass entrance door centered with warm late-afternoon light behind it, the brass lamp off, the chairs empty. Calm, "
