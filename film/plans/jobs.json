@@ -1,0 +1,22 @@
+{
+  "4": {
+    "video_id": "cf8605fb87b74387ac6d6b8340873c12",
+    "plan": "4",
+    "status": "completed",
+    "duration": 6,
+    "submitted_at": 1790630078.660478,
+    "video_url": "https://resource2.heygen.ai/tmp/seedance2_output/68d1bc64e438a70b2fbeab2d7ddf7a02.mp4",
+    "duration_out": 6.0,
+    "file": "film/plans/PLAN04_heygen_6s_1080p.mp4"
+  },
+  "9": {
+    "video_id": "a20f6f5bb819454aa6765cabb6303e03",
+    "plan": "9",
+    "status": "completed",
+    "duration": 6,
+    "submitted_at": 1790630082.8135116,
+    "video_url": "https://resource2.heygen.ai/tmp/seedance2_output/ac253aadd3eccfb5e138ce6742129c33.mp4",
+    "duration_out": 6.0,
+    "file": "film/plans/PLAN09_heygen_6s_1080p.mp4"
+  }
+}
