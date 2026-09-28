@@ -87,6 +87,7 @@ def retime_from_vo(vo_path):
 
 
 T_A, T_B = 25.68, 27.38  # débuts des deux phrases finales (voix B v110)
+GRADE = True
 
 
 # Un clip généré en une fois pour deux segments (prix HeyGen fixe par vidéo) : segment -> (clé du job, point d'entrée)
@@ -134,7 +135,17 @@ def build_film():
                 f"drawtext=fontfile={FONT_R}:textfile={txt('gen', 'à générer')}:fontcolor={GOLD}:fontsize=22:x=120:y=560[s{i}]")
         labels.append(f"[s{i}]")
     n = len(SEGMENTS)
-    filters.append("".join(labels) + f"concat=n={n}:v=1:a=0[cat]")
+    filters.append("".join(labels) + f"concat=n={n}:v=1:a=0[cat0]")
+    # Étalonnage unique (dossier § 4.6) : ombres bleu nuit, hautes lumières légèrement chaudes, saturation contenue,
+    # contraste doux, grain fin. Désactivable avec --no-grade.
+    if GRADE:
+        filters.append(
+            "[cat0]colorbalance=rs=-0.05:gs=-0.02:bs=0.08:rm=0.0:gm=0.0:bm=0.02:rh=0.05:gh=0.02:bh=-0.04,"
+            "eq=saturation=0.9:contrast=1.04:brightness=-0.01:gamma=1.0,"
+            "curves=all='0/0.02 0.25/0.24 0.75/0.77 1/0.98',"
+            "noise=alls=5:allf=t+u,format=yuv420p[cat]")
+    else:
+        filters.append("[cat0]null[cat]")
     # Plan 10 : panneau de verre émeraude à liseré or (2,1 s avant la fin), virage bleu nuit dans son sillage, texte en deux temps.
     p0, pdur = round(FILM_DUR - 2.1, 2), 2.1
     filters.append(
@@ -188,6 +199,7 @@ def build_full():
 
 
 if __name__ == "__main__":
+    GRADE = "--no-grade" not in sys.argv
     if "--vo" in sys.argv:
         VO = pathlib.Path(sys.argv[sys.argv.index("--vo") + 1]).resolve()
     retime_from_vo(VO)

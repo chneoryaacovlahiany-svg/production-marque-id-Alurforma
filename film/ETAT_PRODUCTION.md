@@ -45,13 +45,31 @@ le film dure dernier mot + 0,15 s (32,3 s avec la voix A) et le générique de f
 - `tools/vo_candidats.py` : voix off HeyGen (texte → parole) pour plusieurs voix ; `tools/vo_analyse.py` : mesures de prosodie.
 - `fonts/` : Inter (SIL Open Font License), pour les textes incrustés.
 
-## Montage courant
+## Musique
 
-`out/ALURFORMA_FILM_HUGO_montage_voixA.mp4` (master, 49 Mo) et `_voixA_preview.mp4` (copie légère) : **film complet**, 55,4 s,
-1920×1080, 25 i/s, −16,2 LUFS, crête −3 dBTP. Générique d'ouverture → 13 segments réels (plans 1 à 10) → générique de fin. Aucun carton.
+« Warm Piano Motif » (Suno, prompt § 6.6 en 500 caractères, choisi par le client parmi deux propositions) :
+`ALURFORMA_CLAUDE_EXPORT/Warm Piano Motif.mp3`, 40 s, fin naturelle à 39 s. L'autre proposition, « Calm Reassurance », reste dans le même dossier.
+Au mixage : normalisée à −23 LUFS sous la voix (−18 LUFS), naît à 14,0 s absolu sous l'accord du générique d'ouverture (fondu 3 s),
+s'éteint sur 2 s sous la montée du générique de fin.
 
-## Reste à faire
+## Étalonnage
 
-1. Musique du film (prompt Suno § 6.6) : déposer en `work/musique.wav`, `assemble.py` la mixe automatiquement.
-2. Étalonnage unique, textes d'interface lisibles (courrier plan 4, écrans plans 3, 5, 6, 7, 8) si on les veut nets.
-3. Masters −14 LUFS (web) et −23 LUFS (TV).
+Appliqué aux dix plans (pas aux génériques), dans `tools/assemble.py` (`--no-grade` pour le désactiver) :
+ombres vers le bleu nuit, hautes lumières légèrement chaudes, saturation 0,9, contraste doux, courbe avec noirs et blancs
+légèrement relevés, grain fin.
+
+## Masters (`tools/masters.py`, loudnorm deux passes, vidéo intacte)
+
+| Fichier | Norme | Mesuré |
+|---|---|---|
+| `out/ALURFORMA_FILM_HUGO_MASTER_1080p25_web.mp4` + `_web.wav` | web / réseaux : −14 LUFS, −1 dBTP | −13,9 LUFS, −1,4 dBTP, LRA 5,9 LU |
+| `out/ALURFORMA_FILM_HUGO_MASTER_1080p25_broadcast_r128.mp4` + `_broadcast_r128.wav` | TV EBU R128 : −23 LUFS, −1 dBTP | −23,0 LUFS, −9,8 dBTP, LRA 7,1 LU |
+
+55,44 s, 1920×1080, 25 i/s, H.264 BT.709. `out/ALURFORMA_FILM_HUGO_MASTER_web_preview.mp4` : copie légère pour relecture.
+Le montage intermédiaire (`out/ALURFORMA_FILM_HUGO_montage*.mp4`) n'est plus versionné : `python3 film/tools/assemble.py` le régénère.
+
+## Reste à faire (optionnel)
+
+1. Textes d'interface nets (notification plan 3, écran plan 5, message plan 8, courrier plan 4) : cartes propres à incruster au montage.
+2. Mention légale en bas du plan 10 si diffusion publicitaire (dossier § 9).
+3. Version courte 21 s (dossier § 8) si besoin.

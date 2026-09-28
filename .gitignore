@@ -3,3 +3,4 @@
 .env.*
 *.env.txt
 film/work/
+film/out/ALURFORMA_FILM_HUGO_montage*.mp4
