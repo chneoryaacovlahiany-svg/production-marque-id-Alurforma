@@ -15,6 +15,7 @@ FONT = str(FILM / "fonts" / "Inter-SemiBold.ttf")
 FONT_R = str(FILM / "fonts" / "Inter-Regular.ttf")
 INTRO = ROOT / "ALURFORMA_CLAUDE_EXPORT" / "ALURFORMA_GENERIQUE_MASTER_1080p25-V2.mp4"
 OUTRO = ROOT / "ALURFORMA_CLAUDE_EXPORT" / "06_GENERIQUE_V26_1080P.mp4"
+MUSIC = ROOT / "ALURFORMA_CLAUDE_EXPORT" / "Warm Piano Motif.mp3"   # musique du film (Suno, prompt § 6.6), choisie par le client
 VO = FILM / "vo" / "VO_A_v100.wav"    # voix retenue : French Expert Narrator à 1,0 ; --vo <fichier> pour en essayer une autre
 WORK = FILM / "work"; OUT = FILM / "out"
 FILM_START = 15.5     # absolu
@@ -161,7 +162,7 @@ def build_film():
 
 def build_full():
     OUT.mkdir(exist_ok=True)
-    music = WORK / "musique.wav"   # musique du film (§ 6.6), quand elle existera
+    music = MUSIC if MUSIC.exists() else WORK / "musique.wav"
     inputs = ["-i", str(INTRO), "-i", str(WORK / "film.mp4"), "-i", str(OUTRO), "-i", str(VO)]
     fc = [
         f"[0:v][1:v]xfade=transition=fade:duration=1.5:offset={FILM_START}[v01]",
@@ -173,8 +174,8 @@ def build_full():
     mix = "[in][vo][out]"; n = 3
     if music.exists():
         inputs += ["-i", str(music)]
-        fc.append("[4:a]aformat=sample_rates=48000:channel_layouts=stereo,adelay=14000|14000,"
-                  f"afade=t=in:st=14:d=3,afade=t=out:st={OUTRO_START - 0.3}:d=2,volume=-4dB[mus]")
+        fc.append("[4:a]aformat=sample_rates=48000:channel_layouts=stereo,loudnorm=I=-23:TP=-6:LRA=9,adelay=14000|14000,"
+                  f"afade=t=in:st=14:d=3,afade=t=out:st={OUTRO_START - 0.3}:d=2[mus]")
         mix += "[mus]"; n = 4
     fc.append(f"{mix}amix=inputs={n}:normalize=0:duration=longest[a]")
     dest = OUT / "ALURFORMA_FILM_HUGO_montage.mp4"
