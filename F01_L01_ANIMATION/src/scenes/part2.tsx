@@ -21,13 +21,13 @@ export const S08: React.FC = () => {
       backdrop="office"
       world={
         <>
-          <Character who="LEA" t={t} x={[[83.3, 600], [84.9, 150]]} walk={[[83.3, 84.9]]} y={GROUND} h={HOST_H} pose={[{ at: 80, pose: "rest" }, { at: 82.9, pose: "explain" }, { at: 83.3, pose: "rest" }, { at: 85.2, pose: "explain" }, { at: 93.6, pose: "fingerUp" }]} look={[[80, 0.6], [84.9, 0.6], [85.6, 0.3]]} mood="smile" />
-          <Character who="HUGO" t={t} x={[[83.3, 1330], [84.9, 1775]]} walk={[[83.3, 84.9]]} y={GROUND} h={HOST_H} pose={[{ at: 80, pose: "explain" }, { at: 83, pose: "rest" }, { at: 85.2, pose: "think" }]} look={[[80, -0.6], [84.9, -0.6], [85.6, -0.3]]} mood={[{ at: 80, mood: "smile" }, { at: 84, mood: "focused" }]} />
+          <Character who="LEA" t={t} x={[[83.3, 600], [84.9, 135]]} walk={[[83.3, 84.9]]} y={GROUND} h={HOST_H} pose={[{ at: 80, pose: "rest" }, { at: 82.9, pose: "explain" }, { at: 83.3, pose: "rest" }, { at: 85.2, pose: "explain" }, { at: 93.6, pose: "fingerUp" }]} look={[[80, 0.6], [84.9, 0.6], [85.6, 0.3]]} mood="smile" />
+          <Character who="HUGO" t={t} x={[[83.3, 1330], [84.9, 1795]]} walk={[[83.3, 84.9]]} y={GROUND} h={HOST_H} pose={[{ at: 80, pose: "explain" }, { at: 83, pose: "rest" }, { at: 85.2, pose: "think" }]} look={[[80, -0.6], [84.9, -0.6], [85.6, -0.3]]} mood={[{ at: 80, mood: "smile" }, { at: 84, mood: "focused" }]} />
         </>
       }
       ui={
         <>
-          <PaperCard t={t} at={84.5} until={95.0} from="left" x={interpolate(close, [0, 1], [615, 700])} y={430} w={640} title="Demande A" band={C.emerald}>
+          <PaperCard t={t} at={84.5} until={95.0} from="left" x={interpolate(close, [0, 1], [625, 705])} y={430} w={610} title="Demande A" band={C.emerald}>
             <Label serif size={42} color={C.navy} style={{ fontStyle: "italic", textAlign: "center" }}>
               « Trouvez-moi un locataire, je gérerai ensuite. »
             </Label>
@@ -51,7 +51,7 @@ export const S08: React.FC = () => {
               <Label size={30} color={C.inkSoft}>Mission : trouver un locataire</Label>
             </div>
           </PaperCard>
-          <PaperCard t={t} at={88.8} until={95.0} from="right" x={interpolate(close, [0, 1], [1305, 1220])} y={430} w={640} title="Demande B" band={C.navy}>
+          <PaperCard t={t} at={88.8} until={95.0} from="right" x={interpolate(close, [0, 1], [1290, 1215])} y={430} w={610} title="Demande B" band={C.navy}>
             <Label serif size={42} color={C.navy} style={{ fontStyle: "italic", textAlign: "center" }}>
               « Louez-le et faites la gestion complète des loyers. »
             </Label>

@@ -28,7 +28,7 @@ export const S15: React.FC = () => {
       ui={
         <>
           <Keyword t={t} at={217.2} until={220.5} x={960} y={200} text="NÉGOCIER ≠ ENGAGER" size={100} sub="une confusion fréquente" />
-          <PaperCard t={t} at={220.5} until={237.0} from="left" x={650} y={470} w={680} title="Négocier" band={C.emerald}>
+          <PaperCard t={t} at={220.5} until={237.0} from="left" x={690} y={470} w={640} title="Négocier" band={C.emerald}>
             <CheckLine t={t} at={221.8} text="Discuter le prix" size={36} />
             <CheckLine t={t} at={223.0} text="Présenter une offre" size={36} />
             <CheckLine t={t} at={224.6} text="Faire des contre-propositions au nom du client" size={36} />
