@@ -1,0 +1,734 @@
+{
+ "fps": 30,
+ "duration": 392.018,
+ "segments": [
+  {
+   "speaker": "LEA",
+   "start": 0.274,
+   "end": 6.154,
+   "text": "Imaginez, un client vous appelle et vous dit simplement « Vous êtes dans l'immobilier, occupez-vous de mon appartement.",
+   "f0": 250
+  },
+  {
+   "speaker": "LEA",
+   "start": 6.154,
+   "end": 7.754,
+   "text": "Guillemets doubles.",
+   "f0": 235
+  },
+  {
+   "speaker": "HUGO",
+   "start": 8.314,
+   "end": 11.658,
+   "text": "Ah bon ? Vraiment ? On pourrait penser que c'est clair, non ?",
+   "f0": 124
+  },
+  {
+   "speaker": "LEA",
+   "start": 11.658,
+   "end": 16.573,
+   "text": "Oui, c'est ce qu'on croit au premier abord, mais en fait, c'est plein de pièges.",
+   "f0": 200
+  },
+  {
+   "speaker": "LEA",
+   "start": 17.334,
+   "end": 24.494,
+   "text": "Tu sais, dans l'immobilier professionnel, cette simple phrase ne suffit jamais à savoir ce qu'on peut réellement faire, ni légalement, ni sur le terrain.",
+   "f0": 242
+  },
+  {
+   "speaker": "HUGO",
+   "start": 24.954,
+   "end": 27.413,
+   "text": "C'est dingue parce que ça engage du coup des responsabilités,",
+   "f0": 90
+  },
+  {
+   "speaker": "HUGO",
+   "start": 27.474,
+   "end": 30.974,
+   "text": "des risques juridiques et financiers pour tout le monde, le pro, le client,",
+   "f0": 101
+  },
+  {
+   "speaker": "HUGO",
+   "start": 31.234,
+   "end": 32.514,
+   "text": "finalement l'opération elle-même.",
+   "f0": 111
+  },
+  {
+   "speaker": "LEA",
+   "start": 32.734,
+   "end": 33.354,
+   "text": "Exactement.",
+   "f0": 229
+  },
+  {
+   "speaker": "LEA",
+   "start": 34.174,
+   "end": 37.914,
+   "text": "Et dans cet épisode, on va vous expliquer pourquoi qualifier précisément la demande,",
+   "f0": 239
+  },
+  {
+   "speaker": "LEA",
+   "start": 38.214,
+   "end": 41.774,
+   "text": "comprendre les documents légaux, c'est la clé pour éviter des erreurs graves.",
+   "f0": 219
+  },
+  {
+   "speaker": "HUGO",
+   "start": 42.474,
+   "end": 43.694,
+   "text": "Alors, commençons par le début.",
+   "f0": 113
+  },
+  {
+   "speaker": "HUGO",
+   "start": 44.154,
+   "end": 46.394,
+   "text": "Comment on fait pour qualifier la demande d'un client qui dit",
+   "f0": 111
+  },
+  {
+   "speaker": "HUGO",
+   "start": 46.714,
+   "end": 48.219,
+   "text": "« Occupez-vous de mon appartement. »",
+   "f0": 127
+  },
+  {
+   "speaker": "LEA",
+   "start": 48.219,
+   "end": 52.574,
+   "text": "Eh bien, la première étape, c'est de ne pas se fier aux mots seuls.",
+   "f0": 227
+  },
+  {
+   "speaker": "LEA",
+   "start": 53.634,
+   "end": 55.454,
+   "text": "Occuper, ce mot est très vague.",
+   "f0": 262
+  },
+  {
+   "speaker": "LEA",
+   "start": 56.054,
+   "end": 63.114,
+   "text": "Est-ce qu'il veut vendre ? Trouver un locataire ? Louer de façon autonome ? Faire gérer les loyers",
+   "f0": 254
+  },
+  {
+   "speaker": "LEA",
+   "start": 63.234,
+   "end": 66.022,
+   "text": "Ou même une gestion de copropriété.",
+   "f0": 242
+  },
+  {
+   "speaker": "HUGO",
+   "start": 66.362,
+   "end": 68.662,
+   "text": "Oui, c'est important de différencier ces activités-là.",
+   "f0": 105
+  },
+  {
+   "speaker": "LEA",
+   "start": 69.062,
+   "end": 71.962,
+   "text": "Oui, parce qu'en immobilier, on distingue cinq grandes activités",
+   "f0": 239
+  },
+  {
+   "speaker": "LEA",
+   "start": 72.382,
+   "end": 75.962,
+   "text": "la vente, la recherche d'acquéreurs ou de locataires, la location",
+   "f0": 213
+  },
+  {
+   "speaker": "LEA",
+   "start": 76.022,
+   "end": 79.842,
+   "text": "autonome, la gestion immobilière et le syndic de copropriété.",
+   "f0": 232
+  },
+  {
+   "speaker": "HUGO",
+   "start": 80.402,
+   "end": 82.922,
+   "text": "Est-ce que tu peux donner un exemple pour bien faire la différence",
+   "f0": 121
+  },
+  {
+   "speaker": "LEA",
+   "start": 82.942,
+   "end": 84.202,
+   "text": "Bien sûr.",
+   "f0": 276
+  },
+  {
+   "speaker": "LEA",
+   "start": 84.742,
+   "end": 88.562,
+   "text": "Si quelqu'un te demande : trouvez-moi un locataire, je gérerai ensuite.",
+   "f0": 258
+  },
+  {
+   "speaker": "LEA",
+   "start": 88.942,
+   "end": 92.682,
+   "text": "Mais ce n'est pas pareil que : louez-le et faites la gestion complète des loyers.",
+   "f0": 222
+  },
+  {
+   "speaker": "LEA",
+   "start": 93.662,
+   "end": 97.142,
+   "text": "Ça change la mission et donc les documents et autorisations nécessaires.",
+   "f0": 219
+  },
+  {
+   "speaker": "HUGO",
+   "start": 98.002,
+   "end": 100.262,
+   "text": "En gros, il faut poser les bonnes questions pour vraiment",
+   "f0": 115
+  },
+  {
+   "speaker": "HUGO",
+   "start": 100.322,
+   "end": 103.042,
+   "text": "voir ce que veut le client, pas juste reprendre ses mots.",
+   "f0": 108
+  },
+  {
+   "speaker": "LEA",
+   "start": 103.802,
+   "end": 106.222,
+   "text": "Oui, parce qu'un nom commercial comme accompagnateur",
+   "f0": 254
+  },
+  {
+   "speaker": "LEA",
+   "start": 106.282,
+   "end": 109.562,
+   "text": "immobilier ne change pas les actes accomplis ni leur cadre légal.",
+   "f0": 213
+  },
+  {
+   "speaker": "HUGO",
+   "start": 110.162,
+   "end": 111.542,
+   "text": "Ça rejoint ce qu'on disait tout à l'heure.",
+   "f0": 136
+  },
+  {
+   "speaker": "HUGO",
+   "start": 111.922,
+   "end": 114.402,
+   "text": "Qualifier la demande, c'est savoir quel acte faire, pour",
+   "f0": 129
+  },
+  {
+   "speaker": "HUGO",
+   "start": 114.462,
+   "end": 115.522,
+   "text": "qui et dans quel contexte.",
+   "f0": 120
+  },
+  {
+   "speaker": "LEA",
+   "start": 116.282,
+   "end": 117.762,
+   "text": "Voilà, tu as résumé.",
+   "f0": 237
+  },
+  {
+   "speaker": "HUGO",
+   "start": 118.462,
+   "end": 124.502,
+   "text": "Et après ça, comprendre ces documents clés, non La carte professionnelle, l'habilitation et le mandat écrit.",
+   "f0": 120
+  },
+  {
+   "speaker": "LEA",
+   "start": 125.502,
+   "end": 128.182,
+   "text": "Oui, ce sont trois papiers bien distincts et complémentaires.",
+   "f0": 219
+  },
+  {
+   "speaker": "HUGO",
+   "start": 129.062,
+   "end": 135.347,
+   "text": "La carte professionnelle, c'est un peu la carte d'identité du pro ou de la société, celle qui dit ce qu'elle a le droit de faire, non ?",
+   "f0": 94
+  },
+  {
+   "speaker": "LEA",
+   "start": 135.347,
+   "end": 136.822,
+   "text": "Oui, c'est ça.",
+   "f0": 208
+  },
+  {
+   "speaker": "LEA",
+   "start": 137.522,
+   "end": 144.682,
+   "text": "Elle confirme que le titulaire a les qualifications comme des diplômes ou de l'expérience, qu'il est assuré en responsabilité civile professionnelle,",
+   "f0": 246
+  },
+  {
+   "speaker": "LEA",
+   "start": 144.942,
+   "end": 149.322,
+   "text": "la RCP, et qu'il a la garantie financière si ça concerne la gestion de fonds.",
+   "f0": 235
+  },
+  {
+   "speaker": "LEA",
+   "start": 150.082,
+   "end": 154.782,
+   "text": "Elle précise aussi les activités autorisées : transaction, gestion, syndic.",
+   "f0": 242
+  },
+  {
+   "speaker": "HUGO",
+   "start": 155.702,
+   "end": 158.702,
+   "text": "Et c'est important de noter que plusieurs mentions peuvent figurer sur une",
+   "f0": 140
+  },
+  {
+   "speaker": "HUGO",
+   "start": 158.762,
+   "end": 162.742,
+   "text": "seule carte, mais une mention n'autorise pas automatiquement toutes les activités.",
+   "f0": 113
+  },
+  {
+   "speaker": "LEA",
+   "start": 163.322,
+   "end": 164.022,
+   "text": "Exactement.",
+   "f0": 198
+  },
+  {
+   "speaker": "LEA",
+   "start": 164.622,
+   "end": 166.782,
+   "text": "Puis vient l'attestation d'habilitation.",
+   "f0": 254
+  },
+  {
+   "speaker": "LEA",
+   "start": 167.442,
+   "end": 170.842,
+   "text": "Quand un salarié ou un collaborateur agit pour le titulaire de la carte,",
+   "f0": 239
+  },
+  {
+   "speaker": "LEA",
+   "start": 171.222,
+   "end": 174.582,
+   "text": "il doit avoir une attestation précisant qui il est, pour qui il",
+   "f0": 250
+  },
+  {
+   "speaker": "LEA",
+   "start": 174.662,
+   "end": 176.642,
+   "text": "agit et jusqu'où ses pouvoirs vont.",
+   "f0": 219
+  },
+  {
+   "speaker": "LEA",
+   "start": 177.102,
+   "end": 182.602,
+   "text": "Par exemple, il pourra faire des visites et négocier, mais pas forcément accepter une offre ou recevoir un acompte.",
+   "f0": 216
+  },
+  {
+   "speaker": "HUGO",
+   "start": 183.442,
+   "end": 186.722,
+   "text": "Donc, le collaborateur, même salarié, ne peut pas inventer ses pouvoirs.",
+   "f0": 115
+  },
+  {
+   "speaker": "HUGO",
+   "start": 187.162,
+   "end": 188.502,
+   "text": "Il faut que ça soit formalisé.",
+   "f0": 127
+  },
+  {
+   "speaker": "LEA",
+   "start": 189.262,
+   "end": 191.362,
+   "text": "Oui, et pour finir, il y a le mandat écrit.",
+   "f0": 254
+  },
+  {
+   "speaker": "LEA",
+   "start": 191.982,
+   "end": 195.102,
+   "text": "C'est la mission formalisée que le client confie au professionnel.",
+   "f0": 252
+  },
+  {
+   "speaker": "LEA",
+   "start": 195.781,
+   "end": 199.281,
+   "text": "Sans mandat signé, aucune négociation ni engagement n'est possible.",
+   "f0": 242
+  },
+  {
+   "speaker": "LEA",
+   "start": 200.202,
+   "end": 202.102,
+   "text": "Un simple accord oral ne suffit jamais.",
+   "f0": 260
+  },
+  {
+   "speaker": "HUGO",
+   "start": 202.902,
+   "end": 208.781,
+   "text": "Cette triple vérification : carte, habilitation, mandat, c'est un peu comme les clés d'un camion.",
+   "f0": 108
+  },
+  {
+   "speaker": "HUGO",
+   "start": 209.522,
+   "end": 211.341,
+   "text": "On n'allume pas le moteur si une clé manque.",
+   "f0": 115
+  },
+  {
+   "speaker": "LEA",
+   "start": 211.922,
+   "end": 213.002,
+   "text": "C'est une super image.",
+   "f0": 211
+  },
+  {
+   "speaker": "LEA",
+   "start": 213.442,
+   "end": 215.402,
+   "text": "Sans tous ces éléments, on ne démarre rien.",
+   "f0": 219
+  },
+  {
+   "speaker": "HUGO",
+   "start": 216.062,
+   "end": 220.572,
+   "text": "D'ailleurs, là-dessus, il y a une confusion fréquente entre négocier et engager, c'est ça ?",
+   "f0": 112
+  },
+  {
+   "speaker": "LEA",
+   "start": 220.572,
+   "end": 230.822,
+   "text": "Négocier, c'est discuter le prix, présenter une offre, faire des contre-propositions au nom du client, mais pas accepter l'offre finale.",
+   "f0": 250
+  },
+  {
+   "speaker": "HUGO",
+   "start": 231.942,
+   "end": 235.322,
+   "text": "Et accepter, ça veut dire pouvoir engager le client,",
+   "f0": 126
+  },
+  {
+   "speaker": "HUGO",
+   "start": 235.721,
+   "end": 236.802,
+   "text": "signer un accord en son nom",
+   "f0": 130
+  },
+  {
+   "speaker": "LEA",
+   "start": 236.802,
+   "end": 243.422,
+   "text": "Oui, et ce pouvoir doit être expressément écrit dans le mandat sinon l'agent transmet juste l'offre au client pour qu'il décide.",
+   "f0": 239
+  },
+  {
+   "speaker": "HUGO",
+   "start": 244.182,
+   "end": 247.841,
+   "text": "Ça évite des mauvaises surprises où un agent signerait un accord sans avoir le droit.",
+   "f0": 102
+  },
+  {
+   "speaker": "LEA",
+   "start": 248.982,
+   "end": 250.822,
+   "text": "C'est crucial pour la sécurité juridique.",
+   "f0": 216
+  },
+  {
+   "speaker": "HUGO",
+   "start": 251.482,
+   "end": 253.841,
+   "text": "On a aussi l'exemple de monsieur Delmas dans le cours, non",
+   "f0": 94
+  },
+  {
+   "speaker": "HUGO",
+   "start": 253.942,
+   "end": 261.221,
+   "text": "Il veut vendre vite avec un acheteur déjà intéressé, mais l'agence n'a pas encore de mandat écrit ou la carte est expirée.",
+   "f0": 94
+  },
+  {
+   "speaker": "LEA",
+   "start": 261.981,
+   "end": 263.182,
+   "text": "Oui, et là, c'est très clair.",
+   "f0": 216
+  },
+  {
+   "speaker": "LEA",
+   "start": 263.482,
+   "end": 266.942,
+   "text": "Pas de visite ni de négociation avant d'avoir la mission formalisée",
+   "f0": 232
+  },
+  {
+   "speaker": "LEA",
+   "start": 267.002,
+   "end": 268.582,
+   "text": "et un titre professionnel valable.",
+   "f0": 198
+  },
+  {
+   "speaker": "HUGO",
+   "start": 269.562,
+   "end": 271.861,
+   "text": "On explique au client, on prépare le dossier,",
+   "f0": 126
+  },
+  {
+   "speaker": "HUGO",
+   "start": 272.322,
+   "end": 273.522,
+   "text": "mais on ne lance pas la visite.",
+   "f0": 97
+  },
+  {
+   "speaker": "LEA",
+   "start": 274.502,
+   "end": 277.142,
+   "text": "Ce serait comme vouloir démarrer un camion sans les clés.",
+   "f0": 235
+  },
+  {
+   "speaker": "HUGO",
+   "start": 277.741,
+   "end": 280.402,
+   "text": "Et si monsieur Delmas change d'avis et veut plutôt",
+   "f0": 125
+  },
+  {
+   "speaker": "HUGO",
+   "start": 280.462,
+   "end": 282.529,
+   "text": "louer puis gérer les loyers ?",
+   "f0": 112
+  },
+  {
+   "speaker": "LEA",
+   "start": 282.529,
+   "end": 284.142,
+   "text": "Alors, on repart à zéro.",
+   "f0": 262
+  },
+  {
+   "speaker": "LEA",
+   "start": 285.062,
+   "end": 295.682,
+   "text": "Il faut qualifier la nouvelle demande, vérifier que la carte porte bien la mention gestion immobilière, contrôler l'habilitation des collaborateurs et surtout, formaliser un nouveau mandat adapté",
+   "f0": 239
+  },
+  {
+   "speaker": "LEA",
+   "start": 295.762,
+   "end": 297.142,
+   "text": "avant de commencer quoi que ce soit.",
+   "f0": 213
+  },
+  {
+   "speaker": "HUGO",
+   "start": 297.842,
+   "end": 300.861,
+   "text": "Donc chaque changement impose une nouvelle vérification rigoureuse.",
+   "f0": 104
+  },
+  {
+   "speaker": "LEA",
+   "start": 301.782,
+   "end": 304.402,
+   "text": "Oui, ne jamais présumer que ce qu'on avait pour la vente",
+   "f0": 239
+  },
+  {
+   "speaker": "LEA",
+   "start": 304.482,
+   "end": 305.702,
+   "text": "vaut aussi pour la gestion.",
+   "f0": 218
+  },
+  {
+   "speaker": "HUGO",
+   "start": 306.482,
+   "end": 312.102,
+   "text": "Petite précision qui a son importance, c'est la différence entre la RCP et la garantie financière.",
+   "f0": 123
+  },
+  {
+   "speaker": "HUGO",
+   "start": 312.402,
+   "end": 312.86,
+   "text": "Ça te va ?",
+   "f0": 119
+  },
+  {
+   "speaker": "LEA",
+   "start": 312.86,
+   "end": 315.042,
+   "text": "Oui, c'est souvent confondu.",
+   "f0": 265
+  },
+  {
+   "speaker": "LEA",
+   "start": 315.942,
+   "end": 319.682,
+   "text": "La RCP, c'est l'assurance responsabilité civile professionnelle.",
+   "f0": 242
+  },
+  {
+   "speaker": "LEA",
+   "start": 320.302,
+   "end": 323.482,
+   "text": "Elle couvre les fautes du professionnel qui entraînent des conséquences financières.",
+   "f0": 225
+  },
+  {
+   "speaker": "HUGO",
+   "start": 324.522,
+   "end": 330.722,
+   "text": "Tandis que la garantie financière protège les fonds qu'on reçoit pour le compte des clients, comme les loyers encaissés avant reversement.",
+   "f0": 107
+  },
+  {
+   "speaker": "HUGO",
+   "start": 331.782,
+   "end": 334.062,
+   "text": "C'est obligatoire surtout en gestion et syndic.",
+   "f0": 107
+  },
+  {
+   "speaker": "LEA",
+   "start": 334.702,
+   "end": 338.262,
+   "text": "Il y a un régime spécial pour les agences qui déclarent ne pas détenir de fonds.",
+   "f0": 232
+  },
+  {
+   "speaker": "LEA",
+   "start": 338.822,
+   "end": 341.682,
+   "text": "La garantie financière n'est pas toujours requise, mais la",
+   "f0": 222
+  },
+  {
+   "speaker": "LEA",
+   "start": 341.822,
+   "end": 344.222,
+   "text": "RCP, elle, reste obligatoire.",
+   "f0": 239
+  },
+  {
+   "speaker": "HUGO",
+   "start": 345.122,
+   "end": 345.662,
+   "text": "Bah voilà.",
+   "f0": 87
+  },
+  {
+   "speaker": "HUGO",
+   "start": 346.722,
+   "end": 354.882,
+   "text": "Avant toute action immobilière engageant un client, il faut toujours vérifier ces éléments : la demande, la carte, l'attestation d'habilitation, le",
+   "f0": 102
+  },
+  {
+   "speaker": "HUGO",
+   "start": 354.942,
+   "end": 358.702,
+   "text": "mandat écrit, les pouvoirs exprès et les assurances obligatoires.",
+   "f0": 112
+  },
+  {
+   "speaker": "LEA",
+   "start": 359.522,
+   "end": 365.982,
+   "text": "Quand un document manque, on demande la preuve, on informe le client et on diffère l'action jusqu'à régularisation.",
+   "f0": 234
+  },
+  {
+   "speaker": "HUGO",
+   "start": 366.621,
+   "end": 372.741,
+   "text": "En suivant ce chemin, on protège autant le professionnel que le client et ça garantit la qualité de la transaction.",
+   "f0": 112
+  },
+  {
+   "speaker": "LEA",
+   "start": 373.842,
+   "end": 380.042,
+   "text": "Voilà, tu vois cette histoire de simple phrase : occupez-vous de mon appartement, cache forcément beaucoup plus qu'il n'y paraît.",
+   "f0": 232
+  },
+  {
+   "speaker": "HUGO",
+   "start": 380.602,
+   "end": 382.682,
+   "text": "Clairement, c'est un vrai parcours organisé,",
+   "f0": 103
+  },
+  {
+   "speaker": "HUGO",
+   "start": 383.382,
+   "end": 384.782,
+   "text": "avec du sérieux à chaque étape.",
+   "f0": 100
+  },
+  {
+   "speaker": "LEA",
+   "start": 385.702,
+   "end": 388.882,
+   "text": "Oui, et c'est ce qu'on appelle agir en toute sécurité juridique.",
+   "f0": 213
+  },
+  {
+   "speaker": "HUGO",
+   "start": 389.621,
+   "end": 390.896,
+   "text": "Important à retenir ?",
+   "f0": 134
+  },
+  {
+   "speaker": "LEA",
+   "start": 390.896,
+   "end": 391.782,
+   "text": "Complètement",
+   "f0": 235
+  }
+ ]
+}

@@ -1,0 +1,604 @@
+1
+00:00:00,274 --> 00:00:03,174
+Speaker: Imaginez, un client vous
+appelle et vous dit simplement
+
+2
+00:00:03,174 --> 00:00:06,154
+: « Vous êtes dans l'immobilier,
+occupez-vous de mon appartement.
+
+3
+00:00:06,154 --> 00:00:07,754
+» Guillemets doubles.
+
+4
+00:00:08,314 --> 00:00:11,574
+Speaker 2: Ah bon ? Vraiment ? On
+pourrait penser que c'est clair, non
+
+5
+00:00:11,594 --> 00:00:14,713
+?
+Speaker: Oui, c'est ce qu'on
+croit au premier abord, mais
+
+6
+00:00:14,754 --> 00:00:16,573
+en fait, c'est plein de pièges.
+
+7
+00:00:17,334 --> 00:00:20,954
+Tu sais, dans l'immobilier professionnel,
+cette simple phrase ne suffit jamais à
+
+8
+00:00:20,994 --> 00:00:24,494
+savoir ce qu'on peut réellement faire,
+ni légalement, ni sur le terrain.
+
+9
+00:00:24,954 --> 00:00:27,413
+Speaker 2: C'est dingue parce que ça
+engage du coup des responsabilités,
+
+10
+00:00:27,474 --> 00:00:30,974
+des risques juridiques et financiers
+pour tout le monde, le pro, le client,
+
+11
+00:00:31,234 --> 00:00:32,514
+finalement l'opération elle-même.
+
+12
+00:00:32,734 --> 00:00:33,354
+Speaker: Exactement.
+
+13
+00:00:34,174 --> 00:00:37,914
+Et dans cet épisode, on va vous expliquer
+pourquoi qualifier précisément la demande,
+
+14
+00:00:38,214 --> 00:00:41,774
+comprendre les documents légaux, c'est
+la clé pour éviter des erreurs graves.
+
+15
+00:00:42,474 --> 00:00:43,694
+Speaker 2: Alors, commençons par le début.
+
+16
+00:00:44,154 --> 00:00:46,394
+Comment on fait pour qualifier
+la demande d'un client qui dit
+
+17
+00:00:46,714 --> 00:00:48,114
+: « Occupez-vous de mon appartement.
+
+18
+00:00:48,154 --> 00:00:52,574
+»
+Speaker: Eh bien, la première étape,
+c'est de ne pas se fier aux mots seuls.
+
+19
+00:00:53,634 --> 00:00:55,454
+Occuper, ce mot est très vague.
+
+20
+00:00:56,054 --> 00:01:00,474
+Est-ce qu'il veut vendre ? Trouver
+un locataire ? Louer de façon
+
+21
+00:01:00,514 --> 00:01:03,114
+autonome ? Faire gérer les loyers
+
+22
+00:01:03,234 --> 00:01:06,022
+Ou même une gestion de copropriété.
+
+23
+00:01:06,362 --> 00:01:08,662
+Speaker 2: Oui, c'est important
+de différencier ces activités-là.
+
+24
+00:01:09,062 --> 00:01:11,962
+Speaker: Oui, parce qu'en immobilier,
+on distingue cinq grandes activités
+
+25
+00:01:12,382 --> 00:01:15,962
+: la vente, la recherche d'acquéreurs
+ou de locataires, la location
+
+26
+00:01:16,022 --> 00:01:19,842
+autonome, la gestion immobilière
+et le syndic de copropriété.
+
+27
+00:01:20,402 --> 00:01:22,922
+Speaker 2: Est-ce que tu peux donner un
+exemple pour bien faire la différence
+
+28
+00:01:22,942 --> 00:01:24,202
+Speaker: Bien sûr.
+
+29
+00:01:24,742 --> 00:01:28,562
+Si quelqu'un te demande : trouvez-moi
+un locataire, je gérerai ensuite.
+
+30
+00:01:28,942 --> 00:01:32,682
+Mais ce n'est pas pareil que : louez-le
+et faites la gestion complète des loyers.
+
+31
+00:01:33,662 --> 00:01:37,142
+Ça change la mission et donc les
+documents et autorisations nécessaires.
+
+32
+00:01:38,002 --> 00:01:40,262
+Speaker 2: En gros, il faut poser
+les bonnes questions pour vraiment
+
+33
+00:01:40,322 --> 00:01:43,042
+voir ce que veut le client,
+pas juste reprendre ses mots.
+
+34
+00:01:43,802 --> 00:01:46,222
+Speaker: Oui, parce qu'un nom
+commercial comme accompagnateur
+
+35
+00:01:46,282 --> 00:01:49,562
+immobilier ne change pas les actes
+accomplis ni leur cadre légal.
+
+36
+00:01:50,162 --> 00:01:51,542
+Speaker 2: Ça rejoint ce
+qu'on disait tout à l'heure.
+
+37
+00:01:51,922 --> 00:01:54,402
+Qualifier la demande, c'est
+savoir quel acte faire, pour
+
+38
+00:01:54,462 --> 00:01:55,522
+qui et dans quel contexte.
+
+39
+00:01:56,282 --> 00:01:57,762
+Speaker: Voilà, tu as résumé.
+
+40
+00:01:58,462 --> 00:02:00,662
+Speaker 2: Et après ça,
+comprendre ces documents clés, non
+
+41
+00:02:00,682 --> 00:02:04,502
+La carte professionnelle,
+l'habilitation et le mandat écrit.
+
+42
+00:02:05,502 --> 00:02:08,182
+Speaker: Oui, ce sont trois papiers
+bien distincts et complémentaires.
+
+43
+00:02:09,062 --> 00:02:12,142
+Speaker 2: La carte professionnelle,
+c'est un peu la carte d'identité du
+
+44
+00:02:12,182 --> 00:02:15,162
+pro ou de la société, celle qui dit
+ce qu'elle a le droit de faire, non
+
+45
+00:02:15,242 --> 00:02:16,822
+?
+Speaker: Oui, c'est ça.
+
+46
+00:02:17,522 --> 00:02:20,802
+Elle confirme que le titulaire a les
+qualifications comme des diplômes ou
+
+47
+00:02:20,842 --> 00:02:24,682
+de l'expérience, qu'il est assuré en
+responsabilité civile professionnelle,
+
+48
+00:02:24,942 --> 00:02:29,322
+la RCP, et qu'il a la garantie financière
+si ça concerne la gestion de fonds.
+
+49
+00:02:30,082 --> 00:02:34,782
+Elle précise aussi les activités
+autorisées : transaction, gestion, syndic.
+
+50
+00:02:35,702 --> 00:02:38,702
+Speaker 2: Et c'est important de noter que
+plusieurs mentions peuvent figurer sur une
+
+51
+00:02:38,762 --> 00:02:42,742
+seule carte, mais une mention n'autorise
+pas automatiquement toutes les activités.
+
+52
+00:02:43,322 --> 00:02:44,022
+Speaker: Exactement.
+
+53
+00:02:44,622 --> 00:02:46,782
+Puis vient l'attestation d'habilitation.
+
+54
+00:02:47,442 --> 00:02:50,842
+Quand un salarié ou un collaborateur
+agit pour le titulaire de la carte,
+
+55
+00:02:51,222 --> 00:02:54,582
+il doit avoir une attestation
+précisant qui il est, pour qui il
+
+56
+00:02:54,662 --> 00:02:56,642
+agit et jusqu'où ses pouvoirs vont.
+
+57
+00:02:57,102 --> 00:03:01,082
+Par exemple, il pourra faire des visites
+et négocier, mais pas forcément accepter
+
+58
+00:03:01,122 --> 00:03:02,602
+une offre ou recevoir un acompte.
+
+59
+00:03:03,442 --> 00:03:05,582
+Speaker 2: Donc, le collaborateur,
+même salarié, ne peut pas
+
+60
+00:03:05,622 --> 00:03:06,722
+inventer ses pouvoirs.
+
+61
+00:03:07,162 --> 00:03:08,502
+Il faut que ça soit formalisé.
+
+62
+00:03:09,262 --> 00:03:11,362
+Speaker: Oui, et pour finir,
+il y a le mandat écrit.
+
+63
+00:03:11,982 --> 00:03:15,102
+C'est la mission formalisée que
+le client confie au professionnel.
+
+64
+00:03:15,781 --> 00:03:19,281
+Sans mandat signé, aucune négociation
+ni engagement n'est possible.
+
+65
+00:03:20,202 --> 00:03:22,102
+Un simple accord oral ne suffit jamais.
+
+66
+00:03:22,902 --> 00:03:27,502
+Speaker 2: Cette triple vérification
+: carte, habilitation, mandat, c'est
+
+67
+00:03:27,542 --> 00:03:28,781
+un peu comme les clés d'un camion.
+
+68
+00:03:29,522 --> 00:03:31,341
+On n'allume pas le
+moteur si une clé manque.
+
+69
+00:03:31,922 --> 00:03:33,002
+Speaker: C'est une super image.
+
+70
+00:03:33,442 --> 00:03:35,402
+Sans tous ces éléments,
+on ne démarre rien.
+
+71
+00:03:36,062 --> 00:03:38,622
+Speaker 2: D'ailleurs, là-dessus,
+il y a une confusion fréquente
+
+72
+00:03:38,662 --> 00:03:40,382
+entre négocier et engager, c'est ça
+
+73
+00:03:40,502 --> 00:03:45,061
+?
+Speaker: Négocier, c'est discuter le
+prix, présenter une offre, faire des
+
+74
+00:03:45,102 --> 00:03:50,822
+contre-propositions au nom du client,
+mais pas accepter l'offre finale.
+
+75
+00:03:51,942 --> 00:03:55,322
+Speaker 2: Et accepter, ça veut
+dire pouvoir engager le client,
+
+76
+00:03:55,721 --> 00:03:56,802
+signer un accord en son nom
+
+77
+00:03:56,802 --> 00:04:00,242
+Speaker: Oui, et ce pouvoir doit
+être expressément écrit dans le
+
+78
+00:04:00,281 --> 00:04:03,422
+mandat sinon l'agent transmet juste
+l'offre au client pour qu'il décide.
+
+79
+00:04:04,182 --> 00:04:06,482
+Speaker 2: Ça évite des mauvaises
+surprises où un agent signerait
+
+80
+00:04:06,502 --> 00:04:07,841
+un accord sans avoir le droit.
+
+81
+00:04:08,982 --> 00:04:10,822
+Speaker: C'est crucial
+pour la sécurité juridique.
+
+82
+00:04:11,482 --> 00:04:13,841
+Speaker 2: On a aussi l'exemple de
+monsieur Delmas dans le cours, non
+
+83
+00:04:13,942 --> 00:04:18,962
+Il veut vendre vite avec un acheteur déjà
+intéressé, mais l'agence n'a pas encore
+
+84
+00:04:19,002 --> 00:04:21,221
+de mandat écrit ou la carte est expirée.
+
+85
+00:04:21,981 --> 00:04:23,182
+Speaker: Oui, et là, c'est très clair.
+
+86
+00:04:23,482 --> 00:04:26,942
+Pas de visite ni de négociation
+avant d'avoir la mission formalisée
+
+87
+00:04:27,002 --> 00:04:28,582
+et un titre professionnel valable.
+
+88
+00:04:29,562 --> 00:04:31,861
+Speaker 2: On explique au
+client, on prépare le dossier,
+
+89
+00:04:32,322 --> 00:04:33,522
+mais on ne lance pas la visite.
+
+90
+00:04:34,502 --> 00:04:37,142
+Speaker: Ce serait comme vouloir
+démarrer un camion sans les clés.
+
+91
+00:04:37,741 --> 00:04:40,402
+Speaker 2: Et si monsieur Delmas
+change d'avis et veut plutôt
+
+92
+00:04:40,462 --> 00:04:41,702
+louer puis gérer les loyers
+
+93
+00:04:42,462 --> 00:04:44,142
+?
+Speaker: Alors, on repart à zéro.
+
+94
+00:04:45,062 --> 00:04:47,942
+Il faut qualifier la nouvelle
+demande, vérifier que la carte
+
+95
+00:04:47,982 --> 00:04:51,602
+porte bien la mention gestion
+immobilière, contrôler l'habilitation
+
+96
+00:04:51,642 --> 00:04:55,682
+des collaborateurs et surtout,
+formaliser un nouveau mandat adapté
+
+97
+00:04:55,762 --> 00:04:57,142
+avant de commencer quoi que ce soit.
+
+98
+00:04:57,842 --> 00:05:00,861
+Speaker 2: Donc chaque changement impose
+une nouvelle vérification rigoureuse.
+
+99
+00:05:01,782 --> 00:05:04,402
+Speaker: Oui, ne jamais présumer
+que ce qu'on avait pour la vente
+
+100
+00:05:04,482 --> 00:05:05,702
+vaut aussi pour la gestion.
+
+101
+00:05:06,482 --> 00:05:10,042
+Speaker 2: Petite précision qui a son
+importance, c'est la différence entre
+
+102
+00:05:10,082 --> 00:05:12,102
+la RCP et la garantie financière.
+
+103
+00:05:12,402 --> 00:05:12,662
+Ça te va
+
+104
+00:05:12,782 --> 00:05:15,042
+?
+Speaker: Oui, c'est souvent confondu.
+
+105
+00:05:15,942 --> 00:05:19,682
+La RCP, c'est l'assurance
+responsabilité civile professionnelle.
+
+106
+00:05:20,302 --> 00:05:23,482
+Elle couvre les fautes du professionnel
+qui entraîne des conséquences financières.
+
+107
+00:05:24,522 --> 00:05:27,542
+Speaker 2: Tandis que la garantie
+financière protège les fonds qu'on reçoit
+
+108
+00:05:27,582 --> 00:05:30,722
+pour le compte des clients, comme les
+loyers encaissés avant reversement.
+
+109
+00:05:31,782 --> 00:05:34,062
+C'est obligatoire surtout
+en gestion et syndic.
+
+110
+00:05:34,702 --> 00:05:36,722
+Speaker: Il y a un régime
+spécial pour les agences qui
+
+111
+00:05:36,762 --> 00:05:38,262
+déclarent ne pas détenir de fonds.
+
+112
+00:05:38,822 --> 00:05:41,682
+La garantie financière n'est
+pas toujours requise, mais la
+
+113
+00:05:41,822 --> 00:05:44,222
+RCP, elle, reste obligatoire.
+
+114
+00:05:45,122 --> 00:05:45,662
+Speaker 2: Bah voilà.
+
+115
+00:05:46,722 --> 00:05:50,182
+Avant toute action immobilière engageant
+un client, il faut toujours vérifier
+
+116
+00:05:50,221 --> 00:05:54,882
+ces éléments : la demande, la carte,
+l'attestation d'habilitation, le
+
+117
+00:05:54,942 --> 00:05:58,702
+mandat écrit, les pouvoirs express
+et les assurances obligatoires.
+
+118
+00:05:59,522 --> 00:06:02,741
+Speaker: Quand un document manque,
+on demande la preuve, on informe
+
+119
+00:06:02,782 --> 00:06:05,982
+le client et on différencie
+l'action jusqu'à régularisation.
+
+120
+00:06:06,621 --> 00:06:09,602
+Speaker 2: En suivant ce chemin,
+on protège autant le professionnel
+
+121
+00:06:09,621 --> 00:06:12,741
+que le client et ça garantit
+la qualité de la transaction.
+
+122
+00:06:13,842 --> 00:06:17,042
+Speaker: Voilà, tu vois cette histoire
+de simple phrase : occupez-vous de
+
+123
+00:06:17,082 --> 00:06:20,042
+mon appartement, cache forcément
+beaucoup plus qu'il n'y paraît.
+
+124
+00:06:20,602 --> 00:06:22,682
+Speaker 2: Clairement, c'est
+un vrai parcours organisé,
+
+125
+00:06:23,382 --> 00:06:24,782
+avec du sérieux à chaque étape.
+
+126
+00:06:25,702 --> 00:06:28,882
+Speaker: Oui, et c'est ce qu'on appelle
+agir en toute sécurité juridique.
+
+127
+00:06:29,621 --> 00:06:30,802
+Speaker 2: Important à retenir
+
+128
+00:06:30,822 --> 00:06:31,782
+?
+Speaker: Complètement
