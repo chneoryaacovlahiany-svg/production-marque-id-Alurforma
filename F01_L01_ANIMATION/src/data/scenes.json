@@ -2,211 +2,550 @@
   "lesson": "F01 L01 — Clarifier le cadre en transaction immobilière",
   "audio": "public/audio/f01-l01-voice.mp3",
   "transcript": "content/transcript.srt (Descript, FR) → src/data/transcript.json",
-  "adBreak": { "at": 118.1, "duration": 11, "reason": "Pause naturelle après « Voilà, tu as résumé » (1:57.8) — fin de la partie Qualifier la demande, début de la partie Documents." },
+  "adBreak": {
+    "at": 118.1,
+    "duration": 11,
+    "reason": "Pause naturelle après « Voilà, tu as résumé » (1:57.8) — fin de la partie Qualifier la demande, début de la partie Documents."
+  },
   "encarts": [
-    { "id": "encart-a", "startSec": 43.0, "endSec": 49.0, "text": "Formations loi ALUR en ligne", "sub": "Renouvelez votre carte professionnelle sans perdre de temps." },
-    { "id": "encart-b", "startSec": 297.6, "endSec": 303.6, "text": "14 h par an · 100 % en ligne", "sub": "À votre rythme, avec ALURFORMA." }
+    {
+      "id": "encart-a",
+      "startSec": 43.0,
+      "endSec": 49.0,
+      "text": "Formations loi ALUR en ligne",
+      "sub": "Renouvelez votre carte professionnelle sans perdre de temps."
+    },
+    {
+      "id": "encart-b",
+      "startSec": 288.6,
+      "endSec": 294.6,
+      "text": "14 h par an · 100 % en ligne",
+      "sub": "À votre rythme, avec ALURFORMA."
+    }
   ],
   "scenes": [
     {
-      "id": "S01-appel", "startSec": 0, "endSec": 8.2,
+      "id": "S01-appel",
+      "startSec": 0,
+      "endSec": 8.2,
       "narration": "Imaginez, un client vous appelle et vous dit simplement : « Vous êtes dans l'immobilier, occupez-vous de mon appartement. »",
       "learningIntent": "Accroche : une demande client banale en apparence.",
       "keyword": "« Occupez-vous de mon appartement »",
-      "characters": ["HUGO", "DELMAS"], "characterAction": "Hugo décroche le téléphone sur la colline ; M. Delmas apparaît dans une bulle, combiné à l'oreille.",
-      "setting": "hillside", "visualExample": "Bulle d'appel + citation qui s'écrit mot à mot.",
-      "camera": "Plan large qui se resserre lentement sur Hugo (push-in).", "kineticType": "Citation manuscrite apparaissant mot à mot.",
-      "transitionIn": "fade-from-white", "transitionOut": "iris", "sfx": ["ring", "pop"], "assets": ["bg:hillside"]
+      "characters": [
+        "HUGO",
+        "DELMAS"
+      ],
+      "characterAction": "Hugo décroche le téléphone sur la colline ; M. Delmas apparaît dans une bulle, combiné à l'oreille.",
+      "setting": "hillside",
+      "visualExample": "Bulle d'appel + citation qui s'écrit mot à mot.",
+      "camera": "Plan large qui se resserre lentement sur Hugo (push-in).",
+      "kineticType": "Citation manuscrite apparaissant mot à mot.",
+      "transitionIn": "fade-from-white",
+      "transitionOut": "iris",
+      "sfx": [
+        "ring",
+        "pop"
+      ],
+      "assets": [
+        "bg:hillside"
+      ]
     },
     {
-      "id": "S02-pieges", "startSec": 8.2, "endSec": 17.0,
+      "id": "S02-pieges",
+      "startSec": 8.2,
+      "endSec": 17.0,
       "narration": "Ah bon ? Vraiment ? On pourrait penser que c'est clair… — C'est ce qu'on croit au premier abord, mais en fait, c'est plein de pièges.",
       "learningIntent": "Casser l'évidence : la phrase est ambiguë.",
       "keyword": "PIÈGES",
-      "characters": ["HUGO", "LEA"], "characterAction": "Hugo hausse les épaules, confiant ; Léa lève un doigt et nuance.",
-      "setting": "office", "visualExample": "La citation se fissure, des petits trous apparaissent sous les mots.",
-      "camera": "Plan à deux, recadrage vers Léa sur « pièges ».", "kineticType": "PIÈGES tombe et rebondit.",
-      "transitionIn": "iris", "transitionOut": "leaves", "sfx": ["stamp"], "assets": ["bg:office"]
+      "characters": [
+        "HUGO",
+        "LEA"
+      ],
+      "characterAction": "Hugo hausse les épaules, confiant ; Léa lève un doigt et nuance.",
+      "setting": "office",
+      "visualExample": "La citation se fissure, des petits trous apparaissent sous les mots.",
+      "camera": "Plan à deux, recadrage vers Léa sur « pièges ».",
+      "kineticType": "PIÈGES tombe et rebondit.",
+      "transitionIn": "iris",
+      "transitionOut": "leaves",
+      "sfx": [
+        "stamp"
+      ],
+      "assets": [
+        "bg:office"
+      ]
     },
     {
-      "id": "S03-foret", "startSec": 17.0, "endSec": 33.6,
+      "id": "S03-foret",
+      "startSec": 17.0,
+      "endSec": 33.6,
       "narration": "Cette simple phrase ne suffit jamais à savoir ce qu'on peut réellement faire, ni légalement, ni sur le terrain. — Ça engage des responsabilités, des risques juridiques et financiers pour tout le monde : le pro, le client, l'opération elle-même. — Exactement.",
       "learningIntent": "Les enjeux : responsabilité juridique et financière de tous les acteurs.",
       "keyword": "RESPONSABILITÉS",
-      "characters": ["LEA", "HUGO"], "characterAction": "Léa et Hugo avancent prudemment sur un sentier forestier troué ; Léa contourne un trou.",
-      "setting": "forest", "visualExample": "Deux panneaux « Légalement ? » / « Sur le terrain ? », puis trois lanternes : le pro, le client, l'opération.",
-      "camera": "Travelling latéral lent le long du sentier.", "kineticType": "RESPONSABILITÉS en arc au-dessus du sentier.",
-      "transitionIn": "leaves", "transitionOut": "clouds", "sfx": ["gust", "chime"], "assets": ["bg:forest"]
+      "characters": [
+        "LEA",
+        "HUGO"
+      ],
+      "characterAction": "Léa et Hugo avancent prudemment sur un sentier forestier troué ; Léa contourne un trou.",
+      "setting": "forest",
+      "visualExample": "Deux panneaux « Légalement ? » / « Sur le terrain ? », puis trois lanternes : le pro, le client, l'opération.",
+      "camera": "Travelling latéral lent le long du sentier.",
+      "kineticType": "RESPONSABILITÉS en arc au-dessus du sentier.",
+      "transitionIn": "leaves",
+      "transitionOut": "clouds",
+      "sfx": [
+        "gust",
+        "chime"
+      ],
+      "assets": [
+        "bg:forest"
+      ]
     },
     {
-      "id": "S04-episode", "startSec": 33.6, "endSec": 42.3,
+      "id": "S04-episode",
+      "startSec": 33.6,
+      "endSec": 42.3,
       "narration": "Dans cet épisode : pourquoi qualifier précisément la demande, comprendre les documents légaux, c'est la clé pour éviter des erreurs graves.",
       "learningIntent": "Annoncer le plan de la leçon.",
       "keyword": "QUALIFIER LA DEMANDE · COMPRENDRE LES DOCUMENTS",
-      "characters": ["LEA", "HUGO"], "characterAction": "Léa montre le ciel, Hugo lève les yeux.",
-      "setting": "hillside", "visualExample": "Deux cerfs-volants portent les deux chapitres ; une clé dorée apparaît sur « la clé ».",
-      "camera": "Tilt vers le ciel puis retour.", "kineticType": "Bannières de cerfs-volants.",
-      "transitionIn": "clouds", "transitionOut": "page", "sfx": ["gust", "sparkle"], "assets": ["bg:hillside"]
+      "characters": [
+        "LEA",
+        "HUGO"
+      ],
+      "characterAction": "Léa montre le ciel, Hugo lève les yeux.",
+      "setting": "hillside",
+      "visualExample": "Deux cerfs-volants portent les deux chapitres ; une clé dorée apparaît sur « la clé ».",
+      "camera": "Tilt vers le ciel puis retour.",
+      "kineticType": "Bannières de cerfs-volants.",
+      "transitionIn": "clouds",
+      "transitionOut": "page",
+      "sfx": [
+        "gust",
+        "sparkle"
+      ],
+      "assets": [
+        "bg:hillside"
+      ]
     },
     {
-      "id": "S05-qualifier", "startSec": 42.3, "endSec": 53.4,
+      "id": "S05-qualifier",
+      "startSec": 42.3,
+      "endSec": 53.4,
       "narration": "Comment qualifier la demande d'un client qui dit « Occupez-vous de mon appartement » ? — La première étape, c'est de ne pas se fier aux mots seuls.",
       "learningIntent": "Première règle : ne pas se fier aux mots.",
       "keyword": "QUALIFIER LA DEMANDE",
-      "characters": ["HUGO", "LEA"], "characterAction": "Hugo interroge ; Léa prend une loupe et l'approche de la citation.",
-      "setting": "office", "visualExample": "Une loupe passe sur la citation ; le mot « occupez » flotte, flou.",
-      "camera": "Plan moyen puis insert sur la loupe.", "kineticType": "Mot-clé encadré à la plume.",
-      "transitionIn": "page", "transitionOut": "zoom", "sfx": ["paper"], "assets": ["bg:office"]
+      "characters": [
+        "HUGO",
+        "LEA"
+      ],
+      "characterAction": "Hugo interroge ; Léa prend une loupe et l'approche de la citation.",
+      "setting": "office",
+      "visualExample": "Une loupe passe sur la citation ; le mot « occupez » flotte, flou.",
+      "camera": "Plan moyen puis insert sur la loupe.",
+      "kineticType": "Mot-clé encadré à la plume.",
+      "transitionIn": "page",
+      "transitionOut": "zoom",
+      "sfx": [
+        "paper"
+      ],
+      "assets": [
+        "bg:office"
+      ]
     },
     {
-      "id": "S06-occuper", "startSec": 53.4, "endSec": 68.9,
+      "id": "S06-occuper",
+      "startSec": 53.4,
+      "endSec": 68.9,
       "narration": "« Occuper », ce mot est très vague. Vendre ? Trouver un locataire ? Louer de façon autonome ? Faire gérer les loyers ? Ou même une gestion de copropriété. — C'est important de différencier ces activités-là.",
       "learningIntent": "Un même mot recouvre des missions différentes.",
       "keyword": "OCCUPER ?",
-      "characters": ["DELMAS", "LEA"], "characterAction": "M. Delmas devant son immeuble se gratte la tête ; Léa lui montre les bulles une à une.",
-      "setting": "street", "visualExample": "Le mot OCCUPER ? éclate en cinq bulles de questions.",
-      "camera": "Plan d'ensemble de la rue, léger travelling vers la fenêtre.", "kineticType": "Bulles qui gonflent au rythme des questions.",
-      "transitionIn": "zoom", "transitionOut": "clouds", "sfx": ["pop"], "assets": ["bg:street"]
+      "characters": [
+        "DELMAS",
+        "LEA"
+      ],
+      "characterAction": "M. Delmas devant son immeuble se gratte la tête ; Léa lui montre les bulles une à une.",
+      "setting": "street",
+      "visualExample": "Le mot OCCUPER ? éclate en cinq bulles de questions.",
+      "camera": "Plan d'ensemble de la rue, léger travelling vers la fenêtre.",
+      "kineticType": "Bulles qui gonflent au rythme des questions.",
+      "transitionIn": "zoom",
+      "transitionOut": "clouds",
+      "sfx": [
+        "pop"
+      ],
+      "assets": [
+        "bg:street"
+      ]
     },
     {
-      "id": "S07-activites", "startSec": 68.9, "endSec": 80.3,
+      "id": "S07-activites",
+      "startSec": 68.9,
+      "endSec": 80.3,
       "narration": "En immobilier, on distingue cinq grandes activités : la vente, la recherche d'acquéreurs ou de locataires, la location autonome, la gestion immobilière et le syndic de copropriété.",
       "learningIntent": "Connaître les 5 activités.",
       "keyword": "5 GRANDES ACTIVITÉS",
-      "characters": ["LEA", "HUGO"], "characterAction": "Léa au carrefour désigne chaque chemin ; Hugo suit du regard.",
-      "setting": "valley", "visualExample": "Cinq chemins, cinq panneaux qui s'allument à leur nom.",
-      "camera": "Vue plongeante, panoramique doux de gauche à droite.", "kineticType": "Panneaux de bois qui pivotent.",
-      "transitionIn": "clouds", "transitionOut": "split", "sfx": ["pop"], "assets": ["bg:valley"]
+      "characters": [
+        "LEA",
+        "HUGO"
+      ],
+      "characterAction": "Léa au carrefour désigne chaque chemin ; Hugo suit du regard.",
+      "setting": "valley",
+      "visualExample": "Cinq chemins, cinq panneaux qui s'allument à leur nom.",
+      "camera": "Vue plongeante, panoramique doux de gauche à droite.",
+      "kineticType": "Panneaux de bois qui pivotent.",
+      "transitionIn": "clouds",
+      "transitionOut": "split",
+      "sfx": [
+        "pop"
+      ],
+      "assets": [
+        "bg:valley"
+      ]
     },
     {
-      "id": "S08-exemple", "startSec": 80.3, "endSec": 97.8,
+      "id": "S08-exemple",
+      "startSec": 80.3,
+      "endSec": 97.8,
       "narration": "« Trouvez-moi un locataire, je gérerai ensuite. » Ce n'est pas pareil que « Louez-le et faites la gestion complète des loyers. » Ça change la mission et donc les documents et autorisations nécessaires.",
       "learningIntent": "Comparer deux demandes proches mais différentes.",
       "keyword": "MISSION DIFFÉRENTE = DOCUMENTS DIFFÉRENTS",
-      "characters": ["HUGO", "LEA", "DELMAS"], "characterAction": "Split-screen : à gauche une clé tendue au locataire, à droite un registre de loyers mois par mois.",
-      "setting": "office", "visualExample": "Comparaison A/B qui se referme sur un tampon « MISSION ».",
-      "camera": "Écran divisé qui se referme vers le centre.", "kineticType": "Étiquettes A / B.",
-      "transitionIn": "split", "transitionOut": "iris", "sfx": ["paper", "stamp"], "assets": ["bg:office"]
+      "characters": [
+        "HUGO",
+        "LEA",
+        "DELMAS"
+      ],
+      "characterAction": "Split-screen : à gauche une clé tendue au locataire, à droite un registre de loyers mois par mois.",
+      "setting": "office",
+      "visualExample": "Comparaison A/B qui se referme sur un tampon « MISSION ».",
+      "camera": "Écran divisé qui se referme vers le centre.",
+      "kineticType": "Étiquettes A / B.",
+      "transitionIn": "split",
+      "transitionOut": "iris",
+      "sfx": [
+        "paper",
+        "stamp"
+      ],
+      "assets": [
+        "bg:office"
+      ]
     },
     {
-      "id": "S09-questions", "startSec": 97.8, "endSec": 118.1,
+      "id": "S09-questions",
+      "startSec": 97.8,
+      "endSec": 118.1,
       "narration": "Il faut poser les bonnes questions, pas juste reprendre ses mots. Un nom commercial comme « accompagnateur immobilier » ne change pas les actes accomplis ni leur cadre légal. Qualifier la demande : quel acte, pour qui, dans quel contexte. — Voilà, tu as résumé.",
       "learningIntent": "Synthèse de la partie 1 : acte / pour qui / contexte.",
       "keyword": "QUEL ACTE · POUR QUI · QUEL CONTEXTE",
-      "characters": ["HUGO", "LEA"], "characterAction": "Une enseigne « Accompagnateur immobilier » descend ; Léa la tamponne ; Hugo compte sur ses doigts.",
-      "setting": "office", "visualExample": "Enseigne + tampon « mêmes actes, même cadre légal » ; trois étiquettes.",
-      "camera": "Plan à deux, inserts sur l'enseigne.", "kineticType": "Trois étiquettes qui s'empilent.",
-      "transitionIn": "iris", "transitionOut": "ad", "sfx": ["stamp", "check"], "assets": ["bg:office"]
+      "characters": [
+        "HUGO",
+        "LEA"
+      ],
+      "characterAction": "Une enseigne « Accompagnateur immobilier » descend ; Léa la tamponne ; Hugo compte sur ses doigts.",
+      "setting": "office",
+      "visualExample": "Enseigne + tampon « mêmes actes, même cadre légal » ; trois étiquettes.",
+      "camera": "Plan à deux, inserts sur l'enseigne.",
+      "kineticType": "Trois étiquettes qui s'empilent.",
+      "transitionIn": "iris",
+      "transitionOut": "ad",
+      "sfx": [
+        "stamp",
+        "check"
+      ],
+      "assets": [
+        "bg:office"
+      ]
     },
     {
-      "id": "S10-documents", "startSec": 118.1, "endSec": 128.6,
+      "id": "S10-documents",
+      "startSec": 118.1,
+      "endSec": 128.6,
       "narration": "Comprendre ces documents clés : la carte professionnelle, l'habilitation et le mandat écrit. — Trois papiers bien distincts et complémentaires.",
       "learningIntent": "Annoncer les 3 documents.",
       "keyword": "3 DOCUMENTS",
-      "characters": ["LEA", "HUGO"], "characterAction": "Vue du bureau : les trois documents glissent un à un ; les personnages en médaillon commentent.",
-      "setting": "desk", "visualExample": "Carte, attestation, mandat posés sur le bureau, reliés par un fil doré.",
-      "camera": "Plongée zénithale, léger zoom.", "kineticType": "Titres des documents tapés à la machine.",
-      "transitionIn": "page", "transitionOut": "zoom", "sfx": ["paper", "paper", "paper"], "assets": ["bg:desk"]
+      "characters": [
+        "LEA",
+        "HUGO"
+      ],
+      "characterAction": "Vue du bureau : les trois documents glissent un à un ; les personnages en médaillon commentent.",
+      "setting": "desk",
+      "visualExample": "Carte, attestation, mandat posés sur le bureau, reliés par un fil doré.",
+      "camera": "Plongée zénithale, léger zoom.",
+      "kineticType": "Titres des documents tapés à la machine.",
+      "transitionIn": "page",
+      "transitionOut": "zoom",
+      "sfx": [
+        "paper",
+        "paper",
+        "paper"
+      ],
+      "assets": [
+        "bg:desk"
+      ]
     },
     {
-      "id": "S11-carte", "startSec": 128.6, "endSec": 163.3,
+      "id": "S11-carte",
+      "startSec": 128.6,
+      "endSec": 163.3,
       "narration": "La carte professionnelle, c'est la carte d'identité du pro. Elle confirme les qualifications (diplômes ou expérience), l'assurance RCP et la garantie financière si gestion de fonds. Elle précise les activités autorisées : transaction, gestion, syndic. Plusieurs mentions peuvent figurer sur une carte, mais une mention n'autorise pas automatiquement toutes les activités.",
       "learningIntent": "Contenu et portée de la carte professionnelle.",
       "keyword": "1 MENTION ≠ TOUTES LES ACTIVITÉS",
-      "characters": ["HUGO", "LEA"], "characterAction": "Hugo présente la carte géante ; Léa coche chaque élément.",
-      "setting": "office", "visualExample": "Carte professionnelle illustrée dont les cases se cochent ; puces Transaction / Gestion / Syndic, une seule allumée.",
-      "camera": "Insert sur la carte puis retour plan à deux.", "kineticType": "Coches dessinées à la main.",
-      "transitionIn": "zoom", "transitionOut": "page", "sfx": ["check", "pop"], "assets": ["bg:office"]
+      "characters": [
+        "HUGO",
+        "LEA"
+      ],
+      "characterAction": "Hugo présente la carte géante ; Léa coche chaque élément.",
+      "setting": "office",
+      "visualExample": "Carte professionnelle illustrée dont les cases se cochent ; puces Transaction / Gestion / Syndic, une seule allumée.",
+      "camera": "Insert sur la carte puis retour plan à deux.",
+      "kineticType": "Coches dessinées à la main.",
+      "transitionIn": "zoom",
+      "transitionOut": "page",
+      "sfx": [
+        "check",
+        "pop"
+      ],
+      "assets": [
+        "bg:office"
+      ]
     },
     {
-      "id": "S12-habilitation", "startSec": 163.3, "endSec": 189.0,
+      "id": "S12-habilitation",
+      "startSec": 163.3,
+      "endSec": 189.0,
       "narration": "L'attestation d'habilitation : quand un salarié ou un collaborateur agit pour le titulaire de la carte, elle précise qui il est, pour qui il agit et jusqu'où vont ses pouvoirs. Par exemple : visites et négociation, mais pas forcément accepter une offre ou recevoir un acompte. — Le collaborateur ne peut pas inventer ses pouvoirs. Il faut que ça soit formalisé.",
       "learningIntent": "Rôle de l'attestation d'habilitation.",
       "keyword": "FORMALISÉ",
-      "characters": ["INES", "LEA", "HUGO"], "characterAction": "Inès, collaboratrice, entre avec son badge ; l'attestation se remplit ligne à ligne.",
-      "setting": "office", "visualExample": "Attestation : qui / pour qui / jusqu'où ; ✓ visites ✓ négocier, ? accepter une offre, ? recevoir un acompte.",
-      "camera": "Plan moyen sur Inès, insert document.", "kineticType": "Tampon FORMALISÉ.",
-      "transitionIn": "page", "transitionOut": "leaves", "sfx": ["check", "stamp"], "assets": ["bg:office"]
+      "characters": [
+        "INES",
+        "LEA",
+        "HUGO"
+      ],
+      "characterAction": "Inès, collaboratrice, entre avec son badge ; l'attestation se remplit ligne à ligne.",
+      "setting": "office",
+      "visualExample": "Attestation : qui / pour qui / jusqu'où ; ✓ visites ✓ négocier, ? accepter une offre, ? recevoir un acompte.",
+      "camera": "Plan moyen sur Inès, insert document.",
+      "kineticType": "Tampon FORMALISÉ.",
+      "transitionIn": "page",
+      "transitionOut": "leaves",
+      "sfx": [
+        "check",
+        "stamp"
+      ],
+      "assets": [
+        "bg:office"
+      ]
     },
     {
-      "id": "S13-mandat", "startSec": 189.0, "endSec": 202.5,
+      "id": "S13-mandat",
+      "startSec": 189.0,
+      "endSec": 202.5,
       "narration": "Le mandat écrit : la mission formalisée que le client confie au professionnel. Sans mandat signé, aucune négociation ni engagement n'est possible. Un simple accord oral ne suffit jamais.",
       "learningIntent": "Le mandat écrit est indispensable.",
       "keyword": "MANDAT SIGNÉ",
-      "characters": ["DELMAS", "HUGO", "LEA"], "characterAction": "M. Delmas tend le mandat à Hugo ; une signature s'écrit ; une bulle « accord oral » s'envole au vent.",
-      "setting": "garden", "visualExample": "Mandat qui se signe ; bulle de parole qui se dissout.",
-      "camera": "Plan moyen jardin, insert signature.", "kineticType": "Signature tracée à l'encre.",
-      "transitionIn": "leaves", "transitionOut": "clouds", "sfx": ["paper", "gust"], "assets": ["bg:garden"]
+      "characters": [
+        "DELMAS",
+        "HUGO",
+        "LEA"
+      ],
+      "characterAction": "M. Delmas tend le mandat à Hugo ; une signature s'écrit ; une bulle « accord oral » s'envole au vent.",
+      "setting": "garden",
+      "visualExample": "Mandat qui se signe ; bulle de parole qui se dissout.",
+      "camera": "Plan moyen jardin, insert signature.",
+      "kineticType": "Signature tracée à l'encre.",
+      "transitionIn": "leaves",
+      "transitionOut": "clouds",
+      "sfx": [
+        "paper",
+        "gust"
+      ],
+      "assets": [
+        "bg:garden"
+      ]
     },
     {
-      "id": "S14-camion", "startSec": 202.5, "endSec": 216.0,
+      "id": "S14-camion",
+      "startSec": 202.5,
+      "endSec": 216.0,
       "narration": "Cette triple vérification : carte, habilitation, mandat, c'est un peu comme les clés d'un camion. On n'allume pas le moteur si une clé manque. — Sans tous ces éléments, on ne démarre rien.",
       "learningIntent": "Métaphore : les trois clés indispensables.",
       "keyword": "CARTE + HABILITATION + MANDAT",
-      "characters": ["HUGO", "LEA"], "characterAction": "Hugo tente de démarrer avec deux clés : le moteur tousse ; la troisième clé arrive, le moteur ronronne.",
-      "setting": "truck", "visualExample": "Trousseau de trois clés étiquetées ; contact raté puis réussi.",
-      "camera": "Plan latéral du camion, insert sur le contact.", "kineticType": "Étiquettes de clés.",
-      "transitionIn": "clouds", "transitionOut": "zoom", "sfx": ["sputter", "engine"], "assets": ["bg:truck"]
+      "characters": [
+        "HUGO",
+        "LEA"
+      ],
+      "characterAction": "Hugo tente de démarrer avec deux clés : le moteur tousse ; la troisième clé arrive, le moteur ronronne.",
+      "setting": "truck",
+      "visualExample": "Trousseau de trois clés étiquetées ; contact raté puis réussi.",
+      "camera": "Plan latéral du camion, insert sur le contact.",
+      "kineticType": "Étiquettes de clés.",
+      "transitionIn": "clouds",
+      "transitionOut": "zoom",
+      "sfx": [
+        "sputter",
+        "engine"
+      ],
+      "assets": [
+        "bg:truck"
+      ]
     },
     {
-      "id": "S15-negocier", "startSec": 216.0, "endSec": 251.0,
+      "id": "S15-negocier",
+      "startSec": 216.0,
+      "endSec": 251.0,
       "narration": "Négocier : discuter le prix, présenter une offre, faire des contre-propositions au nom du client, mais pas accepter l'offre finale. Accepter : engager le client, signer un accord en son nom — ce pouvoir doit être expressément écrit dans le mandat, sinon l'agent transmet l'offre au client pour qu'il décide. C'est crucial pour la sécurité juridique.",
       "learningIntent": "Distinguer négocier et engager.",
       "keyword": "NÉGOCIER ≠ ENGAGER",
-      "characters": ["LEA", "HUGO", "DELMAS"], "characterAction": "Deux colonnes se construisent ; une enveloppe vole de l'agent jusqu'à M. Delmas.",
-      "setting": "office", "visualExample": "Colonnes NÉGOCIER / ENGAGER, clause « pouvoir exprès » surlignée dans le mandat.",
-      "camera": "Plan à deux puis split en colonnes.", "kineticType": "Opposition gauche / droite.",
-      "transitionIn": "zoom", "transitionOut": "leaves", "sfx": ["paper", "whoosh", "chime"], "assets": ["bg:office"]
+      "characters": [
+        "LEA",
+        "HUGO",
+        "DELMAS"
+      ],
+      "characterAction": "Deux colonnes se construisent ; une enveloppe vole de l'agent jusqu'à M. Delmas.",
+      "setting": "office",
+      "visualExample": "Colonnes NÉGOCIER / ENGAGER, clause « pouvoir exprès » surlignée dans le mandat.",
+      "camera": "Plan à deux puis split en colonnes.",
+      "kineticType": "Opposition gauche / droite.",
+      "transitionIn": "zoom",
+      "transitionOut": "leaves",
+      "sfx": [
+        "paper",
+        "whoosh",
+        "chime"
+      ],
+      "assets": [
+        "bg:office"
+      ]
     },
     {
-      "id": "S16-delmas", "startSec": 251.0, "endSec": 277.5,
+      "id": "S16-delmas",
+      "startSec": 251.0,
+      "endSec": 277.5,
       "narration": "M. Delmas veut vendre vite avec un acheteur déjà intéressé, mais l'agence n'a pas encore de mandat écrit ou la carte est expirée. Pas de visite ni de négociation avant d'avoir la mission formalisée et un titre professionnel valable. On explique au client, on prépare le dossier, mais on ne lance pas la visite — comme démarrer un camion sans les clés.",
       "learningIntent": "Cas pratique : bloquer l'action tant que le cadre manque.",
       "keyword": "PAS DE VISITE",
-      "characters": ["DELMAS", "HUGO", "LEA"], "characterAction": "M. Delmas pressé au portail ; un acheteur attend ; Hugo referme doucement le portail et ouvre le dossier.",
-      "setting": "garden", "visualExample": "Étiquettes « mandat écrit manquant » / « carte expirée » ; ✓ expliquer ✓ préparer le dossier ✗ lancer la visite.",
-      "camera": "Plan large jardin puis plan moyen portail.", "kineticType": "Liste d'actions cochées / barrées.",
-      "transitionIn": "leaves", "transitionOut": "none", "sfx": ["nope", "check"], "assets": ["bg:garden"]
+      "characters": [
+        "DELMAS",
+        "HUGO",
+        "LEA"
+      ],
+      "characterAction": "M. Delmas pressé au portail ; un acheteur attend ; Hugo referme doucement le portail et ouvre le dossier.",
+      "setting": "garden",
+      "visualExample": "Étiquettes « mandat écrit manquant » / « carte expirée » ; ✓ expliquer ✓ préparer le dossier ✗ lancer la visite.",
+      "camera": "Plan large jardin puis plan moyen portail.",
+      "kineticType": "Liste d'actions cochées / barrées.",
+      "transitionIn": "leaves",
+      "transitionOut": "none",
+      "sfx": [
+        "nope",
+        "check"
+      ],
+      "assets": [
+        "bg:garden"
+      ]
     },
     {
-      "id": "S17-changement", "startSec": 277.5, "endSec": 306.3,
+      "id": "S17-changement",
+      "startSec": 277.5,
+      "endSec": 306.3,
       "narration": "Et si M. Delmas veut plutôt louer puis gérer les loyers ? On repart à zéro : qualifier la nouvelle demande, vérifier la mention gestion immobilière sur la carte, contrôler l'habilitation des collaborateurs et formaliser un nouveau mandat adapté avant de commencer. Chaque changement impose une nouvelle vérification. Ne jamais présumer que ce qu'on avait pour la vente vaut pour la gestion.",
       "learningIntent": "Tout changement de mission = nouvelle vérification.",
       "keyword": "ON REPART À ZÉRO",
-      "characters": ["DELMAS", "LEA", "HUGO"], "characterAction": "Le panneau « À VENDRE » pivote en « À LOUER » ; Léa ouvre un carnet de contrôle.",
-      "setting": "garden", "visualExample": "Carnet de contrôle en 4 étapes ; balance VENTE ≠ GESTION.",
-      "camera": "Insert panneau puis carnet plein cadre.", "kineticType": "Compteur qui revient à zéro.",
-      "transitionIn": "none", "transitionOut": "clouds", "sfx": ["whoosh", "check"], "assets": ["bg:garden"]
+      "characters": [
+        "DELMAS",
+        "LEA",
+        "HUGO"
+      ],
+      "characterAction": "Le panneau « À VENDRE » pivote en « À LOUER » ; Léa ouvre un carnet de contrôle.",
+      "setting": "garden",
+      "visualExample": "Carnet de contrôle en 4 étapes ; balance VENTE ≠ GESTION.",
+      "camera": "Insert panneau puis carnet plein cadre.",
+      "kineticType": "Compteur qui revient à zéro.",
+      "transitionIn": "none",
+      "transitionOut": "clouds",
+      "sfx": [
+        "whoosh",
+        "check"
+      ],
+      "assets": [
+        "bg:garden"
+      ]
     },
     {
-      "id": "S18-assurances", "startSec": 306.3, "endSec": 345.0,
+      "id": "S18-assurances",
+      "startSec": 306.3,
+      "endSec": 345.0,
       "narration": "La RCP, assurance responsabilité civile professionnelle, couvre les fautes du professionnel qui entraînent des conséquences financières. La garantie financière protège les fonds reçus pour le compte des clients, comme les loyers avant reversement — obligatoire surtout en gestion et syndic. Régime spécial pour les agences qui déclarent ne pas détenir de fonds : la garantie financière n'est pas toujours requise, mais la RCP reste obligatoire.",
       "learningIntent": "Distinguer RCP et garantie financière.",
       "keyword": "RCP : TOUJOURS OBLIGATOIRE",
-      "characters": ["HUGO", "LEA"], "characterAction": "Un bouclier (RCP) arrête une tache d'encre ; des pièces entrent dans un coffre (garantie financière) puis ressortent vers le propriétaire.",
-      "setting": "tower", "visualExample": "Bouclier vs coffre ; le coffre s'efface pour les agences sans fonds, le bouclier reste.",
-      "camera": "Plan large tour, inserts emblèmes.", "kineticType": "Emblèmes titrés.",
-      "transitionIn": "clouds", "transitionOut": "page", "sfx": ["chime", "pop"], "assets": ["bg:tower"]
+      "characters": [
+        "HUGO",
+        "LEA"
+      ],
+      "characterAction": "Un bouclier (RCP) arrête une tache d'encre ; des pièces entrent dans un coffre (garantie financière) puis ressortent vers le propriétaire.",
+      "setting": "tower",
+      "visualExample": "Bouclier vs coffre ; le coffre s'efface pour les agences sans fonds, le bouclier reste.",
+      "camera": "Plan large tour, inserts emblèmes.",
+      "kineticType": "Emblèmes titrés.",
+      "transitionIn": "clouds",
+      "transitionOut": "page",
+      "sfx": [
+        "chime",
+        "pop"
+      ],
+      "assets": [
+        "bg:tower"
+      ]
     },
     {
-      "id": "S19-checklist", "startSec": 345.0, "endSec": 373.5,
+      "id": "S19-checklist",
+      "startSec": 345.0,
+      "endSec": 373.5,
       "narration": "Avant toute action engageant un client, vérifier : la demande, la carte, l'attestation d'habilitation, le mandat écrit, les pouvoirs exprès et les assurances obligatoires. Quand un document manque : demander la preuve, informer le client, différer l'action jusqu'à régularisation. On protège le professionnel et le client.",
       "learningIntent": "La check-list opérationnelle.",
       "keyword": "CHECK-LIST",
-      "characters": ["LEA", "HUGO", "DELMAS"], "characterAction": "Les six cases se cochent ; poignée de main finale avec M. Delmas.",
-      "setting": "office", "visualExample": "Check-list sur parchemin ; trois étapes si un document manque.",
-      "camera": "Plan à deux, carnet en insert.", "kineticType": "Coches synchronisées.",
-      "transitionIn": "page", "transitionOut": "clouds", "sfx": ["check"], "assets": ["bg:office"]
+      "characters": [
+        "LEA",
+        "HUGO",
+        "DELMAS"
+      ],
+      "characterAction": "Les six cases se cochent ; poignée de main finale avec M. Delmas.",
+      "setting": "office",
+      "visualExample": "Check-list sur parchemin ; trois étapes si un document manque.",
+      "camera": "Plan à deux, carnet en insert.",
+      "kineticType": "Coches synchronisées.",
+      "transitionIn": "page",
+      "transitionOut": "clouds",
+      "sfx": [
+        "check"
+      ],
+      "assets": [
+        "bg:office"
+      ]
     },
     {
-      "id": "S20-conclusion", "startSec": 373.5, "endSec": 392.02,
+      "id": "S20-conclusion",
+      "startSec": 373.5,
+      "endSec": 392.02,
       "narration": "Cette simple phrase « Occupez-vous de mon appartement » cache beaucoup plus qu'il n'y paraît. C'est un vrai parcours organisé, avec du sérieux à chaque étape : agir en toute sécurité juridique.",
       "learningIntent": "Conclusion et message à retenir.",
       "keyword": "AGIR EN TOUTE SÉCURITÉ JURIDIQUE",
-      "characters": ["LEA", "HUGO"], "characterAction": "Léa et Hugo assis sur le banc au coucher du soleil ; la citation se déroule en chemin lumineux.",
-      "setting": "sunset", "visualExample": "La phrase devient un chemin balisé d'étapes.",
-      "camera": "Plan large crépuscule, lent zoom arrière.", "kineticType": "Mot-clé doré final.",
-      "transitionIn": "clouds", "transitionOut": "fade", "sfx": ["chime"], "assets": ["bg:sunset"]
+      "characters": [
+        "LEA",
+        "HUGO"
+      ],
+      "characterAction": "Léa et Hugo assis sur le banc au coucher du soleil ; la citation se déroule en chemin lumineux.",
+      "setting": "sunset",
+      "visualExample": "La phrase devient un chemin balisé d'étapes.",
+      "camera": "Plan large crépuscule, lent zoom arrière.",
+      "kineticType": "Mot-clé doré final.",
+      "transitionIn": "clouds",
+      "transitionOut": "fade",
+      "sfx": [
+        "chime"
+      ],
+      "assets": [
+        "bg:sunset"
+      ]
     }
   ]
 }

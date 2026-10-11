@@ -27,7 +27,7 @@ export const S01: React.FC = () => {
           {/* ringing waves */}
           {span(t, 0.2, 1.6) > 0 &&
             [0, 1, 2].map((i) => (
-              <div key={i} style={{ position: "absolute", left: 1400, top: 470, width: 60 + ((t * 120 + i * 40) % 120), height: 60 + ((t * 120 + i * 40) % 120), translate: "-50% -50%", borderRadius: 999, border: `5px solid ${C.gold}`, opacity: span(t, 0.2, 1.6) * (1 - ((t * 120 + i * 40) % 120) / 120) }} />
+              <div key={i} style={{ position: "absolute", left: 420, top: 330, width: 60 + ((t * 120 + i * 40) % 120), height: 60 + ((t * 120 + i * 40) % 120), translate: "-50% -50%", borderRadius: 999, border: `5px solid ${C.gold}`, opacity: span(t, 0.2, 1.6) * (1 - ((t * 120 + i * 40) % 120) / 120) }} />
             ))}
           <Medallion who="DELMAS" t={t} x={420} y={330} r={130} at={1.0} until={8.4} label="Un client" />
           <Bubble t={t} x={930} y={300} w={760} at={3.0} until={8.4} tail="left" size={46} font="title" italic>
@@ -134,13 +134,13 @@ export const S04: React.FC = () => {
               <Kite x={1380} y={250} t={t} color={C.gold} label="② Comprendre les documents légaux" w={600} />
             </div>
           )}
-          <Pop t={t} x={960} y={560} at={40.0} until={42.4} s={1.6}>
+          <Pop t={t} x={960} y={300} at={40.0} until={42.4} s={1.15}>
             <svg width={160} height={160} viewBox="-60 -80 120 160" style={{ overflow: "visible" }}>
               <circle cx={0} cy={-10} r={70} fill="#fff1b8" opacity={0.6} />
               <KeyItem />
             </svg>
           </Pop>
-          <Chip t={t} at={40.5} until={42.4} x={960} y={720} text="Éviter des erreurs graves" color={C.navy} />
+          <Chip t={t} at={40.5} until={42.4} x={960} y={430} text="Éviter des erreurs graves" color={C.navy} />
         </>
       }
     />

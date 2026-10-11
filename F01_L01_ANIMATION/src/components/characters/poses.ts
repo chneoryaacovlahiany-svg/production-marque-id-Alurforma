@@ -1,4 +1,4 @@
-import { interpolate } from "remotion";
+import { Easing, interpolate } from "remotion";
 import { ease } from "../../theme";
 
 // Arm = [shoulder angle (outward from hanging), elbow bend (forearm toward body/up)] in degrees,
@@ -31,14 +31,21 @@ export const POSES = {
 export type PoseName = keyof typeof POSES;
 export type PoseKey = { at: number; pose: PoseName };
 
-const mixArm = (a: Arm, b: Arm, k: number): Arm => [
-  a[0] + (b[0] - a[0]) * k,
-  a[1] + (b[1] - a[1]) * k,
-  (a[2] ?? 1) + ((b[2] ?? 1) - (a[2] ?? 1)) * k,
+const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
+const mixArm = (a: Arm, b: Arm, kShoulder: number, kElbow: number): Arm => [
+  lerp(a[0], b[0], kShoulder),
+  lerp(a[1], b[1], kElbow),
+  lerp(a[2] ?? 1, b[2] ?? 1, kShoulder),
 ];
 
-/** Pose at lesson time t from a schedule; each change blends over `blend` seconds. */
-export const poseAt = (keys: PoseKey[] | PoseName | undefined, t: number, blend = 0.45): Pose => {
+const SHOULDER_EASE = Easing.bezier(0.45, 0, 0.2, 1);
+const ELBOW_EASE = Easing.bezier(0.3, 1.35, 0.55, 1); // follow-through with a little overshoot
+
+/**
+ * Pose at lesson time t from a schedule. Like a real arm, the shoulder leads and the elbow
+ * follows a few frames later with a soft overshoot (overlapping action).
+ */
+export const poseAt = (keys: PoseKey[] | PoseName | undefined, t: number, blend = 0.55): Pose => {
   if (!keys) return POSES.rest;
   if (typeof keys === "string") return POSES[keys];
   let prev: Pose = POSES.rest;
@@ -51,8 +58,10 @@ export const poseAt = (keys: PoseKey[] | PoseName | undefined, t: number, blend 
       at = k.at;
     }
   }
-  const m = interpolate(t, [at, at + blend], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.inOut });
-  return { L: mixArm(prev.L, cur.L, m), R: mixArm(prev.R, cur.R, m) };
+  const o = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
+  const k1 = interpolate(t, [at, at + blend], [0, 1], { ...o, easing: SHOULDER_EASE });
+  const k2 = interpolate(t, [at + 0.07, at + 0.07 + blend], [0, 1], { ...o, easing: ELBOW_EASE });
+  return { L: mixArm(prev.L, cur.L, k1, k2), R: mixArm(prev.R, cur.R, k1, k2) };
 };
 
 export type Mood = "neutral" | "smile" | "happy" | "surprised" | "worried" | "focused";

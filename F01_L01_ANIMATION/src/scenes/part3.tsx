@@ -13,6 +13,7 @@ export const S15: React.FC = () => {
   const m = meta("S15-negocier");
   const t = useT();
   const fly = ramp(t, 240.6, 242.2);
+  // the envelope travels from the mandate to the client medallion
   return (
     <SceneShell
       start={m.startSec}
@@ -20,24 +21,24 @@ export const S15: React.FC = () => {
       backdrop="office"
       world={
         <>
-          <Character who="LEA" t={t} x={250} y={GROUND} h={HOST_H} pose={[{ at: 216, pose: "rest" }, { at: 220.5, pose: "explain" }, { at: 228.2, pose: "fingerUp" }, { at: 230.8, pose: "rest" }, { at: 236.8, pose: "explain" }, { at: 240.4, pose: "pointR" }, { at: 243.4, pose: "rest" }, { at: 248.9, pose: "fingerUp" }]} look={0.7} mood={[{ at: 216, mood: "smile" }, { at: 228.2, mood: "focused" }, { at: 249, mood: "smile" }]} />
-          <Character who="HUGO" t={t} x={1680} y={GROUND} h={HOST_H} pose={[{ at: 216, pose: "explain" }, { at: 220.4, pose: "rest" }, { at: 231.9, pose: "explain" }, { at: 236.8, pose: "rest" }, { at: 244.2, pose: "shrug" }, { at: 248, pose: "rest" }]} look={-0.7} mood={[{ at: 216, mood: "focused" }, { at: 244.2, mood: "worried" }, { at: 248.6, mood: "smile" }]} />
+          <Character who="LEA" t={t} x={170} y={GROUND} h={HOST_H} pose={[{ at: 216, pose: "rest" }, { at: 220.5, pose: "explain" }, { at: 228.2, pose: "fingerUp" }, { at: 230.8, pose: "rest" }, { at: 236.8, pose: "explain" }, { at: 240.4, pose: "pointR" }, { at: 243.4, pose: "rest" }, { at: 248.9, pose: "fingerUp" }]} look={0.7} mood={[{ at: 216, mood: "smile" }, { at: 228.2, mood: "focused" }, { at: 249, mood: "smile" }]} />
+          <Character who="HUGO" t={t} x={1760} y={GROUND} h={HOST_H} pose={[{ at: 216, pose: "explain" }, { at: 220.4, pose: "rest" }, { at: 231.9, pose: "explain" }, { at: 236.8, pose: "rest" }, { at: 244.2, pose: "shrug" }, { at: 248, pose: "rest" }]} look={-0.7} mood={[{ at: 216, mood: "focused" }, { at: 244.2, mood: "worried" }, { at: 248.6, mood: "smile" }]} />
         </>
       }
       ui={
         <>
-          <Keyword t={t} at={217.2} until={220.5} x={960} y={300} text="NÉGOCIER ≠ ENGAGER" size={100} sub="une confusion fréquente" />
-          <PaperCard t={t} at={220.5} until={237.0} from="left" x={660} y={470} w={760} title="Négocier" band={C.emerald}>
+          <Keyword t={t} at={217.2} until={220.5} x={960} y={200} text="NÉGOCIER ≠ ENGAGER" size={100} sub="une confusion fréquente" />
+          <PaperCard t={t} at={220.5} until={237.0} from="left" x={650} y={470} w={680} title="Négocier" band={C.emerald}>
             <CheckLine t={t} at={221.8} text="Discuter le prix" size={36} />
             <CheckLine t={t} at={223.0} text="Présenter une offre" size={36} />
             <CheckLine t={t} at={224.6} text="Faire des contre-propositions au nom du client" size={36} />
             <CheckLine t={t} at={228.4} kind="cross" text="Accepter l'offre finale" size={36} strike />
           </PaperCard>
-          <PaperCard t={t} at={232.0} until={237.0} from="right" x={1300} y={470} w={620} title="Accepter = engager" band={C.navy}>
+          <PaperCard t={t} at={232.0} until={237.0} from="right" x={1290} y={470} w={600} title="Accepter = engager" band={C.navy}>
             <CheckLine t={t} at={233.6} text="Engager le client" size={36} />
             <CheckLine t={t} at={235.7} text="Signer un accord en son nom" size={36} />
           </PaperCard>
-          <PaperCard t={t} at={237.2} until={246.4} from="bottom" x={760} y={450} w={760} title="Mandat" band={C.gold}>
+          <PaperCard t={t} at={237.2} until={246.4} from="bottom" x={800} y={450} w={720} title="Mandat" band={C.gold}>
             {[0, 1].map((i) => (
               <div key={i} style={{ height: 12, borderRadius: 6, background: "#d8cfbf", margin: "10px 0", width: `${90 - i * 20}%` }} />
             ))}
@@ -52,11 +53,11 @@ export const S15: React.FC = () => {
             ))}
           </PaperCard>
           {span(t, 240.4, 244.4) > 0 && (
-            <div style={{ position: "absolute", left: interpolate(fly, [0, 1], [760, 1500]), top: interpolate(fly, [0, 0.5, 1], [430, 260, 400]), translate: "-50% -50%", rotate: `${fly * 360}deg`, opacity: span(t, 240.4, 244.4, 0.2, 0.4) }}>
+            <div style={{ position: "absolute", left: interpolate(fly, [0, 1], [800, 1420]), top: interpolate(fly, [0, 0.5, 1], [430, 260, 400]), translate: "-50% -50%", rotate: `${fly * 360}deg`, opacity: span(t, 240.4, 244.4, 0.2, 0.4) }}>
               <Icon kind="envelope" size={130} />
             </div>
           )}
-          <Medallion who="DELMAS" t={t} x={1500} y={430} r={120} at={240.8} until={246.4} label="Le client décide" />
+          <Medallion who="DELMAS" t={t} x={1420} y={430} r={120} at={240.8} until={246.4} label="Le client décide" />
           <Chip t={t} at={240.6} until={243.6} x={760} y={820} text="Sinon : l'agent transmet l'offre au client" color={C.navy} size={36} />
           <Pop t={t} x={960} y={420} at={244.6} until={248.6} s={1.8}>
             <div style={{ position: "relative" }}>
@@ -89,32 +90,32 @@ export const S16: React.FC = () => {
       camera={[[251, 1.0, 0, 0], [262, 1.0, 0, 0], [264, 1.06, -60, 20], [269, 1.0, 0, 0]]}
       world={
         <>
-          <Character who="BUYER" t={t} x={1640} y={905} h={440} opacity={ramp(t, 256.4, 257.2)} pose={[{ at: 256.4, pose: "wave" }, { at: 258.4, pose: "handsHips" }]} look={-0.6} mood="happy" />
-          <Character who="DELMAS" t={t} x={[[251.2, -200], [253.8, 560]]} walk={[[251.2, 253.8]]} y={1010} h={520} pose={[{ at: 251, pose: "rest" }, { at: 254, pose: "pointR" }, { at: 256.4, pose: "open" }, { at: 262.4, pose: "rest" }, { at: 269.6, pose: "think" }]} look={0.6} mood={[{ at: 251, mood: "happy" }, { at: 262.6, mood: "surprised" }, { at: 270, mood: "smile" }]} />
-          <Character who="HUGO" t={t} x={1080} y={1010} h={560} pose={[{ at: 251, pose: "explain" }, { at: 262.6, pose: "open" }, { at: 266, pose: "holdR" }]} look={-0.5} mood={[{ at: 251, mood: "smile" }, { at: 259, mood: "worried" }, { at: 269.6, mood: "smile" }]} rightItem={t > 266 ? <FolderItem /> : undefined} />
+          <Character who="BUYER" t={t} x={[[263.4, 1640], [266.4, 2200]]} walk={[[263.4, 266.4]]} y={905} h={440} opacity={ramp(t, 256.4, 257.2)} pose={[{ at: 256.4, pose: "wave" }, { at: 258.4, pose: "handsHips" }, { at: 262.8, pose: "shrug" }, { at: 263.4, pose: "rest" }]} look={[[256, -0.6], [263.2, 0.6]]} mood={[{ at: 256, mood: "happy" }, { at: 262.8, mood: "surprised" }]} />
+          <Character who="DELMAS" t={t} x={[[251.2, -200], [253.8, 360]]} walk={[[251.2, 253.8]]} y={1010} h={520} pose={[{ at: 251, pose: "rest" }, { at: 254, pose: "pointR" }, { at: 256.4, pose: "open" }, { at: 262.4, pose: "rest" }, { at: 269.6, pose: "think" }]} look={0.6} mood={[{ at: 251, mood: "happy" }, { at: 262.6, mood: "surprised" }, { at: 270, mood: "smile" }]} />
+          <Character who="HUGO" t={t} x={660} y={1010} h={560} pose={[{ at: 251, pose: "explain" }, { at: 262.6, pose: "open" }, { at: 266, pose: "holdR" }]} look={[[251, 0.4], [262.4, -0.5]]} mood={[{ at: 251, mood: "smile" }, { at: 259, mood: "worried" }, { at: 269.6, mood: "smile" }]} rightItem={t > 266 ? <FolderItem /> : undefined} />
         </>
       }
       ui={
         <>
-          <Keyword t={t} at={251.6} until={254.0} x={960} y={190} text="LE CAS DE M. DELMAS" size={84} />
+          <Keyword t={t} at={251.6} until={254.0} x={1100} y={170} text="LE CAS DE M. DELMAS" size={84} />
           <Sign t={t} at={254.2} x={1300} y={640} text="À vendre" w={260} size={40} rot={-4} post color="#fbe3c6" />
           <Chip t={t} at={254.8} until={259.0} x={1300} y={500} text="… vite !" color={C.amber} size={36} />
           <Chip t={t} at={256.8} until={262.0} x={1640} y={380} text="Acheteur déjà intéressé" color={C.navy} size={30} />
           <Chip t={t} at={259.3} until={262.4} x={700} y={230} text="Pas encore de mandat écrit" color={C.red} size={38} icon={<Mark t={t} at={259.3} kind="cross" size={40} />} />
           <Chip t={t} at={260.5} until={262.4} x={1240} y={230} text="Carte expirée" color={C.amber} size={38} icon={<Mark t={t} at={260.5} kind="question" size={40} />} />
-          <Keyword t={t} at={262.6} until={269.4} x={960} y={230} text="PAS DE VISITE NI DE NÉGOCIATION" size={66} color={C.red} underline={C.amber} sub="avant la mission formalisée et un titre professionnel valable" />
-          <PaperCard t={t} at={269.7} until={277.6} x={960} y={400} w={720} title="Ce qu'on fait" band={C.emerald}>
+          <Keyword t={t} at={262.6} until={269.4} x={960} y={170} text="PAS DE VISITE NI DE NÉGOCIATION" size={66} color={C.red} underline={C.amber} sub="avant la mission formalisée et un titre professionnel valable" />
+          <PaperCard t={t} at={269.7} until={274.6} x={1300} y={360} w={640} title="Ce qu'on fait" band={C.emerald}>
             <CheckLine t={t} at={270.0} text="Expliquer au client" size={38} />
             <CheckLine t={t} at={271.0} text="Préparer le dossier" size={38} />
             <CheckLine t={t} at={272.6} kind="cross" text="Lancer la visite" size={38} strike />
           </PaperCard>
           {span(t, 274.6, 277.6) > 0 && (
             <div style={{ position: "absolute", left: 0, top: 0, opacity: span(t, 274.6, 277.6, 0.3, 0.3) }}>
-              <Truck x={1560} y={380} s={0.36} />
-              <div style={{ position: "absolute", left: 1560, top: 200, scale: String(pop(t, 275.2)) }}>
+              <Truck x={1300} y={420} s={0.36} />
+              <div style={{ position: "absolute", left: 1300, top: 240, scale: String(pop(t, 275.2)) }}>
                 <Mark t={t} at={275.2} kind="cross" size={70} />
               </div>
-              <div style={{ position: "absolute", left: 1470, top: 400, whiteSpace: "nowrap", fontFamily: fonts.body, fontWeight: 800, fontSize: 30, color: C.paper, textShadow: "0 2px 6px rgba(0,0,0,0.6)" }}>sans les clés</div>
+              <div style={{ position: "absolute", left: 1210, top: 440, whiteSpace: "nowrap", fontFamily: fonts.body, fontWeight: 800, fontSize: 30, color: C.paper, textShadow: "0 2px 6px rgba(0,0,0,0.6)" }}>sans les clés</div>
             </div>
           )}
         </>
@@ -142,9 +143,9 @@ export const S17: React.FC = () => {
       camera={[[277.5, 1, 0, 0], [279, 1.1, -120, 30], [282.5, 1.1, -120, 30], [285, 1, 0, 0]]}
       world={
         <>
-          <Character who="DELMAS" t={t} x={560} y={1010} h={520} pose={[{ at: 277.5, pose: "think" }, { at: 279.4, pose: "pointR" }, { at: 282, pose: "rest" }]} look={0.6} mood={[{ at: 277.5, mood: "smile" }, { at: 279.4, mood: "happy" }]} />
-          <Character who="HUGO" t={t} x={1080} y={1010} h={560} pose={[{ at: 277.5, pose: "explain" }, { at: 282, pose: "holdR" }]} look={-0.5} mood="smile" rightItem={<FolderItem />} />
-          <Character who="LEA" t={t} x={[[277.6, 2150], [281.4, 1560]]} walk={[[277.6, 281.4]]} y={1010} h={540} pose={[{ at: 281.6, pose: "fingerUp" }, { at: 284.6, pose: "explain" }, { at: 301.8, pose: "fingerUp" }]} look={-0.6} mood={[{ at: 277.6, mood: "smile" }, { at: 301.8, mood: "focused" }]} />
+          <Character who="DELMAS" t={t} x={360} y={1010} h={520} pose={[{ at: 277.5, pose: "think" }, { at: 279.4, pose: "pointR" }, { at: 282, pose: "rest" }]} look={0.6} mood={[{ at: 277.5, mood: "smile" }, { at: 279.4, mood: "happy" }]} />
+          <Character who="HUGO" t={t} x={660} y={1010} h={560} pose={[{ at: 277.5, pose: "explain" }, { at: 282, pose: "holdR" }]} look={[[277.5, -0.5], [283, 0.6]]} mood="smile" rightItem={<FolderItem />} />
+          <Character who="LEA" t={t} x={[[277.6, 2150], [280.8, 1745]]} walk={[[277.6, 280.8]]} y={1010} h={540} pose={[{ at: 281.6, pose: "fingerUp" }, { at: 284.6, pose: "explain" }, { at: 301.8, pose: "fingerUp" }]} look={-0.6} mood={[{ at: 277.6, mood: "smile" }, { at: 301.8, mood: "focused" }]} />
         </>
       }
       ui={
@@ -160,17 +161,17 @@ export const S17: React.FC = () => {
               </Label>
             </div>
           </Pop>
-          <Keyword t={t} at={283.0} until={285.4} x={960} y={220} text="ON REPART À ZÉRO" size={100} color={C.navy} />
-          <PaperCard t={t} at={285.2} until={301.6} x={960} y={440} w={1000} title="Nouvelle vérification" band={C.navy}>
+          <Keyword t={t} at={283.0} until={285.4} x={1190} y={170} text="ON REPART À ZÉRO" size={100} color={C.navy} />
+          <PaperCard t={t} at={285.2} until={301.6} x={1190} y={440} w={760} title="Nouvelle vérification" band={C.navy}>
             {steps.map(([s, at]) => (
-              <CheckLine key={s} t={t} at={at} text={s} size={38} />
+              <CheckLine key={s} t={t} at={at} text={s} size={33} />
             ))}
             <div style={{ marginTop: 14, opacity: ramp(t, 295.8, 296.3) }}>
               <Label size={32} color={C.red}>… avant de commencer quoi que ce soit.</Label>
             </div>
           </PaperCard>
-          <Chip t={t} at={298.4} until={301.6} x={960} y={810} text="Chaque changement = nouvelle vérification rigoureuse" color={C.emerald} size={36} />
-          <Keyword t={t} at={302.4} until={306.4} x={960} y={300} text="VENTE ≠ GESTION" size={110} color={C.red} underline={C.amber} sub="ne jamais présumer" />
+          <Chip t={t} at={298.4} until={301.6} x={1190} y={770} text="Chaque changement = nouvelle vérification rigoureuse" color={C.emerald} size={28} />
+          <Keyword t={t} at={302.4} until={306.4} x={1190} y={180} text="VENTE ≠ GESTION" size={110} color={C.red} underline={C.amber} sub="ne jamais présumer" />
         </>
       }
     />
@@ -223,7 +224,7 @@ export const S18: React.FC = () => {
               <div style={{ marginTop: 6, background: C.paper, border: `4px solid ${C.ink}`, borderRadius: 14, padding: "6px 18px", fontFamily: fonts.body, fontWeight: 800, fontSize: 36, color: C.wood, boxShadow: shadow }}>Garantie financière</div>
             </div>
           </Pop>
-          <Chip t={t} at={316.0} until={324.0} x={600} y={720} text="Responsabilité civile professionnelle" color={C.emerald} size={30} />
+          <Chip t={t} at={316.0} until={324.0} x={650} y={720} text="Responsabilité civile professionnelle" color={C.emerald} size={30} />
           {span(t, 320.4, 322.6) > 0 && (
             <div style={{ position: "absolute", left: 600 + (1 - blot) * -260 + (blot > 0.99 ? (t - 321.2) * 300 : 0), top: interpolate(blot, [0, 1], [120, 330]) + (blot > 0.99 ? -(t - 321.2) * 200 : 0), translate: "-50% -50%", opacity: span(t, 320.4, 322.6, 0.2, 0.6) }}>
               <svg width={110} height={110} viewBox="-55 -55 110 110">
@@ -232,7 +233,7 @@ export const S18: React.FC = () => {
               <div style={{ fontFamily: fonts.body, fontWeight: 800, fontSize: 24, color: C.paper, textAlign: "center", textShadow: "0 2px 4px #000" }}>faute</div>
             </div>
           )}
-          <Chip t={t} at={321.4} until={324.2} x={600} y={800} text="Fautes du pro → conséquences financières" color={C.navy} size={30} />
+          <Chip t={t} at={321.4} until={324.2} x={650} y={800} text="Fautes du pro → conséquences financières" color={C.navy} size={30} />
           {[0, 1, 2, 3].map((i) => coin(i, 325.2, [900, 820], [1300, 430]))}
           {[0, 1, 2, 3].map((i) => coin(i, 328.4, [1300, 430], [1680, 300]))}
           <Pop t={t} x={1700} y={280} at={328.2} until={334.6}>
@@ -348,11 +349,11 @@ export const S20: React.FC = () => {
                   </Pop>
                 );
               })}
-              <Chip t={t} at={383.4} until={386.0} x={960} y={560} text="Un vrai parcours organisé, sérieux à chaque étape" color={C.navy} size={34} />
+              <Chip t={t} at={383.4} until={386.0} x={960} y={150} text="Un vrai parcours organisé, sérieux à chaque étape" color={C.navy} size={34} />
             </div>
           )}
           <Keyword t={t} at={386.2} until={392.2} x={960} y={300} text="AGIR EN TOUTE SÉCURITÉ JURIDIQUE" size={78} color={C.navy} ribbon="#fff6dc" underline={C.gold} />
-          <Pop t={t} x={960} y={480} at={390.9} until={392.2}>
+          <Pop t={t} x={960} y={410} at={390.9} until={392.2}>
             <Label serif size={46} color={C.paper} style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}>
               Important à retenir ? Complètement.
             </Label>

@@ -2,6 +2,7 @@ import React, { createContext, useContext } from "react";
 import { interpolate, useCurrentFrame } from "remotion";
 import transcript from "../data/transcript.json";
 import envelope from "../data/envelope.json";
+import motion from "../data/motion.json";
 import scenesData from "../data/scenes.json";
 import { ease } from "../theme";
 
@@ -52,6 +53,17 @@ export const voiceAt = (t: number) => {
   const i = Math.round(t * FPS);
   if (i < 0 || i >= mouthStr.length) return 0;
   return Number(mouthStr[i]) / 9;
+};
+
+/** Spring-smoothed body-language signal of a podcast voice (see scripts/prepare_transcript.py). */
+type MotionKey = "gest" | "nod" | "active";
+export const motionAt = (who: string, key: MotionKey, t: number) => {
+  if (who !== "LEA" && who !== "HUGO") return 0;
+  const str = motion[who][key];
+  const i = Math.round(t * FPS);
+  if (i < 0 || i * 2 >= str.length) return 0;
+  const [lo, hi] = motion.ranges[key];
+  return lo + (parseInt(str.slice(i * 2, i * 2 + 2), 16) / 255) * (hi - lo);
 };
 
 // ── Scene time context: every scene animates in lesson seconds ────────────

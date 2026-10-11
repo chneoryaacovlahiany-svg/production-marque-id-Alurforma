@@ -21,13 +21,13 @@ export const S08: React.FC = () => {
       backdrop="office"
       world={
         <>
-          <Character who="LEA" t={t} x={600} y={GROUND} h={HOST_H} pose={[{ at: 80, pose: "rest" }, { at: 82.9, pose: "explain" }, { at: 93.6, pose: "fingerUp" }]} look={0.6} mood="smile" />
-          <Character who="HUGO" t={t} x={1330} y={GROUND} h={HOST_H} pose={[{ at: 80, pose: "explain" }, { at: 83, pose: "think" }]} look={-0.6} mood={[{ at: 80, mood: "smile" }, { at: 84, mood: "focused" }]} />
+          <Character who="LEA" t={t} x={[[83.3, 600], [84.9, 150]]} walk={[[83.3, 84.9]]} y={GROUND} h={HOST_H} pose={[{ at: 80, pose: "rest" }, { at: 82.9, pose: "explain" }, { at: 83.3, pose: "rest" }, { at: 85.2, pose: "explain" }, { at: 93.6, pose: "fingerUp" }]} look={[[80, 0.6], [84.9, 0.6], [85.6, 0.3]]} mood="smile" />
+          <Character who="HUGO" t={t} x={[[83.3, 1330], [84.9, 1775]]} walk={[[83.3, 84.9]]} y={GROUND} h={HOST_H} pose={[{ at: 80, pose: "explain" }, { at: 83, pose: "rest" }, { at: 85.2, pose: "think" }]} look={[[80, -0.6], [84.9, -0.6], [85.6, -0.3]]} mood={[{ at: 80, mood: "smile" }, { at: 84, mood: "focused" }]} />
         </>
       }
       ui={
         <>
-          <PaperCard t={t} at={84.5} until={95.0} from="left" x={interpolate(close, [0, 1], [500, 800])} y={430} w={820} title="Demande A" band={C.emerald}>
+          <PaperCard t={t} at={84.5} until={95.0} from="left" x={interpolate(close, [0, 1], [615, 700])} y={430} w={640} title="Demande A" band={C.emerald}>
             <Label serif size={42} color={C.navy} style={{ fontStyle: "italic", textAlign: "center" }}>
               « Trouvez-moi un locataire, je gérerai ensuite. »
             </Label>
@@ -51,7 +51,7 @@ export const S08: React.FC = () => {
               <Label size={30} color={C.inkSoft}>Mission : trouver un locataire</Label>
             </div>
           </PaperCard>
-          <PaperCard t={t} at={88.8} until={95.0} from="right" x={interpolate(close, [0, 1], [1420, 1120])} y={430} w={820} title="Demande B" band={C.navy}>
+          <PaperCard t={t} at={88.8} until={95.0} from="right" x={interpolate(close, [0, 1], [1305, 1220])} y={430} w={640} title="Demande B" band={C.navy}>
             <Label serif size={42} color={C.navy} style={{ fontStyle: "italic", textAlign: "center" }}>
               « Louez-le et faites la gestion complète des loyers. »
             </Label>
@@ -72,7 +72,7 @@ export const S08: React.FC = () => {
             </div>
           </PaperCard>
           <Stamp t={t} at={93.8} until={95.0} x={960} y={430} text="≠" size={150} color={C.red} rot={0} />
-          <Keyword t={t} at={94.9} until={97.9} x={960} y={300} text="MISSION DIFFÉRENTE" size={92} sub="= documents et autorisations différents" />
+          <Keyword t={t} at={94.9} until={97.9} x={960} y={190} text="MISSION DIFFÉRENTE" size={92} sub="= documents et autorisations différents" />
         </>
       }
     />
@@ -94,13 +94,13 @@ export const S09: React.FC = () => {
       world={
         <>
           <Character who="LEA" t={t} x={600} y={GROUND} h={HOST_H} pose={[{ at: 97, pose: "rest" }, { at: 103.8, pose: "explain" }, { at: 107.2, pose: "pointUpR" }, { at: 110, pose: "rest" }, { at: 116.2, pose: "open" }]} look={0.6} mood={[{ at: 97, mood: "smile" }, { at: 116.2, mood: "happy" }]} />
-          <Character who="HUGO" t={t} x={1330} y={GROUND} h={HOST_H} pose={[{ at: 97, pose: "explain" }, { at: 103, pose: "rest" }, { at: 110.2, pose: "fingerUp" }, { at: 116.3, pose: "cheer" }]} look={-0.6} mood={[{ at: 97, mood: "focused" }, { at: 116.3, mood: "happy" }]} />
+          <Character who="HUGO" t={t} x={1330} y={GROUND} h={HOST_H} pose={[{ at: 97, pose: "explain" }, { at: 103, pose: "rest" }, { at: 110.2, pose: "fingerUp" }, { at: 116.3, pose: "handsHips" }]} look={-0.6} mood={[{ at: 97, mood: "focused" }, { at: 116.3, mood: "happy" }]} />
         </>
       }
       ui={
         <>
           {[0, 1, 2, 3].map((i) => (
-            <Pop key={i} t={t} at={98.6 + i * 0.7} until={103.4} x={1150 + i * 120} y={250 + (i % 2) * 70} rot={(i % 2 ? 12 : -10)}>
+            <Pop key={i} t={t} at={98.6 + i * 0.7} until={103.4} x={1150 + i * 120} y={160 + (i % 2) * 60} rot={(i % 2 ? 12 : -10)}>
               <Mark t={t} at={98.6 + i * 0.7} kind="question" size={80} />
             </Pop>
           ))}
@@ -112,11 +112,11 @@ export const S09: React.FC = () => {
               <Sign t={t} at={104.3} x={0} y={0} text="Accompagnateur immobilier" w={720} size={44} color="#f3e3c2" />
             </div>
           )}
-          <Stamp t={t} at={107.4} until={110.0} x={960} y={360} text="Mêmes actes · même cadre légal" size={46} color={C.emerald} rot={-6} />
-          <Chip t={t} at={112.2} until={118.4} x={560} y={260} text="Quel acte ?" color={C.emerald} size={44} />
-          <Chip t={t} at={113.6} until={118.4} x={960} y={220} text="Pour qui ?" color={C.navy} size={44} />
-          <Chip t={t} at={114.6} until={118.4} x={1360} y={260} text="Quel contexte ?" color={C.gold} size={44} />
-          <Pop t={t} x={960} y={370} at={116.3} until={118.4}>
+          <Stamp t={t} at={107.4} until={110.0} x={960} y={250} text="Mêmes actes · même cadre légal" size={46} color={C.emerald} rot={-6} />
+          <Chip t={t} at={112.2} until={118.4} x={560} y={170} text="Quel acte ?" color={C.emerald} size={44} />
+          <Chip t={t} at={113.6} until={118.4} x={960} y={150} text="Pour qui ?" color={C.navy} size={44} />
+          <Chip t={t} at={114.6} until={118.4} x={1360} y={170} text="Quel contexte ?" color={C.gold} size={44} />
+          <Pop t={t} x={960} y={270} at={116.3} until={118.4}>
             <Label serif size={54} color={C.navy} style={{ background: C.paper, padding: "8px 26px", borderRadius: 16, boxShadow: shadow }}>
               = qualifier la demande
             </Label>
@@ -183,7 +183,7 @@ export const S11: React.FC = () => {
       camera={[[128.6, 1.0, 0, 0], [163.3, 1.03, 0, 0]]}
       world={
         <>
-          <Character who="LEA" t={t} x={250} y={GROUND} h={HOST_H} pose={[{ at: 128, pose: "rest" }, { at: 137.4, pose: "explain" }, { at: 150, pose: "pointR" }, { at: 155, pose: "rest" }]} look={0.7} mood="smile" />
+          <Character who="LEA" t={t} x={250} y={GROUND} h={HOST_H} pose={[{ at: 128, pose: "rest" }, { at: 137.4, pose: "explain" }, { at: 155, pose: "rest" }]} look={0.7} mood="smile" />
           <Character who="HUGO" t={t} x={1680} y={GROUND} h={HOST_H} pose={[{ at: 128, pose: "holdR" }, { at: 136, pose: "rest" }, { at: 155.6, pose: "explain" }, { at: 159.8, pose: "fingerUp" }]} look={-0.7} mood={[{ at: 128, mood: "smile" }, { at: 159.8, mood: "focused" }]} rightItem={t < 136 ? <CardItem /> : undefined} />
         </>
       }
@@ -224,8 +224,8 @@ export const S11: React.FC = () => {
               </div>
             </div>
           </PaperCard>
-          <Chip t={t} at={156.6} until={159.9} x={960} y={860} text="Plusieurs mentions possibles sur une seule carte" color={C.navy} size={36} />
-          <Keyword t={t} at={160.2} until={163.4} x={960} y={860} text="1 MENTION ≠ TOUTES LES ACTIVITÉS" size={58} color={C.red} underline={C.amber} />
+          <Chip t={t} at={156.6} until={159.9} x={960} y={860} text="Plusieurs mentions possibles sur une seule carte" color={C.navy} size={30} />
+          <Keyword t={t} at={160.2} until={163.4} x={960} y={860} text="1 MENTION ≠ TOUTES LES ACTIVITÉS" size={58} color={C.red} underline={C.amber} maxWidth={1080} />
         </>
       }
     />
@@ -302,7 +302,7 @@ export const S13: React.FC = () => {
           <Stamp t={t} at={197.0} until={199.8} x={1520} y={520} text="Mandat signé" size={52} color={C.emerald} rot={-8} />
           <Chip t={t} at={197.6} until={199.8} x={760} y={230} text="Sinon : ni négociation ni engagement" color={C.red} size={36} />
           {span(t, 200.2, 202.6) > 0 && (
-            <div style={{ position: "absolute", left: 0, top: 0, translate: `${blow * 900}px ${-blow * 200}px`, rotate: `${blow * 40}deg`, opacity: span(t, 200.2, 202.6, 0.25, 0.6) }}>
+            <div style={{ position: "absolute", left: 0, top: 0, translate: `${-blow * 700}px ${-blow * 300}px`, rotate: `${-blow * 35}deg`, opacity: span(t, 200.2, 202.6, 0.25, 0.6) }}>
               <Bubble t={t} at={200.2} until={203} x={640} y={330} w={420} size={40}>
                 « Accord oral »
               </Bubble>

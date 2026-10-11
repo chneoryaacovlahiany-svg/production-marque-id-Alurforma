@@ -10,7 +10,9 @@ type Pos = { x: number; y: number };
 /** Big kinetic keyword on a torn-paper ribbon, letters rising one by one, brush underline. */
 export const Keyword: React.FC<
   Pos & { t: number; at: number; until: number; text: string; size?: number; color?: string; ribbon?: string; rotate?: number; sub?: string; underline?: string; maxWidth?: number }
-> = ({ t, at, until, text, x, y, size = 92, color = C.navy, ribbon = C.paper, rotate = -2, sub, underline = C.emerald, maxWidth = 1500 }) => {
+> = ({ t, at, until, text, x, y, size: wanted = 92, color = C.navy, ribbon = C.paper, rotate = -2, sub, underline = C.emerald, maxWidth = 1640 }) => {
+  // always one line, so the ribbon stays in the top band above the characters' heads
+  const size = Math.min(wanted, maxWidth / (text.length * 0.68 + 1));
   const vis = span(t, at, until, 0.35, 0.35);
   if (vis <= 0) return null;
   const out = ramp(t, until - 0.35, until, ease.in);
@@ -37,7 +39,7 @@ export const Keyword: React.FC<
           clipPath: "polygon(0% 6%, 3% 0%, 22% 4%, 48% 0%, 74% 5%, 97% 0%, 100% 8%, 98% 50%, 100% 92%, 96% 100%, 70% 96%, 45% 100%, 20% 95%, 2% 100%, 0% 90%, 2% 50%)",
         }}
       >
-        <div style={{ fontFamily: fonts.title, fontWeight: 800, fontSize: size, lineHeight: 1.05, color, letterSpacing: 1 }}>
+        <div style={{ fontFamily: fonts.title, fontWeight: 800, fontSize: size, lineHeight: 1.05, color, letterSpacing: 1, whiteSpace: "nowrap" }}>
           {(() => {
             let idx = 0;
             return text.split(" ").map((word, wi) => (
@@ -71,7 +73,7 @@ export const Keyword: React.FC<
           />
         </svg>
         {sub && (
-          <div style={{ fontFamily: fonts.body, fontWeight: 700, fontSize: size * 0.34, color: C.inkSoft, marginTop: 6, opacity: ramp(t, at + 0.6, at + 1) }}>{sub}</div>
+          <div style={{ fontFamily: fonts.body, fontWeight: 700, fontSize: Math.max(26, size * 0.34), color: C.inkSoft, marginTop: 6, whiteSpace: "nowrap", opacity: ramp(t, at + 0.6, at + 1) }}>{sub}</div>
         )}
       </div>
     </div>

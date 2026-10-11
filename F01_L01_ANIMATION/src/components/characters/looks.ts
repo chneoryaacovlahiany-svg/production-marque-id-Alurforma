@@ -1,4 +1,5 @@
-// Character continuity sheets (see content/characters.md). One rig, four looks.
+// Character continuity sheets (see content/characters.md). One rig, five looks.
+// Hand-painted anime style: muted natural palette, two-tone cel shading, warm thin line.
 export type Who = "LEA" | "HUGO" | "DELMAS" | "INES" | "BUYER";
 
 export type Look = {
@@ -8,12 +9,14 @@ export type Look = {
   blush: string;
   hair: string;
   hairShade: string;
-  hairStyle: "bob" | "messy" | "cap" | "ponytail";
+  hairHi: string; // painted highlight band
+  hairStyle: "bob" | "messy" | "cap" | "ponytail" | "short";
   iris: string;
   top: string;
   topShade: string;
   topStyle: "cardigan" | "vest" | "jacket" | "blazer";
   inner: string;
+  innerShade: string;
   bottom: string;
   bottomShade: string;
   shoes: string;
@@ -31,42 +34,42 @@ export type Look = {
 export const looks: Record<Who, Look> = {
   LEA: {
     name: "Léa",
-    skin: "#f6d5bb", skinShade: "#e4b294", blush: "#f19a8e",
-    hair: "#4a2b20", hairShade: "#2f1a14", hairStyle: "bob", iris: "#5b3a28",
-    top: "#2f9c6c", topShade: "#21794f", topStyle: "cardigan", inner: "#f7f0e1",
-    bottom: "#24315f", bottomShade: "#1a2448", shoes: "#5b3a29",
-    sleeveSkin: false, heightScale: 1, shoulder: 80, belly: 0, earrings: true, brows: "#3a2119",
+    skin: "#f8dcc6", skinShade: "#e8b89c", blush: "#f2948a",
+    hair: "#4e3226", hairShade: "#352018", hairHi: "#8a5d48", hairStyle: "bob", iris: "#4a2c22",
+    top: "#4f9a72", topShade: "#3a7a58", topStyle: "cardigan", inner: "#f6eedd", innerShade: "#e2d4bb",
+    bottom: "#2f3d66", bottomShade: "#222d4f", shoes: "#6b4532",
+    sleeveSkin: false, heightScale: 1, shoulder: 78, belly: 0, earrings: true, brows: "#3e271d",
   },
   HUGO: {
     name: "Hugo",
-    skin: "#efc6a4", skinShade: "#d9a47f", blush: "#e99484",
-    hair: "#7b4a2a", hairShade: "#5a331c", hairStyle: "messy", iris: "#4a3424",
-    top: "#d99a3a", topShade: "#b67b25", topStyle: "vest", inner: "#a9c9e6",
-    bottom: "#6b5a48", bottomShade: "#544536", shoes: "#3b2b20",
-    sleeveSkin: true, heightScale: 1.05, shoulder: 88, belly: 0, glasses: true, brows: "#5a331c",
+    skin: "#f2cdb0", skinShade: "#ddaa88", blush: "#ec9a86",
+    hair: "#7a4b2c", hairShade: "#583420", hairHi: "#b07c52", hairStyle: "messy", iris: "#3e2a1e",
+    top: "#d39a45", topShade: "#b07a30", topStyle: "vest", inner: "#b9d2e8", innerShade: "#93b2cf",
+    bottom: "#6e5a46", bottomShade: "#574636", shoes: "#43302a",
+    sleeveSkin: true, heightScale: 1.05, shoulder: 86, belly: 0, glasses: true, brows: "#583420",
   },
   DELMAS: {
     name: "M. Delmas",
-    skin: "#f1cdb1", skinShade: "#dcab8c", blush: "#e8907f",
-    hair: "#ebe7df", hairShade: "#c9c3b8", hairStyle: "cap", iris: "#3e5560",
-    top: "#8a5a3a", topShade: "#6d442a", topStyle: "jacket", inner: "#f3ead8",
-    bottom: "#7b8088", bottomShade: "#62666d", shoes: "#3a2a20",
-    sleeveSkin: false, heightScale: 0.95, shoulder: 90, belly: 16, mustache: true, brows: "#d9d4ca",
+    skin: "#f3d2b8", skinShade: "#dfb093", blush: "#ea9483",
+    hair: "#eeebe4", hairShade: "#c8c2b6", hairHi: "#ffffff", hairStyle: "cap", iris: "#34495a",
+    top: "#8b5e3c", topShade: "#6d462b", topStyle: "jacket", inner: "#f3ead8", innerShade: "#ddd0b8",
+    bottom: "#7d838c", bottomShade: "#646971", shoes: "#3f2d22",
+    sleeveSkin: false, heightScale: 0.95, shoulder: 88, belly: 16, mustache: true, brows: "#dcd7cd",
   },
   INES: {
     name: "Inès",
-    skin: "#c98f6b", skinShade: "#ad7352", blush: "#d9776a",
-    hair: "#221817", hairShade: "#120c0c", hairStyle: "ponytail", iris: "#2e1f18",
-    top: "#2b3a6e", topShade: "#1f2b54", topStyle: "blazer", inner: "#fbfbf7",
-    bottom: "#3b3f4a", bottomShade: "#2c2f37", shoes: "#1f1b1b",
-    sleeveSkin: false, heightScale: 0.98, shoulder: 78, belly: 0, badge: true, brows: "#1a1111",
+    skin: "#cf9673", skinShade: "#b47a58", blush: "#d97a6c",
+    hair: "#2a1d1b", hairShade: "#170f0e", hairHi: "#5b4038", hairStyle: "ponytail", iris: "#2a1a14",
+    top: "#2f3e70", topShade: "#232f57", topStyle: "blazer", inner: "#fbfaf4", innerShade: "#e3e0d6",
+    bottom: "#3d414c", bottomShade: "#2d3038", shoes: "#241e1d",
+    sleeveSkin: false, heightScale: 0.98, shoulder: 76, belly: 0, badge: true, brows: "#1d1312",
   },
   BUYER: {
     name: "Acheteur",
-    skin: "#e9b98f", skinShade: "#cf9a70", blush: "#e08a78",
-    hair: "#2a1d18", hairShade: "#170f0c", hairStyle: "messy", iris: "#3a2a20",
-    top: "#5b7fb0", topShade: "#46658f", topStyle: "jacket", inner: "#f4efe4",
-    bottom: "#3f4650", bottomShade: "#2f343c", shoes: "#2b221c",
-    sleeveSkin: false, heightScale: 1.02, shoulder: 84, belly: 0, brows: "#2a1d18",
+    skin: "#ebbd95", skinShade: "#d29f76", blush: "#e28b78",
+    hair: "#2d201b", hairShade: "#1a120f", hairHi: "#5e463b", hairStyle: "short", iris: "#33251d",
+    top: "#5d80ae", topShade: "#47658e", topStyle: "jacket", inner: "#f4efe4", innerShade: "#ddd6c7",
+    bottom: "#424955", bottomShade: "#323842", shoes: "#2e241e",
+    sleeveSkin: false, heightScale: 1.02, shoulder: 82, belly: 0, brows: "#2d201b",
   },
 };

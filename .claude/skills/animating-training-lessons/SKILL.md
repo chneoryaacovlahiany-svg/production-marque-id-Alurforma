@@ -21,8 +21,10 @@ Reference implementation: `F01_L01_ANIMATION/` (read its README first). Copy tha
 4. **Storyboard**: write `src/data/scenes.json` (semantic beats, not fixed intervals; every field of the schema), choose the ad-break at a natural pause, then `python3 scripts/make_storyboard.py`. Show the compact table to the user.
 5. **Scenes**: one component per scene in `src/scenes/`, animating in lesson seconds via `useT()`, `ramp()`, `span()`, `pop()`. Each scene: at least one motivated movement, one keyword max on screen, examples shown (not written), varied transitions (`iris`, `leaves`, `clouds`, `page`, `zoom`, `split`).
 6. **Pilot first**: render stills with `node scripts/stills.mjs F01L01 <dir> <frames…>` for the first ~30 s, inspect, fix, then extend.
-7. **QA**: inspect frames of every scene (overflow, safe zones, captions vs. keywords, character continuity, last frame of each scene), then render and export SRT.
-8. Publish the MP4 (Descript `import_media` + `publish_project`) and commit the project (MP4s stay out of git).
+7. **Layout rule — overlays never cover a character.** Keywords stay on one line in the top band (above the heads); boards and cards go in the free space between characters, and characters walk aside to make room when a board arrives. Verify automatically:
+   `node scripts/qa_overlap.mjs /tmp/qa 0.5 && python3 scripts/qa_overlap.py /tmp/qa` (renders characters-only and overlays-only silhouettes and reports every frame where an overlay covers >1 % of a body or face). Fix until it reports 0 frames.
+8. **QA**: inspect frames of every scene (overflow, safe zones, captions vs. keywords, character continuity, last frame of each scene), then render and export SRT.
+9. Publish the MP4 (Descript `import_media` + `publish_project`) and commit the project (MP4s stay out of git).
 
 ## Painted plates (optional)
 

@@ -11,6 +11,7 @@ export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Composition id="F01L01" component={Main} width={1920} height={1080} fps={30} durationInFrames={TOTAL_FRAMES} />
+      <Composition id="F01L01-QA" component={Main} width={1920} height={1080} fps={30} durationInFrames={TOTAL_FRAMES} defaultProps={{ qa: "chars" as const }} />
       <Composition id="F01L01-Vertical" component={Vertical} width={1080} height={1920} fps={30} durationInFrames={TOTAL_FRAMES} />
       <Folder name="Brand">
         <Composition id="TitleCard" component={TitleCard} width={1920} height={1080} fps={30} durationInFrames={TITLE_FRAMES} />

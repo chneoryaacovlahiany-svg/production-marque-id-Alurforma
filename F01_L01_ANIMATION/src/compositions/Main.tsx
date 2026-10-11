@@ -21,6 +21,7 @@ import { Captions } from "../components/Captions";
 import { AdBreak, BrandBug, EndCard, Encart, Recap, TitleCard } from "./brand";
 import { SCENES } from "../scenes";
 import { SceneMeta } from "../scenes/common";
+import { QaContext, QaMode } from "../lib/qa";
 
 const AD_START = lessonToFrame(AD_AT) - AD_FRAMES; // first frame of the ad
 const LESSON_END = lessonToFrame(LESSON_DURATION);
@@ -28,8 +29,32 @@ const RECAP_START = LESSON_END;
 const END_START = RECAP_START + RECAP_FRAMES;
 
 /** The full F01 L01 film: brand opener → title → animated lesson (with mid-roll ad) → recap → end card. */
-export const Main: React.FC = () => {
+export const Main: React.FC<{ qa?: QaMode }> = ({ qa = "off" }) => {
   const scenes = scenesData.scenes as SceneMeta[];
+  if (qa !== "off") {
+    // layout QA render: lesson scenes only (see src/lib/qa.ts)
+    return (
+      <QaContext.Provider value={qa}>
+        <AbsoluteFill style={{ background: "#fff" }}>
+          {scenes.map((m, i) => {
+            const Comp = SCENES[m.id];
+            if (!Comp) return null;
+            const from = lessonToFrame(m.startSec);
+            const next = scenes[i + 1];
+            const to = next ? lessonToFrame(next.startSec) : RECAP_START;
+            const lead = TRANSITION_LEAD[m.transitionIn] ?? 0;
+            return (
+              <Sequence key={m.id} from={from} durationInFrames={Math.max(1, to - from)}>
+                <SceneTime start={m.startSec + lead} lead={lead}>
+                  <Comp />
+                </SceneTime>
+              </Sequence>
+            );
+          })}
+        </AbsoluteFill>
+      </QaContext.Provider>
+    );
+  }
   return (
     <AbsoluteFill style={{ background: "#fffaf0" }}>
       {/* 1. ALURFORMA brand opener (existing master, 25 fps, with its own soundtrack) */}

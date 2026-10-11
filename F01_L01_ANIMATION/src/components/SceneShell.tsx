@@ -5,6 +5,7 @@ import { ramp, useT } from "../lib/timeline";
 import { Backdrop, PaperOverlay } from "./painterly/Backdrop";
 import { BackdropName } from "./painterly/backdrops";
 import { Cloud } from "./painterly/primitives";
+import { useQa } from "../lib/qa";
 
 export type TransitionKind = "iris" | "leaves" | "clouds" | "page" | "zoom" | "split" | "fade" | "fade-from-white" | "none";
 export const TRANSITION_LEAD: Record<TransitionKind, number> = {
@@ -49,6 +50,7 @@ export const SceneShell: React.FC<{
   origin?: [number, number]; // iris centre (px)
 }> = ({ start, enter, backdrop, camera, world, ui, warmth, origin = [960, 540] }) => {
   const t = useT();
+  const qa = useQa();
   const lead = TRANSITION_LEAD[enter];
   const k = lead > 0 ? ramp(t, start - lead, start, ease.inOut) : 1;
   const cam = camAt(camera, t);
@@ -81,6 +83,19 @@ export const SceneShell: React.FC<{
       default:
         break;
     }
+  }
+
+  if (qa !== "off") {
+    // layout QA: one layer only, as black silhouettes on white, no transitions or camera tricks besides the real camera
+    return (
+      <AbsoluteFill style={{ background: "#fff" }}>
+        {qa === "chars" ? (
+          <AbsoluteFill style={{ scale: String(cam.s), translate: `${cam.x}px ${cam.y}px`, filter: "brightness(0)" }}>{world}</AbsoluteFill>
+        ) : (
+          <AbsoluteFill style={{ filter: "brightness(0)" }}>{ui}</AbsoluteFill>
+        )}
+      </AbsoluteFill>
+    );
   }
 
   return (

@@ -92,6 +92,40 @@ for s in clean:
         mismatch.append((s["start"], s["speaker"], guess, f, s["text"][:50]))
 
 json.dump({"fps": FPS, "duration": len(x) / sr, "segments": clean}, open(f"{out_dir}/transcript.json", "w"), ensure_ascii=False, indent=1)
+
+# ── body-language signals per speaker, simulated with damped springs (natural lag + follow-through) ──
+def spring(target, w, z):
+    pos, vel, out, dt = 0.0, 0.0, [], 1 / FPS
+    for tg in target:
+        vel += (w * w * (tg - pos) - 2 * z * w * vel) * dt
+        pos += vel * dt
+        out.append(pos)
+    return np.array(out)
+
+def movavg(a, n):
+    return np.convolve(a, np.ones(n) / n, mode="full")[: len(a)]
+
+def enc(a, lo, hi):  # 2 hex chars per frame
+    q = np.clip(np.round((a - lo) / (hi - lo) * 255), 0, 255).astype(int)
+    return "".join(f"{v:02x}" for v in q)
+
+motion = {}
+for spk in ("LEA", "HUGO"):
+    mask = np.zeros(n)
+    for sgm in clean:
+        if sgm["speaker"] == spk:
+            mask[int(sgm["start"] * FPS): int(sgm["end"] * FPS) + 3] = 1
+    v = env * mask
+    short = movavg(v, 6)
+    long_ = np.concatenate([np.zeros(6), movavg(v, 18)[:-6]])
+    accent = np.clip(short - long_, 0, None)
+    active = movavg(mask, 9)
+    motion[spk] = {
+        "gest": enc(spring(accent * 2.2 + active * 0.15, 7.0, 0.5), -0.3, 1.3),  # hands: beats with overshoot
+        "nod": enc(spring(accent * 2.5, 12.0, 0.45), -0.3, 1.3),  # head: quicker, lighter
+        "active": enc(spring(active, 4.0, 1.0), -0.1, 1.1),  # turn-taking, no overshoot
+    }
+json.dump({"fps": FPS, "ranges": {"gest": [-0.3, 1.3], "nod": [-0.3, 1.3], "active": [-0.1, 1.1]}, **motion}, open(f"{out_dir}/motion.json", "w"))
 # per-frame mouth: quantised 0..9 as a compact string
 json.dump({"fps": FPS, "mouth": "".join(str(int(round(v * 9))) for v in env)}, open(f"{out_dir}/envelope.json", "w"))
 print("segments", len(clean), "frames", n)
