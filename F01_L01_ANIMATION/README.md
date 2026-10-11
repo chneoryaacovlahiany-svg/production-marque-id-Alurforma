@@ -54,8 +54,8 @@ src/data/scenes.json ──► scènes Remotion + content/storyboard.md + conten
 
 ## Livrables
 
-- `out/F01L01_Clarifier_le_cadre_1080p.mp4` : vidéo finale (non versionnée, publiée sur Descript)
+- `out/F01L01_Clarifier_le_cadre_1080p_V2.mp4` : vidéo finale V2 (non versionnée, publiée sur Descript)
 - `content/F01L01.fr.srt` : sous-titres alignés sur le film final (régénérables avec `scripts/export_srt.py`)
-- Film publié sur Descript : https://share.descript.com/view/FlEMz6t6CBW
+- Film V2 publié sur Descript : https://share.descript.com/view/BEZ0m0APnpq (V1 : https://share.descript.com/view/FlEMz6t6CBW)
 - `content/storyboard.md`, `content/scenes.json`, `content/characters.md`, `content/asset-manifest.md`
 - Skill réutilisable pour les leçons suivantes : `../.claude/skills/animating-training-lessons/SKILL.md`
