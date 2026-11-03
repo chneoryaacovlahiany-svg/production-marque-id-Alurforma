@@ -70,4 +70,11 @@ for k in range(14):
     f = 2000 + 2500 * rng.random(); st = rng.random() * 0.6
     s += np.sin(2 * np.pi * f * d) * np.exp(-np.maximum(0, d - st) * 18) * (d > st)
 save("sparkle", s)
+# footstep: short soft thump (intro runner)
+d = t(0.12)
+save("step", lowpass(rng.standard_normal(len(d)), 0.18) * np.exp(-d * 45) + 0.5 * np.sin(2 * np.pi * 120 * d) * np.exp(-d * 40))
+# boing: springy pitch wobble (squashed letter popping back)
+d = t(0.7)
+f = 260 + 140 * np.exp(-d * 4) * np.cos(2 * np.pi * 9 * d)
+save("boing", np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-d * 4.5))
 print("ok")

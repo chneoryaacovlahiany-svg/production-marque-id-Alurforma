@@ -2,6 +2,8 @@ import React from "react";
 import { Composition, Folder } from "remotion";
 import { CharacterSheet } from "./compositions/CharacterSheet";
 import { BackdropSheet } from "./compositions/BackdropSheet";
+import { LogoCalib } from "./intro/LogoCalib";
+import { INTRO_FRAMES, introDefaults, LessonIntro } from "./intro/LessonIntro";
 import { Main } from "./compositions/Main";
 import { Vertical } from "./compositions/Vertical";
 import { AdBreak, EndCard, Recap, TitleCard } from "./compositions/brand";
@@ -13,6 +15,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="F01L01" component={Main} width={1920} height={1080} fps={30} durationInFrames={TOTAL_FRAMES} />
       <Composition id="F01L01-QA" component={Main} width={1920} height={1080} fps={30} durationInFrames={TOTAL_FRAMES} defaultProps={{ qa: "chars" as const }} />
       <Composition id="F01L01-Vertical" component={Vertical} width={1080} height={1920} fps={30} durationInFrames={TOTAL_FRAMES} />
+      <Composition id="LessonIntro" component={LessonIntro} width={1920} height={1080} fps={30} durationInFrames={INTRO_FRAMES} defaultProps={introDefaults} />
       <Folder name="Brand">
         <Composition id="TitleCard" component={TitleCard} width={1920} height={1080} fps={30} durationInFrames={TITLE_FRAMES} />
         <Composition id="AdBreak" component={AdBreak} width={1920} height={1080} fps={30} durationInFrames={AD_FRAMES} />
@@ -21,6 +24,7 @@ export const RemotionRoot: React.FC = () => {
       </Folder>
       <Folder name="Bible">
         <Composition id="CharacterSheet" component={CharacterSheet} width={1920} height={1080} fps={30} durationInFrames={150} />
+        <Composition id="LogoCalib" component={LogoCalib} width={1920} height={1080} fps={30} durationInFrames={1} />
         <Composition id="BackdropSheet" component={BackdropSheet} width={1920} height={1080} fps={30} durationInFrames={300} />
       </Folder>
     </>

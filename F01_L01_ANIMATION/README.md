@@ -31,6 +31,14 @@ node scripts/stills.mjs F01L01 out/stills 700 1500  # images de contrôle
 
 En session cloud, le Chromium préinstallé est utilisé automatiquement (`remotion.config.ts`).
 
+## Intro animée avant chaque vidéo (LMS)
+
+Composition `LessonIntro` (12 s) : l'agent ALURFORMA arrive en courant avec sa mallette, trébuche, la mallette écrase le « o » du logo, les papiers s'envolent ; il range tout, rejoint le couple qui attend et ouvre sa mallette : la maison en forme de « A » en sort et complète le logo. Puis le carton : formation, chapitre, leçon, partie.
+
+1. Renseigner une entrée par vidéo dans `content/intros.json` (`formationTitle`, `chapter` et `partsTotal` facultatifs ; `part: null` masque la pastille « Partie »).
+2. `node scripts/render_intros.mjs` (ou `node scripts/render_intros.mjs F01L01` pour une seule vidéo).
+3. Sortie : `out/intros/<id>_intro.mp4` (1080p, son) et `out/intros/<id>_vignette.png` (vignette pour le LMS).
+
 ## Où modifier quoi
 
 | Besoin | Fichier |

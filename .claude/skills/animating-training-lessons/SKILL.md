@@ -24,7 +24,8 @@ Reference implementation: `F01_L01_ANIMATION/` (read its README first). Copy tha
 7. **Layout rule — overlays never cover a character.** Keywords stay on one line in the top band (above the heads); boards and cards go in the free space between characters, and characters walk aside to make room when a board arrives. Verify automatically:
    `node scripts/qa_overlap.mjs /tmp/qa 0.5 && python3 scripts/qa_overlap.py /tmp/qa` (renders characters-only and overlays-only silhouettes and reports every frame where an overlay covers >1 % of a body or face). Fix until it reports 0 frames.
 8. **QA**: inspect frames of every scene (overflow, safe zones, captions vs. keywords, character continuity, last frame of each scene), then render and export SRT.
-9. Publish the MP4 (Descript `import_media` + `publish_project`) and commit the project (MP4s stay out of git).
+9. **Intro**: add the lesson to `content/intros.json` and run `node scripts/render_intros.mjs <id>` → animated ALURFORMA intro (`LessonIntro`) + LMS thumbnail.
+10. Publish the MP4 (Descript `import_media` + `publish_project`) and commit the project (MP4s stay out of git).
 
 ## Painted plates (optional)
 

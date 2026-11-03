@@ -14,6 +14,7 @@ export type CharacterProps = {
   mood?: MoodKey[] | Mood;
   look?: number | NumKey[]; // -1 (looks screen-left) … 1 (screen-right)
   walk?: boolean | [number, number][]; // walking windows [from, to] in lesson seconds
+  gait?: "walk" | "run"; // run: faster stride, lean into the motion, pumping arms
   talk?: number; // override mouth openness
   flip?: boolean;
   opacity?: number;
@@ -65,8 +66,11 @@ export const Character: React.FC<CharacterProps> = (p) => {
   const weight = Math.sin(t * 0.42 + seed) * (walking ? 0 : 1); // −1 … 1
   const sway = weight * 0.9 + noise(t * 0.5, seed) * 0.3;
   const wind = noise(t * 1.4, seed + 3);
-  const step = Math.sin(t * 8.4);
-  const bob = walking ? -Math.abs(step) * 8 : 0;
+  const running = walking && p.gait === "run";
+  const step = Math.sin(t * (running ? 15 : 8.4));
+  const bob = walking ? -Math.abs(step) * (running ? 16 : 8) : 0;
+  const dirX = Math.sign(keyAt(p.x as NumKey[] | number, t + 0.05, 0) - keyAt(p.x as NumKey[] | number, t - 0.05, 0));
+  const lean = running ? dirX * 7 : walking ? dirX * 2 : 0;
   const tiltAt = (tt: number) => noise(tt * 0.8, seed + 7) * 2 + lookX * 2.5 - weight * 1.2;
   const headTilt = tiltAt(t);
   const hairLag = (headTilt - tiltAt(t - 0.12)) * 4; // hair follows the head a few frames late
@@ -84,9 +88,14 @@ export const Character: React.FC<CharacterProps> = (p) => {
 
   // talking hands: beat gestures on accents + slow organic drift
   const gest = gestSig * 30 + active * noise(t * 1.5, seed + 5) * 5 + noise(t * 0.5, seed + 5) * 2;
-  const swing = walking ? step * 11 : 0; // arms swing against the legs
-  const armR: [number, number, number] = [pose.R[0] + gest * 0.35 + swing + weight * 1.5, pose.R[1] + gest, pose.R[2] ?? 1];
-  const armL: [number, number, number] = [pose.L[0] - gest * 0.2 - swing - weight * 1.5, pose.L[1] - gest * 0.4, pose.L[2] ?? 1];
+  const swing = walking ? step * (running ? 26 : 11) : 0; // arms swing against the legs
+  let armR: [number, number, number] = [pose.R[0] + gest * 0.35 + swing + weight * 1.5, pose.R[1] + gest, pose.R[2] ?? 1];
+  let armL: [number, number, number] = [pose.L[0] - gest * 0.2 - swing - weight * 1.5, pose.L[1] - gest * 0.4, pose.L[2] ?? 1];
+  if (running) {
+    // runner: elbows bent and pumping; a hand that carries something stays low and swings
+    armR = p.rightItem ? [8 + step * 12, 14 + Math.max(0, step) * 10, 1] : [14 + step * 24, 92, 1];
+    armL = p.leftItem ? [8 - step * 12, 14, 1] : [14 - step * 24, 92, 1];
+  }
 
   const H = p.h * L.heightScale;
   const W = H * 0.44;
@@ -106,8 +115,8 @@ export const Character: React.FC<CharacterProps> = (p) => {
           </radialGradient>
         </defs>
         <ellipse cx={weight * 6} cy={996} rx={110} ry={18} fill={`url(#ground-${gid})`} />
-        <g transform={`translate(0 ${bob}) rotate(${sway} 0 1000)`}>
-          <Legs L={L} phase={walking ? step : 0} weight={weight} />
+        <g transform={`translate(0 ${bob}) rotate(${sway + lean} 0 1000)`}>
+          <Legs L={L} phase={walking ? step * (running ? 1.9 : 1) : 0} weight={weight} />
           <g transform={`translate(${weight * 4} ${breath * 0.4}) rotate(${-weight * 0.8} 0 540)`}>
             <BackHair L={L} lookX={lookX} tilt={headTilt} nod={headNod} wind={wind + hairLag} />
             <Neck L={L} />
@@ -232,6 +241,9 @@ const Torso: React.FC<{ L: Look; breath: number; wind: number }> = ({ L, breath,
           <path d="M -26 258 L -42 302 L -16 324 L 0 392" fill={L.top} stroke={LINE} strokeWidth={LW} strokeLinejoin="round" />
           <path d="M 26 258 L 42 302 L 16 324 L 0 392" fill={L.topShade} stroke={LINE} strokeWidth={LW} strokeLinejoin="round" />
           <circle cx={0} cy={438} r={4.5} fill="#d6b56a" stroke={LINE} strokeWidth={1.6} />
+          {L.tie && (
+            <path d="M -7 266 L 7 266 L 5 280 L 11 372 L 0 388 L -11 372 L -5 280 Z" fill={L.tie} stroke={LINE} strokeWidth={2} strokeLinejoin="round" />
+          )}
         </>
       )}
       {L.badge && (

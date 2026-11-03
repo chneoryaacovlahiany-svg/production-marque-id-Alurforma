@@ -1,6 +1,6 @@
 // Character continuity sheets (see content/characters.md). One rig, five looks.
 // Hand-painted anime style: muted natural palette, two-tone cel shading, warm thin line.
-export type Who = "LEA" | "HUGO" | "DELMAS" | "INES" | "BUYER";
+export type Who = "LEA" | "HUGO" | "DELMAS" | "INES" | "BUYER" | "AGENT" | "CLIENT_F" | "CLIENT_M";
 
 export type Look = {
   name: string;
@@ -28,6 +28,7 @@ export type Look = {
   mustache?: boolean;
   earrings?: boolean;
   badge?: boolean;
+  tie?: string; // drawn on the shirt for blazer/jacket looks
   brows: string;
 };
 
@@ -71,5 +72,30 @@ export const looks: Record<Who, Look> = {
     top: "#5d80ae", topShade: "#47658e", topStyle: "jacket", inner: "#f4efe4", innerShade: "#ddd6c7",
     bottom: "#424955", bottomShade: "#323842", shoes: "#2e241e",
     sleeveSkin: false, heightScale: 1.02, shoulder: 82, belly: 0, brows: "#2d201b",
+  },
+  // Intro mascot: the ALURFORMA agent and the couple he brings the house to.
+  AGENT: {
+    name: "Agent ALURFORMA",
+    skin: "#f4d3b6", skinShade: "#e0ae8e", blush: "#ee9686",
+    hair: "#8a4a28", hairShade: "#63341b", hairHi: "#c27a4c", hairStyle: "messy", iris: "#3e2a1e",
+    top: "#14305e", topShade: "#0f2349", topStyle: "blazer", inner: "#fbfaf4", innerShade: "#e3e0d6",
+    bottom: "#1d2b52", bottomShade: "#142040", shoes: "#3a281f",
+    sleeveSkin: false, heightScale: 1, shoulder: 80, belly: 0, tie: "#14915f", brows: "#63341b",
+  },
+  CLIENT_F: {
+    name: "Cliente",
+    skin: "#f6d8c2", skinShade: "#e4b597", blush: "#f0928a",
+    hair: "#c9944f", hairShade: "#a1703a", hairHi: "#e8bf7c", hairStyle: "bob", iris: "#3e5a46",
+    top: "#d2604c", topShade: "#ad4a3a", topStyle: "cardigan", inner: "#fbf3e6", innerShade: "#e6d9c4",
+    bottom: "#465a7a", bottomShade: "#36465f", shoes: "#6b4532",
+    sleeveSkin: false, heightScale: 0.96, shoulder: 74, belly: 0, earrings: true, brows: "#8f6131",
+  },
+  CLIENT_M: {
+    name: "Client",
+    skin: "#d9a582", skinShade: "#bf8763", blush: "#dc8a76",
+    hair: "#2b211d", hairShade: "#18110e", hairHi: "#5c473d", hairStyle: "short", iris: "#2b1d16",
+    top: "#5f8f5a", topShade: "#4a7346", topStyle: "vest", inner: "#f1ece0", innerShade: "#d9d1bf",
+    bottom: "#5a4a3a", bottomShade: "#46392c", shoes: "#2f241d",
+    sleeveSkin: true, heightScale: 1.04, shoulder: 84, belly: 0, brows: "#2b211d",
   },
 };
