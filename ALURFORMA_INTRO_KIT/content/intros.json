@@ -1,0 +1,15 @@
+{
+  "_comment": "Une entrée par vidéo du LMS. formationTitle, chapter et partsTotal sont optionnels ; part = null masque la pastille « Partie ». Rendu : node scripts/render_intros.mjs",
+  "intros": [
+    {
+      "id": "F01L01",
+      "formationCode": "F01",
+      "formationTitle": "",
+      "chapter": "Chapitre 1",
+      "lessonCode": "L01",
+      "lessonTitle": "Clarifier le cadre en transaction immobilière",
+      "part": 1,
+      "partsTotal": null
+    }
+  ]
+}
